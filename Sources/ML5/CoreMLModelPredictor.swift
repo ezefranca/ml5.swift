@@ -1,4 +1,5 @@
 @preconcurrency import CoreML
+@preconcurrency import CoreVideo
 import Foundation
 
 /// A value-safe selection of Core ML compute units.
@@ -92,7 +93,7 @@ public actor CoreMLModelPredictor: ModelPredicting {
         }
     }
 
-    /// Evaluates the model and returns a framework-independent scalar output.
+    /// Evaluates the model and returns framework-independent output values.
     public func predict(_ features: FeatureVector) async throws -> ModelOutput {
         try Task.checkCancellation()
 
@@ -142,10 +143,40 @@ extension FeatureValue {
             return MLFeatureValue(string: value)
         case let .boolean(value):
             return MLFeatureValue(int64: value ? 1 : 0)
+        case let .array(values):
+            return MLFeatureValue(
+                multiArray: try makeMultiArray(shape: [values.count], values: values))
+        case let .dictionary(values):
+            return try MLFeatureValue(
+                dictionary: values.mapValues { NSNumber(value: $0) }
+            )
+        case let .tensor(tensor):
+            return MLFeatureValue(
+                multiArray: try makeMultiArray(
+                    shape: tensor.shape.dimensions,
+                    values: tensor.values
+                )
+            )
+        case let .sequence(sequence):
+            let coreMLSequence =
+                switch sequence {
+                case let .strings(values):
+                    MLSequence(strings: values)
+                case let .integers(values):
+                    MLSequence(int64s: values.map { NSNumber(value: $0) })
+                }
+            return MLFeatureValue(sequence: coreMLSequence)
+        case let .image(image):
+            return MLFeatureValue(pixelBuffer: try image.makePixelBuffer())
         }
     }
 
     init(coreMLValue: MLFeatureValue, outputName: String) throws {
+        guard coreMLValue.type == .invalid || !coreMLValue.isUndefined else {
+            throw ML5Error.predictionFailed(
+                message: "Output \(outputName.debugDescription) is undefined."
+            )
+        }
         switch coreMLValue.type {
         case .double:
             self = .number(coreMLValue.doubleValue)
@@ -153,11 +184,81 @@ extension FeatureValue {
             self = .integer(coreMLValue.int64Value)
         case .string:
             self = .string(coreMLValue.stringValue)
+        case .multiArray:
+            let multiArray = try Self.requireCoreMLStorage(
+                coreMLValue.multiArrayValue,
+                outputName: outputName,
+                type: "multi-array"
+            )
+            let shape = try TensorShape(multiArray.shape.map(\.intValue))
+            let values = (0..<multiArray.count).map { multiArray[$0].doubleValue }
+            self = .tensor(try Tensor(shape: shape, values: values))
+        case .dictionary:
+            var values: [String: Double] = [:]
+            for (key, value) in coreMLValue.dictionaryValue {
+                guard let key = key as? String else {
+                    throw ML5Error.predictionFailed(
+                        message:
+                            "Output \(outputName.debugDescription) contains a non-string dictionary key."
+                    )
+                }
+                values[key] = value.doubleValue
+            }
+            self = .dictionary(values)
+            try validate(field: outputName)
+        case .sequence:
+            let sequence = try Self.requireCoreMLStorage(
+                coreMLValue.sequenceValue,
+                outputName: outputName,
+                type: "sequence"
+            )
+            switch sequence.type {
+            case .string:
+                self = .sequence(.strings(sequence.stringValues))
+            case .int64:
+                self = .sequence(.integers(sequence.int64Values.map(\.int64Value)))
+            default:
+                throw ML5Error.predictionFailed(
+                    message:
+                        "Output \(outputName.debugDescription) has an unsupported Core ML sequence element type."
+                )
+            }
+        case .image:
+            let pixelBuffer = try Self.requireCoreMLStorage(
+                coreMLValue.imageBufferValue,
+                outputName: outputName,
+                type: "image"
+            )
+            self = .image(try ML5Image(pixelBuffer: pixelBuffer))
         default:
             throw ML5Error.predictionFailed(
                 message:
                     "Output \(outputName.debugDescription) has unsupported Core ML type \(coreMLValue.type.rawValue)."
             )
         }
+    }
+
+    private func makeMultiArray(shape: [Int], values: [Double]) throws -> MLMultiArray {
+        let multiArray = try MLMultiArray(
+            shape: shape.map { NSNumber(value: $0) },
+            dataType: .double
+        )
+        for (index, value) in values.enumerated() {
+            multiArray[index] = NSNumber(value: value)
+        }
+        return multiArray
+    }
+
+    static func requireCoreMLStorage<Value>(
+        _ value: Value?,
+        outputName: String,
+        type: String
+    ) throws -> Value {
+        guard let value else {
+            throw ML5Error.predictionFailed(
+                message: "Output \(outputName.debugDescription) has no \(type) storage."
+            )
+        }
+        return value
     }
 }

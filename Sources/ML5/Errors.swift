@@ -10,6 +10,30 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case emptyModelOutput
     /// A numeric feature or output was NaN or infinite.
     case invalidNumericValue(field: String)
+    /// A tensor shape was empty, nonpositive, or overflowed its element count.
+    case invalidTensorShape([Int])
+    /// Tensor storage did not match the declared shape.
+    case invalidTensorElementCount(expected: Int, actual: Int)
+    /// An array or dictionary feature was empty.
+    case emptyCollection(field: String)
+    /// A numeric dictionary contained an empty or untrimmed key.
+    case invalidDictionaryKey(field: String)
+    /// Image dimensions, row storage, format, or data size was unsupported.
+    case invalidImage(reason: String)
+    /// An ordered schema declared the same feature name more than once.
+    case duplicateFeatureName(String)
+    /// A required schema feature was absent.
+    case missingFeature(String)
+    /// A vector contained a feature absent from its strict schema.
+    case unexpectedFeature(String)
+    /// A value kind did not match its schema field.
+    case featureKindMismatch(
+        name: String,
+        expected: FeatureValueKind,
+        actual: FeatureValueKind
+    )
+    /// A tensor's dimensions did not match its schema field.
+    case tensorShapeMismatch(name: String, expected: [Int], actual: [Int])
     /// A task configuration contained contradictory settings.
     case invalidConfiguration(reason: String)
     /// A training request contained no samples.
@@ -42,6 +66,26 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "A model output must contain at least one value."
         case let .invalidNumericValue(field):
             "The numeric value for \(field.debugDescription) must be finite."
+        case let .invalidTensorShape(dimensions):
+            "Tensor dimensions must be nonempty, positive, and representable: \(dimensions)."
+        case let .invalidTensorElementCount(expected, actual):
+            "Tensor storage requires \(expected) elements, but received \(actual)."
+        case let .emptyCollection(field):
+            "The collection feature \(field.debugDescription) cannot be empty."
+        case let .invalidDictionaryKey(field):
+            "Dictionary keys for \(field.debugDescription) must be nonempty and trimmed."
+        case let .invalidImage(reason):
+            "Invalid image feature: \(reason)"
+        case let .duplicateFeatureName(name):
+            "The feature schema declares \(name.debugDescription) more than once."
+        case let .missingFeature(name):
+            "The required feature \(name.debugDescription) is missing."
+        case let .unexpectedFeature(name):
+            "The feature \(name.debugDescription) is not declared by the schema."
+        case let .featureKindMismatch(name, expected, actual):
+            "Feature \(name.debugDescription) must be \(expected.rawValue), but was \(actual.rawValue)."
+        case let .tensorShapeMismatch(name, expected, actual):
+            "Tensor feature \(name.debugDescription) requires shape \(expected), but received \(actual)."
         case let .invalidConfiguration(reason):
             "Invalid configuration: \(reason)"
         case .invalidTrainingSamples:

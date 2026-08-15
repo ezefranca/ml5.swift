@@ -87,11 +87,88 @@ struct CoreMLModelPredictorTests {
             try FeatureValue.number(.infinity).makeCoreMLValue()
         }
 
-        let array = try MLMultiArray(shape: [1], dataType: .double)
-        let unsupported = MLFeatureValue(multiArray: array)
+        let undefined = MLFeatureValue(undefined: .double)
         #expect(throws: ML5Error.self) {
-            _ = try FeatureValue(coreMLValue: unsupported, outputName: "tensor")
+            _ = try FeatureValue(coreMLValue: undefined, outputName: "value")
         }
+        let invalid = MLFeatureValue(undefined: .invalid)
+        #expect(throws: ML5Error.self) {
+            _ = try FeatureValue(coreMLValue: invalid, outputName: "value")
+        }
+        #expect(throws: ML5Error.self) {
+            _ = try FeatureValue.requireCoreMLStorage(
+                Optional<Int>.none,
+                outputName: "value",
+                type: "test"
+            )
+        }
+    }
+
+    @Test("Collections, tensors, and sequences bridge to and from Core ML")
+    func structuredConversions() throws {
+        let arrayValue = try FeatureValue.array([1, 2]).makeCoreMLValue()
+        let dictionaryValue = try FeatureValue.dictionary(["yes": 0.75]).makeCoreMLValue()
+        let tensor = try Tensor(shape: TensorShape([1, 2]), values: [3, 4])
+        let tensorValue = try FeatureValue.tensor(tensor).makeCoreMLValue()
+        let stringSequenceValue = try FeatureValue.sequence(.strings(["a", "b"]))
+            .makeCoreMLValue()
+        let integerSequenceValue = try FeatureValue.sequence(.integers([5, 6]))
+            .makeCoreMLValue()
+
+        #expect(arrayValue.multiArrayValue?.shape.map(\.intValue) == [2])
+        #expect(arrayValue.multiArrayValue?[0].doubleValue == 1)
+        #expect(dictionaryValue.dictionaryValue["yes"]?.doubleValue == 0.75)
+        #expect(tensorValue.multiArrayValue?.shape.map(\.intValue) == [1, 2])
+        #expect(tensorValue.multiArrayValue?[1].doubleValue == 4)
+        #expect(stringSequenceValue.sequenceValue?.stringValues == ["a", "b"])
+        #expect(integerSequenceValue.sequenceValue?.int64Values.map(\.int64Value) == [5, 6])
+
+        #expect(
+            try FeatureValue(coreMLValue: arrayValue, outputName: "array")
+                == .tensor(try Tensor(shape: TensorShape([2]), values: [1, 2]))
+        )
+        #expect(
+            try FeatureValue(coreMLValue: dictionaryValue, outputName: "dictionary")
+                == .dictionary(["yes": 0.75])
+        )
+        #expect(
+            try FeatureValue(coreMLValue: stringSequenceValue, outputName: "strings")
+                == .sequence(.strings(["a", "b"]))
+        )
+        #expect(
+            try FeatureValue(coreMLValue: integerSequenceValue, outputName: "integers")
+                == .sequence(.integers([5, 6]))
+        )
+
+        let numericDictionary = try MLFeatureValue(dictionary: [NSNumber(value: 7): 1.0])
+        #expect(throws: ML5Error.self) {
+            _ = try FeatureValue(coreMLValue: numericDictionary, outputName: "dictionary")
+        }
+        let unsupportedSequence = MLFeatureValue(sequence: MLSequence(empty: .double))
+        #expect(throws: ML5Error.self) {
+            _ = try FeatureValue(coreMLValue: unsupportedSequence, outputName: "sequence")
+        }
+    }
+
+    @Test("Image values bridge to and from Core ML")
+    func imageConversions() throws {
+        let image = try ML5Image(
+            width: 2,
+            height: 1,
+            pixelFormat: .bgra8,
+            data: Data([1, 2, 3, 4, 5, 6, 7, 8])
+        )
+        let coreMLValue = try FeatureValue.image(image).makeCoreMLValue()
+        let decoded = try FeatureValue(coreMLValue: coreMLValue, outputName: "image")
+
+        guard case let .image(decodedImage) = decoded else {
+            Issue.record("Expected an image value.")
+            return
+        }
+        #expect(decodedImage.width == image.width)
+        #expect(decodedImage.height == image.height)
+        #expect(decodedImage.pixelFormat == image.pixelFormat)
+        #expect(decodedImage.data.prefix(image.data.count) == image.data)
     }
 
     @Test("A predictor converts inputs and supported scalar outputs")
@@ -141,10 +218,9 @@ struct CoreMLModelPredictorTests {
 
     @Test("Core ML bridge preserves ML5 conversion failures")
     func conversionFailure() async throws {
-        let array = try MLMultiArray(shape: [1], dataType: .double)
         let predictor = try makePredictor { _ in
             try MLDictionaryFeatureProvider(dictionary: [
-                "tensor": MLFeatureValue(multiArray: array)
+                "undefined": MLFeatureValue(undefined: .double)
             ])
         }
         let features = try FeatureVector(["x": .number(1)])

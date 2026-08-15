@@ -29,6 +29,18 @@ public struct FeatureName: RawRepresentable, Hashable, Codable, Sendable, Expres
         self.init(rawValue: value)
     }
 
+    /// Decodes and validates a name from its string representation.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        try self.init(container.decode(String.self))
+    }
+
+    /// Encodes the validated raw string.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(rawValue)
+    }
+
     private static func validate(_ value: String) throws {
         guard value.isEmpty == false, value == value.trimmingCharacters(in: .whitespacesAndNewlines)
         else {
@@ -66,6 +78,18 @@ public struct OutputName: RawRepresentable, Hashable, Codable, Sendable, Express
         self.init(rawValue: value)
     }
 
+    /// Decodes and validates a name from its string representation.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        try self.init(container.decode(String.self))
+    }
+
+    /// Encodes the validated raw string.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(rawValue)
+    }
+
     private static func validate(_ value: String) throws {
         guard value.isEmpty == false, value == value.trimmingCharacters(in: .whitespacesAndNewlines)
         else {
@@ -74,8 +98,8 @@ public struct OutputName: RawRepresentable, Hashable, Codable, Sendable, Express
     }
 }
 
-/// The scalar value kinds currently supported by ML5's Core ML bridge.
-public enum FeatureValueKind: String, Codable, Sendable, Equatable {
+/// Value kinds supported by ML5's framework-independent model boundary.
+public enum FeatureValueKind: String, Codable, Sendable, Hashable {
     /// A double-precision floating-point scalar.
     case number
     /// A signed 64-bit integer scalar.
@@ -84,14 +108,20 @@ public enum FeatureValueKind: String, Codable, Sendable, Equatable {
     case string
     /// A Boolean represented as zero or one at the Core ML boundary.
     case boolean
+    /// A finite one-dimensional numeric array.
+    case array
+    /// A finite string-keyed numeric dictionary.
+    case dictionary
+    /// A dense finite tensor with explicit dimensions.
+    case tensor
+    /// A homogeneous string or integer sequence.
+    case sequence
+    /// Immutable grayscale, RGBA, or BGRA image pixels.
+    case image
 }
 
-/// A transport-safe scalar feature or model-output value.
-///
-/// Image, tensor, sequence, and dictionary features are intentionally outside this
-/// first vertical slice. Keeping this type value-based makes it safe to pass through
-/// actors without retaining Core ML framework objects.
-public enum FeatureValue: Codable, Sendable, Equatable {
+/// A transport-safe feature or model-output value.
+public enum FeatureValue: Codable, Sendable, Hashable {
     /// A finite double-precision value when used in validated vectors and outputs.
     case number(Double)
     /// A signed 64-bit integer.
@@ -100,6 +130,16 @@ public enum FeatureValue: Codable, Sendable, Equatable {
     case string(String)
     /// A Boolean value converted to a Core ML integer at prediction time.
     case boolean(Bool)
+    /// A finite nonempty one-dimensional numeric array.
+    case array([Double])
+    /// A finite nonempty string-keyed numeric dictionary.
+    case dictionary([String: Double])
+    /// A dense finite tensor.
+    case tensor(Tensor)
+    /// A homogeneous string or integer sequence.
+    case sequence(FeatureSequence)
+    /// Immutable image pixels.
+    case image(ML5Image)
 
     /// The scalar kind represented by this value.
     public var kind: FeatureValueKind {
@@ -112,6 +152,16 @@ public enum FeatureValue: Codable, Sendable, Equatable {
             .string
         case .boolean:
             .boolean
+        case .array:
+            .array
+        case .dictionary:
+            .dictionary
+        case .tensor:
+            .tensor
+        case .sequence:
+            .sequence
+        case .image:
+            .image
         }
     }
 
@@ -122,20 +172,107 @@ public enum FeatureValue: Codable, Sendable, Equatable {
             value
         case let .integer(value):
             Double(value)
-        case .string, .boolean:
+        case .string, .boolean, .array, .dictionary, .tensor, .sequence, .image:
             nil
         }
     }
 
-    func validate(field: String) throws {
-        if case let .number(value) = self, value.isFinite == false {
-            throw ML5Error.invalidNumericValue(field: field)
+    /// Decodes a tagged value and revalidates its collection invariants.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let kind = try container.decode(FeatureValueKind.self, forKey: .kind)
+        self =
+            switch kind {
+            case .number:
+                .number(try container.decode(Double.self, forKey: .number))
+            case .integer:
+                .integer(try container.decode(Int64.self, forKey: .integer))
+            case .string:
+                .string(try container.decode(String.self, forKey: .string))
+            case .boolean:
+                .boolean(try container.decode(Bool.self, forKey: .boolean))
+            case .array:
+                .array(try container.decode([Double].self, forKey: .array))
+            case .dictionary:
+                .dictionary(try container.decode([String: Double].self, forKey: .dictionary))
+            case .tensor:
+                .tensor(try container.decode(Tensor.self, forKey: .tensor))
+            case .sequence:
+                .sequence(try container.decode(FeatureSequence.self, forKey: .sequence))
+            case .image:
+                .image(try container.decode(ML5Image.self, forKey: .image))
+            }
+        try validate(field: "value")
+    }
+
+    /// Encodes a stable kind tag and its associated value.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(kind, forKey: .kind)
+        switch self {
+        case let .number(value):
+            try container.encode(value, forKey: .number)
+        case let .integer(value):
+            try container.encode(value, forKey: .integer)
+        case let .string(value):
+            try container.encode(value, forKey: .string)
+        case let .boolean(value):
+            try container.encode(value, forKey: .boolean)
+        case let .array(value):
+            try container.encode(value, forKey: .array)
+        case let .dictionary(value):
+            try container.encode(value, forKey: .dictionary)
+        case let .tensor(value):
+            try container.encode(value, forKey: .tensor)
+        case let .sequence(value):
+            try container.encode(value, forKey: .sequence)
+        case let .image(value):
+            try container.encode(value, forKey: .image)
         }
+    }
+
+    func validate(field: String) throws {
+        switch self {
+        case let .number(value):
+            guard value.isFinite else { throw ML5Error.invalidNumericValue(field: field) }
+        case let .array(values):
+            guard !values.isEmpty else { throw ML5Error.emptyCollection(field: field) }
+            guard values.allSatisfy(\.isFinite) else {
+                throw ML5Error.invalidNumericValue(field: field)
+            }
+        case let .dictionary(values):
+            guard !values.isEmpty else { throw ML5Error.emptyCollection(field: field) }
+            guard
+                values.keys.allSatisfy({
+                    !$0.isEmpty && $0 == $0.trimmingCharacters(in: .whitespacesAndNewlines)
+                })
+            else {
+                throw ML5Error.invalidDictionaryKey(field: field)
+            }
+            guard values.values.allSatisfy(\.isFinite) else {
+                throw ML5Error.invalidNumericValue(field: field)
+            }
+        case .integer, .string, .boolean, .tensor, .sequence, .image:
+            break
+        }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case kind
+        case number
+        case integer
+        case string
+        case boolean
+        case array
+        case dictionary
+        case tensor
+        case sequence
+        case image
     }
 }
 
 /// A non-empty, validated feature vector.
-public struct FeatureVector: Sendable, Equatable {
+public struct FeatureVector: Sendable, Hashable, Codable {
     /// Validated feature values keyed by stable model input names.
     public let values: [FeatureName: FeatureValue]
 
@@ -154,6 +291,26 @@ public struct FeatureVector: Sendable, Equatable {
         self.values = values
     }
 
+    /// Decodes string-keyed values and revalidates every name and value.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let decoded = try container.decode([String: FeatureValue].self)
+        try self.init(
+            Dictionary(
+                uniqueKeysWithValues: decoded.map { key, value in
+                    (try FeatureName(key), value)
+                })
+        )
+    }
+
+    /// Encodes values as a human-readable string-keyed dictionary.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(
+            Dictionary(uniqueKeysWithValues: values.map { ($0.key.rawValue, $0.value) })
+        )
+    }
+
     /// Returns the value for an input name, or `nil` when it is absent.
     public subscript(_ name: FeatureName) -> FeatureValue? {
         values[name]
@@ -161,7 +318,7 @@ public struct FeatureVector: Sendable, Equatable {
 }
 
 /// A non-empty, validated set of scalar model outputs.
-public struct ModelOutput: Sendable, Equatable {
+public struct ModelOutput: Sendable, Hashable, Codable {
     /// Validated scalar values keyed by stable model output names.
     public let values: [OutputName: FeatureValue]
 
@@ -178,6 +335,26 @@ public struct ModelOutput: Sendable, Equatable {
             try value.validate(field: name.rawValue)
         }
         self.values = values
+    }
+
+    /// Decodes string-keyed values and revalidates every name and value.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let decoded = try container.decode([String: FeatureValue].self)
+        try self.init(
+            Dictionary(
+                uniqueKeysWithValues: decoded.map { key, value in
+                    (try OutputName(key), value)
+                })
+        )
+    }
+
+    /// Encodes values as a human-readable string-keyed dictionary.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(
+            Dictionary(uniqueKeysWithValues: values.map { ($0.key.rawValue, $0.value) })
+        )
     }
 
     /// Returns the value for an output name, or `nil` when it is absent.

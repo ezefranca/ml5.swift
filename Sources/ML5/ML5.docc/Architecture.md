@@ -14,8 +14,16 @@ ML5 separates task semantics from model execution:
 
 ``CoreMLModelPredictor`` owns `MLModel` inside an actor. The model does not leave that
 actor, and no detached task captures it. Input and output conversion happens at the
-actor boundary, where scalar values become `MLFeatureValue` instances only for the
-duration of the Core ML call.
+actor boundary, where ``FeatureValue`` cases become `MLFeatureValue` instances only
+for the duration of the Core ML call. Numeric arrays and tensors use dense
+double-precision `MLMultiArray` storage, dictionaries retain string keys, sequences
+retain their homogeneous element type, and images cross the boundary as copied
+`CVPixelBuffer` storage. RGBA input is channel-swizzled to Core Video's supported
+BGRA layout.
+
+All serializable boundary types decode through the same validating initializers as
+ordinary callers. A malformed archive therefore cannot bypass shape, finiteness,
+field-name, image-stride, schema-uniqueness, or default-value invariants.
 
 Prediction APIs are asynchronous and cooperatively check cancellation before and
 after Core ML evaluation. Evaluation already underway may complete first, but a

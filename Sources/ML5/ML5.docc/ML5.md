@@ -1,6 +1,6 @@
 # ``ML5``
 
-Typed, on-device classification and regression for Apple platforms.
+Typed, on-device machine-learning foundations for Apple platforms.
 
 ML5 is an independent native Swift implementation inspired by the approachable
 conceptual model of [ml5.js](https://ml5js.org/). It provides typed task decoding,
@@ -28,9 +28,10 @@ let result = try await network.predict(
 )
 ```
 
-The first release intentionally supports scalar feature values and scalar model
-outputs. Its explicit boundaries leave room for future image, tensor, and Create ML
-training adapters without exposing non-Sendable Core ML objects.
+The Core ML boundary accepts validated scalar, numeric-array, dictionary, tensor,
+sequence, and image values without exposing non-`Sendable` framework objects. Use a
+``FeatureSchema`` when model inputs need a stable order, exact tensor dimensions,
+defaults, or explicit missing and unknown-field policies.
 
 ## Topics
 
@@ -40,8 +41,20 @@ training adapters without exposing non-Sendable Core ML objects.
 - ``RegressionTask``
 - ``FeatureVector``
 - ``FeatureValue``
+- ``FeatureValueKind``
+- ``FeatureSchema``
+- ``FeatureField``
+- ``Tensor``
+- ``TensorShape``
+- ``FeatureSequence``
+- ``ML5Image``
+- ``ML5ImagePixelFormat``
 - ``ClassificationSample``
 - ``RegressionSample``
+
+### Data guides
+
+- <doc:StructuredModelData>
 
 ### Prediction
 

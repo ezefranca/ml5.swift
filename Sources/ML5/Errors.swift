@@ -2,21 +2,36 @@ import Foundation
 
 /// Errors produced by ML5 validation, decoding, and Core ML integration.
 public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
+    /// A feature or output name was empty or contained surrounding whitespace.
     case invalidFieldName(String)
+    /// A feature vector contained no values.
     case emptyFeatureVector
+    /// A model returned no supported scalar values.
     case emptyModelOutput
+    /// A numeric feature or output was NaN or infinite.
     case invalidNumericValue(field: String)
+    /// A task configuration contained contradictory settings.
     case invalidConfiguration(reason: String)
+    /// A training request contained no samples.
     case invalidTrainingSamples
+    /// A task's required output was absent from the model result.
     case missingOutput(name: String)
+    /// A model output's scalar kind did not match the task configuration.
     case unexpectedOutputType(name: String, expected: FeatureValueKind, actual: FeatureValueKind)
+    /// A classification label could not be constructed from the model string.
     case invalidClassLabel(String)
+    /// A confidence value was nonfinite or outside the closed range from zero to one.
     case invalidConfidence(Double)
+    /// A regression target or prediction was nonfinite.
     case invalidRegressionValue(Double)
+    /// The selected backend deliberately does not provide an operation.
     case unsupportedOperation(UnsupportedOperation)
+    /// Core ML could not load the compiled model at the supplied path.
     case modelLoadingFailed(path: String, message: String)
+    /// Core ML could not prepare inputs, execute, or convert the model result.
     case predictionFailed(message: String)
 
+    /// A localized explanation suitable for logs and user-facing error presentation.
     public var errorDescription: String? {
         switch self {
         case let .invalidFieldName(name):
@@ -56,6 +71,7 @@ public enum UnsupportedOperation: String, Sendable, Equatable {
     /// Training arbitrary neural networks on device requires a separate training adapter.
     case onDeviceTraining
 
+    /// A description of why the operation is unavailable and which extension point to use.
     public var description: String {
         switch self {
         case .onDeviceTraining:

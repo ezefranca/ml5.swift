@@ -3,33 +3,55 @@ import Foundation
 
 /// A value-safe selection of Core ML compute units.
 public enum ML5ComputeUnits: String, Sendable, Equatable, Codable {
+    /// Allows Core ML to choose among the CPU, GPU, and Neural Engine.
     case all
+    /// Restricts model execution to the CPU.
     case cpuOnly
+    /// Allows the CPU and GPU while excluding the Neural Engine.
     case cpuAndGPU
+    /// Allows the CPU and Neural Engine while excluding the GPU.
     case cpuAndNeuralEngine
 }
 
 /// Configuration applied when loading a Core ML model.
 public struct CoreMLModelConfiguration: Sendable, Equatable {
+    /// The processors Core ML may use for model execution.
     public var computeUnits: ML5ComputeUnits
 
+    /// Creates a model-loading configuration.
     public init(computeUnits: ML5ComputeUnits = .all) {
         self.computeUnits = computeUnits
     }
 
-    fileprivate func makeCoreMLConfiguration() -> MLModelConfiguration {
+    func makeCoreMLConfiguration() -> MLModelConfiguration {
         let configuration = MLModelConfiguration()
-        configuration.computeUnits = switch computeUnits {
-        case .all:
-            .all
-        case .cpuOnly:
-            .cpuOnly
-        case .cpuAndGPU:
-            .cpuAndGPU
-        case .cpuAndNeuralEngine:
-            .cpuAndNeuralEngine
-        }
+        configuration.computeUnits =
+            switch computeUnits {
+            case .all:
+                .all
+            case .cpuOnly:
+                .cpuOnly
+            case .cpuAndGPU:
+                .cpuAndGPU
+            case .cpuAndNeuralEngine:
+                .cpuAndNeuralEngine
+            }
         return configuration
+    }
+}
+
+struct CoreMLPredictionOperation: @unchecked Sendable {
+    var predict: (any MLFeatureProvider) async throws -> any MLFeatureProvider
+}
+
+struct CoreMLModelLoader: @unchecked Sendable {
+    var load: (URL, MLModelConfiguration) throws -> CoreMLPredictionOperation
+
+    static let system = Self { modelURL, configuration in
+        let model = try MLModel(contentsOf: modelURL, configuration: configuration)
+        return CoreMLPredictionOperation { provider in
+            try await model.prediction(from: provider)
+        }
     }
 }
 
@@ -38,17 +60,29 @@ public struct CoreMLModelConfiguration: Sendable, Equatable {
 /// `MLModel` is never exposed or captured by detached work, so the non-Sendable
 /// framework object remains isolated to this actor.
 public actor CoreMLModelPredictor: ModelPredicting {
-    private let model: MLModel
+    private let predictionOperation: CoreMLPredictionOperation
 
     /// Loads a compiled `.mlmodelc` model from disk.
     public init(
         contentsOf modelURL: URL,
         configuration: CoreMLModelConfiguration = .init()
     ) throws {
+        try self.init(
+            contentsOf: modelURL,
+            configuration: configuration,
+            loader: .system
+        )
+    }
+
+    init(
+        contentsOf modelURL: URL,
+        configuration: CoreMLModelConfiguration = .init(),
+        loader: CoreMLModelLoader
+    ) throws {
         do {
-            model = try MLModel(
-                contentsOf: modelURL,
-                configuration: configuration.makeCoreMLConfiguration()
+            predictionOperation = try loader.load(
+                modelURL,
+                configuration.makeCoreMLConfiguration()
             )
         } catch {
             throw ML5Error.modelLoadingFailed(
@@ -71,7 +105,7 @@ public actor CoreMLModelPredictor: ModelPredicting {
 
             let provider = try MLDictionaryFeatureProvider(dictionary: inputs)
             try Task.checkCancellation()
-            let prediction = try await model.prediction(from: provider)
+            let prediction = try await predictionOperation.predict(provider)
             try Task.checkCancellation()
 
             var output: [OutputName: FeatureValue] = [:]
@@ -80,7 +114,8 @@ public actor CoreMLModelPredictor: ModelPredicting {
                 guard let value = prediction.featureValue(for: name) else {
                     continue
                 }
-                output[try OutputName(name)] = try FeatureValue(coreMLValue: value, outputName: name)
+                output[try OutputName(name)] = try FeatureValue(
+                    coreMLValue: value, outputName: name)
             }
 
             return try ModelOutput(output)
@@ -94,7 +129,7 @@ public actor CoreMLModelPredictor: ModelPredicting {
     }
 }
 
-private extension FeatureValue {
+extension FeatureValue {
     func makeCoreMLValue() throws -> MLFeatureValue {
         try validate(field: "feature")
 
@@ -120,7 +155,8 @@ private extension FeatureValue {
             self = .string(coreMLValue.stringValue)
         default:
             throw ML5Error.predictionFailed(
-                message: "Output \(outputName.debugDescription) has unsupported Core ML type \(coreMLValue.type.rawValue)."
+                message:
+                    "Output \(outputName.debugDescription) has unsupported Core ML type \(coreMLValue.type.rawValue)."
             )
         }
     }

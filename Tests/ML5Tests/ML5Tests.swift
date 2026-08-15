@@ -81,11 +81,12 @@ struct ML5Tests {
             Issue.record("Expected a type mismatch.")
         } catch let error as ML5Error {
             #expect(
-                error == .unexpectedOutputType(
-                    name: "estimate",
-                    expected: .number,
-                    actual: .string
-                )
+                error
+                    == .unexpectedOutputType(
+                        name: "estimate",
+                        expected: .number,
+                        actual: .string
+                    )
             )
         } catch {
             Issue.record("Unexpected error: \(error)")

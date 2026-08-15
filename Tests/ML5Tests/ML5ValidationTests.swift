@@ -57,6 +57,7 @@ struct ML5ValidationTests {
             .invalidDatasetSnapshot(reason: "duplicate identifier"),
             .datasetIdentifierExhausted,
             .invalidDatasetSplit(reason: "bad fractions"),
+            .invalidNormalization(reason: "bad statistics"),
             .invalidConfiguration(reason: "duplicate output"),
             .invalidTrainingSamples,
             .missingOutput(name: "label"),

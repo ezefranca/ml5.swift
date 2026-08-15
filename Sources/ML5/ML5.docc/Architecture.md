@@ -37,6 +37,11 @@ adapters can consume them without sharing actor state. Seeded shuffling uses a f
 SplitMix64 sequence and an implementation-owned Fisher-Yates pass for reproducibility
 across supported platforms.
 
+``FeaturePreprocessingPipeline`` follows the same separation: fitting is an explicit
+operation over training values, while normalization and denormalization use an
+immutable snapshot of population statistics. A fitted pipeline contains no mutable
+state and can be shared across actors or persisted beside a model checkpoint.
+
 ## Training
 
 Core ML model loading does not provide general-purpose, arbitrary-model on-device

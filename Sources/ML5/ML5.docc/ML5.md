@@ -56,6 +56,7 @@ defaults, or explicit missing and unknown-field policies.
 
 - <doc:StructuredModelData>
 - <doc:ManagingDatasets>
+- <doc:PreprocessingData>
 
 ### Datasets
 
@@ -65,6 +66,15 @@ defaults, or explicit missing and unknown-field policies.
 - ``DatasetSnapshot``
 - ``DatasetSplitConfiguration``
 - ``DatasetSplit``
+
+### Preprocessing
+
+- ``FeaturePreprocessingPipeline``
+- ``FeatureNormalizationRule``
+- ``FittedFeatureNormalization``
+- ``NormalizationStrategy``
+- ``NormalizationRange``
+- ``NumericFeatureStatistics``
 
 ### Prediction
 

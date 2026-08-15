@@ -42,6 +42,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case datasetIdentifierExhausted
     /// Dataset split fractions were nonfinite, negative, or totaled more than one.
     case invalidDatasetSplit(reason: String)
+    /// A preprocessing configuration, fitted statistic, or transformation was invalid.
+    case invalidNormalization(reason: String)
     /// A task configuration contained contradictory settings.
     case invalidConfiguration(reason: String)
     /// A training request contained no samples.
@@ -102,6 +104,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "The dataset exhausted its stable sample identifier space."
         case let .invalidDatasetSplit(reason):
             "Invalid dataset split: \(reason)"
+        case let .invalidNormalization(reason):
+            "Invalid normalization: \(reason)"
         case let .invalidConfiguration(reason):
             "Invalid configuration: \(reason)"
         case .invalidTrainingSamples:

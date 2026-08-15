@@ -740,6 +740,2753 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "DatasetSampleID",
+        "printedName": "DatasetSampleID",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML515DatasetSampleIDV8rawValues6UInt64Vvp",
+            "mangledName": "$s3ML515DatasetSampleIDV8rawValues6UInt64Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML515DatasetSampleIDV8rawValues6UInt64Vvg",
+                "mangledName": "$s3ML515DatasetSampleIDV8rawValues6UInt64Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML515DatasetSampleIDV8rawValueACs6UInt64V_tKcfc",
+            "mangledName": "$s3ML515DatasetSampleIDV8rawValueACs6UInt64V_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "<",
+            "printedName": "<(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSampleIDV1loiySbAC_ACtFZ",
+            "mangledName": "$s3ML515DatasetSampleIDV1loiySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML515DatasetSampleIDV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML515DatasetSampleIDV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSampleIDV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML515DatasetSampleIDV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSampleIDV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML515DatasetSampleIDV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSampleIDV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML515DatasetSampleIDV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML515DatasetSampleIDV9hashValueSivp",
+            "mangledName": "$s3ML515DatasetSampleIDV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML515DatasetSampleIDV9hashValueSivg",
+                "mangledName": "$s3ML515DatasetSampleIDV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML515DatasetSampleIDV",
+        "mangledName": "$s3ML515DatasetSampleIDV",
+        "moduleName": "ML5",
+        "declAttributes": [
+          "Frozen"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "BitwiseCopyable",
+            "printedName": "BitwiseCopyable",
+            "usr": "s:s15BitwiseCopyableP",
+            "mangledName": "$ss15BitwiseCopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Comparable",
+            "printedName": "Comparable",
+            "usr": "s:SL",
+            "mangledName": "$sSL"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DatasetEntry",
+        "printedName": "DatasetEntry",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "id",
+            "printedName": "id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetEntryV2idAA0B8SampleIDVvp",
+            "mangledName": "$s3ML512DatasetEntryV2idAA0B8SampleIDVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetSampleID",
+                    "printedName": "ML5.DatasetSampleID",
+                    "usr": "s:3ML515DatasetSampleIDV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetEntryV2idAA0B8SampleIDVvg",
+                "mangledName": "$s3ML512DatasetEntryV2idAA0B8SampleIDVvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sample",
+            "printedName": "sample",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "Sample"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetEntryV6samplexvp",
+            "mangledName": "$s3ML512DatasetEntryV6samplexvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetEntryV6samplexvg",
+                "mangledName": "$s3ML512DatasetEntryV6samplexvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(id:sample:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetEntry",
+                "printedName": "ML5.DatasetEntry<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetEntryV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "Sample"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML512DatasetEntryV2id6sampleACyxGAA0B8SampleIDV_xtcfc",
+            "mangledName": "$s3ML512DatasetEntryV2id6sampleACyxGAA0B8SampleIDV_xtcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetEntry",
+                "printedName": "ML5.DatasetEntry<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetEntryV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetEntry",
+                "printedName": "ML5.DatasetEntry<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetEntryV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML512DatasetEntryVAASQRzrlE23__derived_struct_equalsySbACyxG_AEtFZ",
+            "mangledName": "$s3ML512DatasetEntryVAASQRzrlE23__derived_struct_equalsySbACyxG_AEtFZ",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Equatable, Sample : Swift.Sendable>",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML512DatasetEntryVAASHRzrlE4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML512DatasetEntryVAASHRzrlE4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Hashable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetEntryVAASHRzrlE9hashValueSivp",
+            "mangledName": "$s3ML512DatasetEntryVAASHRzrlE9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetEntryVAASHRzrlE9hashValueSivg",
+                "mangledName": "$s3ML512DatasetEntryVAASHRzrlE9hashValueSivg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Hashable, Sample : Swift.Sendable>",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML512DatasetEntryVAASeRzSERzrlE6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML512DatasetEntryVAASeRzSERzrlE6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Decodable, Sample : Swift.Encodable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetEntry",
+                "printedName": "ML5.DatasetEntry<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetEntryV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML512DatasetEntryVAASeRzSERzrlE4fromACyxGs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML512DatasetEntryVAASeRzSERzrlE4fromACyxGs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Decodable, Sample : Swift.Encodable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML512DatasetEntryV",
+        "mangledName": "$s3ML512DatasetEntryV",
+        "moduleName": "ML5",
+        "genericSig": "<Sample where Sample : Swift.Sendable>",
+        "declAttributes": [
+          "Frozen"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DatasetSnapshot",
+        "printedName": "DatasetSnapshot",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "entries",
+            "printedName": "entries",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML515DatasetSnapshotV7entriesSayAA0B5EntryVyxGGvp",
+            "mangledName": "$s3ML515DatasetSnapshotV7entriesSayAA0B5EntryVyxGGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.DatasetEntry<Sample>]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DatasetEntry",
+                        "printedName": "ML5.DatasetEntry<Sample>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "Sample"
+                          }
+                        ],
+                        "usr": "s:3ML512DatasetEntryV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML515DatasetSnapshotV7entriesSayAA0B5EntryVyxGGvg",
+                "mangledName": "$s3ML515DatasetSnapshotV7entriesSayAA0B5EntryVyxGGvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nextIdentifier",
+            "printedName": "nextIdentifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML515DatasetSnapshotV14nextIdentifierAA0B8SampleIDVvp",
+            "mangledName": "$s3ML515DatasetSnapshotV14nextIdentifierAA0B8SampleIDVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetSampleID",
+                    "printedName": "ML5.DatasetSampleID",
+                    "usr": "s:3ML515DatasetSampleIDV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML515DatasetSnapshotV14nextIdentifierAA0B8SampleIDVvg",
+                "mangledName": "$s3ML515DatasetSnapshotV14nextIdentifierAA0B8SampleIDVvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(entries:nextIdentifier:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSnapshot",
+                "printedName": "ML5.DatasetSnapshot<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML515DatasetSnapshotV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML515DatasetSnapshotV7entries14nextIdentifierACyxGSayAA0B5EntryVyxGG_AA0B8SampleIDVtKcfc",
+            "mangledName": "$s3ML515DatasetSnapshotV7entries14nextIdentifierACyxGSayAA0B5EntryVyxGG_AA0B8SampleIDVtKcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSnapshot",
+                "printedName": "ML5.DatasetSnapshot<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML515DatasetSnapshotV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSnapshot",
+                "printedName": "ML5.DatasetSnapshot<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML515DatasetSnapshotV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSnapshotVAASQRzrlE23__derived_struct_equalsySbACyxG_AEtFZ",
+            "mangledName": "$s3ML515DatasetSnapshotVAASQRzrlE23__derived_struct_equalsySbACyxG_AEtFZ",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Equatable, Sample : Swift.Sendable>",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSnapshotVAASHRzrlE4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML515DatasetSnapshotVAASHRzrlE4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Hashable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML515DatasetSnapshotVAASHRzrlE9hashValueSivp",
+            "mangledName": "$s3ML515DatasetSnapshotVAASHRzrlE9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML515DatasetSnapshotVAASHRzrlE9hashValueSivg",
+                "mangledName": "$s3ML515DatasetSnapshotVAASHRzrlE9hashValueSivg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Hashable, Sample : Swift.Sendable>",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSnapshot",
+                "printedName": "ML5.DatasetSnapshot<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML515DatasetSnapshotV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML515DatasetSnapshotVAASeRzSERzrlE4fromACyxGs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML515DatasetSnapshotVAASeRzSERzrlE4fromACyxGs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Decodable, Sample : Swift.Encodable, Sample : Swift.Sendable>",
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML515DatasetSnapshotVAASeRzSERzrlE6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML515DatasetSnapshotVAASeRzSERzrlE6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Decodable, Sample : Swift.Encodable, Sample : Swift.Sendable>",
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML515DatasetSnapshotV",
+        "mangledName": "$s3ML515DatasetSnapshotV",
+        "moduleName": "ML5",
+        "genericSig": "<Sample where Sample : Swift.Sendable>",
+        "declAttributes": [
+          "Frozen"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DatasetSplitConfiguration",
+        "printedName": "DatasetSplitConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "standard",
+            "printedName": "standard",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplitConfiguration",
+                "printedName": "ML5.DatasetSplitConfiguration",
+                "usr": "s:3ML525DatasetSplitConfigurationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DatasetSplitConfigurationV8standardACvpZ",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV8standardACvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetSplitConfiguration",
+                    "printedName": "ML5.DatasetSplitConfiguration",
+                    "usr": "s:3ML525DatasetSplitConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DatasetSplitConfigurationV8standardACvgZ",
+                "mangledName": "$s3ML525DatasetSplitConfigurationV8standardACvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trainingFraction",
+            "printedName": "trainingFraction",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DatasetSplitConfigurationV16trainingFractionSdvp",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV16trainingFractionSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DatasetSplitConfigurationV16trainingFractionSdvg",
+                "mangledName": "$s3ML525DatasetSplitConfigurationV16trainingFractionSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "validationFraction",
+            "printedName": "validationFraction",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DatasetSplitConfigurationV18validationFractionSdvp",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV18validationFractionSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DatasetSplitConfigurationV18validationFractionSdvg",
+                "mangledName": "$s3ML525DatasetSplitConfigurationV18validationFractionSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "testFraction",
+            "printedName": "testFraction",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DatasetSplitConfigurationV12testFractionSdvp",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV12testFractionSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DatasetSplitConfigurationV12testFractionSdvg",
+                "mangledName": "$s3ML525DatasetSplitConfigurationV12testFractionSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(validationFraction:testFraction:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplitConfiguration",
+                "printedName": "ML5.DatasetSplitConfiguration",
+                "usr": "s:3ML525DatasetSplitConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML525DatasetSplitConfigurationV18validationFraction04testF0ACSd_SdtKcfc",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV18validationFraction04testF0ACSd_SdtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplitConfiguration",
+                "printedName": "ML5.DatasetSplitConfiguration",
+                "usr": "s:3ML525DatasetSplitConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML525DatasetSplitConfigurationV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML525DatasetSplitConfigurationV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplitConfiguration",
+                "printedName": "ML5.DatasetSplitConfiguration",
+                "usr": "s:3ML525DatasetSplitConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplitConfiguration",
+                "printedName": "ML5.DatasetSplitConfiguration",
+                "usr": "s:3ML525DatasetSplitConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML525DatasetSplitConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML525DatasetSplitConfigurationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DatasetSplitConfigurationV9hashValueSivp",
+            "mangledName": "$s3ML525DatasetSplitConfigurationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DatasetSplitConfigurationV9hashValueSivg",
+                "mangledName": "$s3ML525DatasetSplitConfigurationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML525DatasetSplitConfigurationV",
+        "mangledName": "$s3ML525DatasetSplitConfigurationV",
+        "moduleName": "ML5",
+        "declAttributes": [
+          "Frozen"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "BitwiseCopyable",
+            "printedName": "BitwiseCopyable",
+            "usr": "s:s15BitwiseCopyableP",
+            "mangledName": "$ss15BitwiseCopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DatasetSplit",
+        "printedName": "DatasetSplit",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "training",
+            "printedName": "training",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetSplitV8trainingSayAA0B5EntryVyxGGvp",
+            "mangledName": "$s3ML512DatasetSplitV8trainingSayAA0B5EntryVyxGGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.DatasetEntry<Sample>]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DatasetEntry",
+                        "printedName": "ML5.DatasetEntry<Sample>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "Sample"
+                          }
+                        ],
+                        "usr": "s:3ML512DatasetEntryV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetSplitV8trainingSayAA0B5EntryVyxGGvg",
+                "mangledName": "$s3ML512DatasetSplitV8trainingSayAA0B5EntryVyxGGvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "validation",
+            "printedName": "validation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetSplitV10validationSayAA0B5EntryVyxGGvp",
+            "mangledName": "$s3ML512DatasetSplitV10validationSayAA0B5EntryVyxGGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.DatasetEntry<Sample>]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DatasetEntry",
+                        "printedName": "ML5.DatasetEntry<Sample>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "Sample"
+                          }
+                        ],
+                        "usr": "s:3ML512DatasetEntryV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetSplitV10validationSayAA0B5EntryVyxGGvg",
+                "mangledName": "$s3ML512DatasetSplitV10validationSayAA0B5EntryVyxGGvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "test",
+            "printedName": "test",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetSplitV4testSayAA0B5EntryVyxGGvp",
+            "mangledName": "$s3ML512DatasetSplitV4testSayAA0B5EntryVyxGGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.DatasetEntry<Sample>]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DatasetEntry",
+                        "printedName": "ML5.DatasetEntry<Sample>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "Sample"
+                          }
+                        ],
+                        "usr": "s:3ML512DatasetEntryV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetSplitV4testSayAA0B5EntryVyxGGvg",
+                "mangledName": "$s3ML512DatasetSplitV4testSayAA0B5EntryVyxGGvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(training:validation:test:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplit",
+                "printedName": "ML5.DatasetSplit<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetSplitV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML512DatasetSplitV8training10validation4testACyxGSayAA0B5EntryVyxGG_A2Ktcfc",
+            "mangledName": "$s3ML512DatasetSplitV8training10validation4testACyxGSayAA0B5EntryVyxGG_A2Ktcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplit",
+                "printedName": "ML5.DatasetSplit<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetSplitV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplit",
+                "printedName": "ML5.DatasetSplit<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetSplitV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML512DatasetSplitVAASQRzrlE23__derived_struct_equalsySbACyxG_AEtFZ",
+            "mangledName": "$s3ML512DatasetSplitVAASQRzrlE23__derived_struct_equalsySbACyxG_AEtFZ",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Equatable, Sample : Swift.Sendable>",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML512DatasetSplitVAASHRzrlE4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML512DatasetSplitVAASHRzrlE4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Hashable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512DatasetSplitVAASHRzrlE9hashValueSivp",
+            "mangledName": "$s3ML512DatasetSplitVAASHRzrlE9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512DatasetSplitVAASHRzrlE9hashValueSivg",
+                "mangledName": "$s3ML512DatasetSplitVAASHRzrlE9hashValueSivg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Hashable, Sample : Swift.Sendable>",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML512DatasetSplitVAASeRzSERzrlE6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML512DatasetSplitVAASeRzSERzrlE6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Decodable, Sample : Swift.Encodable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplit",
+                "printedName": "ML5.DatasetSplit<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetSplitV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML512DatasetSplitVAASeRzSERzrlE4fromACyxGs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML512DatasetSplitVAASeRzSERzrlE4fromACyxGs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Decodable, Sample : Swift.Encodable, Sample : Swift.Sendable>",
+            "implicit": true,
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML512DatasetSplitV",
+        "mangledName": "$s3ML512DatasetSplitV",
+        "moduleName": "ML5",
+        "genericSig": "<Sample where Sample : Swift.Sendable>",
+        "declAttributes": [
+          "Frozen"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5Dataset",
+        "printedName": "ML5Dataset",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5Dataset",
+                "printedName": "ML5.ML5Dataset<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML50A7DatasetC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A7DatasetCACyxGycfc",
+            "mangledName": "$s3ML50A7DatasetCACyxGycfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(snapshot:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5Dataset",
+                "printedName": "ML5.ML5Dataset<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML50A7DatasetC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSnapshot",
+                "printedName": "ML5.DatasetSnapshot<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML515DatasetSnapshotV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A7DatasetC8snapshotACyxGAA0B8SnapshotVyxG_tcfc",
+            "mangledName": "$s3ML50A7DatasetC8snapshotACyxGAA0B8SnapshotVyxG_tcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "count",
+            "printedName": "count",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A7DatasetC5countSivp",
+            "mangledName": "$s3ML50A7DatasetC5countSivp",
+            "moduleName": "ML5",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A7DatasetC5countSivg",
+                "mangledName": "$s3ML50A7DatasetC5countSivg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isEmpty",
+            "printedName": "isEmpty",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A7DatasetC7isEmptySbvp",
+            "mangledName": "$s3ML50A7DatasetC7isEmptySbvp",
+            "moduleName": "ML5",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A7DatasetC7isEmptySbvg",
+                "mangledName": "$s3ML50A7DatasetC7isEmptySbvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "entries",
+            "printedName": "entries",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetEntry<Sample>]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetEntry",
+                    "printedName": "ML5.DatasetEntry<Sample>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "Sample"
+                      }
+                    ],
+                    "usr": "s:3ML512DatasetEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A7DatasetC7entriesSayAA0B5EntryVyxGGvp",
+            "mangledName": "$s3ML50A7DatasetC7entriesSayAA0B5EntryVyxGGvp",
+            "moduleName": "ML5",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.DatasetEntry<Sample>]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DatasetEntry",
+                        "printedName": "ML5.DatasetEntry<Sample>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericTypeParam",
+                            "printedName": "Sample"
+                          }
+                        ],
+                        "usr": "s:3ML512DatasetEntryV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A7DatasetC7entriesSayAA0B5EntryVyxGGvg",
+                "mangledName": "$s3ML50A7DatasetC7entriesSayAA0B5EntryVyxGGvg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "sample",
+            "printedName": "sample(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Sample?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC6sample3forxSgAA0B8SampleIDV_tF",
+            "mangledName": "$s3ML50A7DatasetC6sample3forxSgAA0B8SampleIDV_tF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "add",
+            "printedName": "add(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "Sample"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC3addyAA0B8SampleIDVxKF",
+            "mangledName": "$s3ML50A7DatasetC3addyAA0B8SampleIDVxKF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "add",
+            "printedName": "add(contentsOf:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DatasetSampleID]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DatasetSampleID",
+                    "printedName": "ML5.DatasetSampleID",
+                    "usr": "s:3ML515DatasetSampleIDV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Sample]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC3add10contentsOfSayAA0B8SampleIDVGSayxG_tKF",
+            "mangledName": "$s3ML50A7DatasetC3add10contentsOfSayAA0B8SampleIDVGSayxG_tKF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "remove",
+            "printedName": "remove(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Sample?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSampleID",
+                "printedName": "ML5.DatasetSampleID",
+                "usr": "s:3ML515DatasetSampleIDV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC6removeyxSgAA0B8SampleIDVF",
+            "mangledName": "$s3ML50A7DatasetC6removeyxSgAA0B8SampleIDVF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removeAll",
+            "printedName": "removeAll()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC9removeAllSiyF",
+            "mangledName": "$s3ML50A7DatasetC9removeAllSiyF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shuffle",
+            "printedName": "shuffle(seed:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC7shuffle4seedys6UInt64V_tF",
+            "mangledName": "$s3ML50A7DatasetC7shuffle4seedys6UInt64V_tF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "split",
+            "printedName": "split(using:seed:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplit",
+                "printedName": "ML5.DatasetSplit<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML512DatasetSplitV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSplitConfiguration",
+                "printedName": "ML5.DatasetSplitConfiguration",
+                "hasDefaultArg": true,
+                "usr": "s:3ML525DatasetSplitConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UInt64?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC5split5using4seedAA0B5SplitVyxGAA0bF13ConfigurationV_s6UInt64VSgtF",
+            "mangledName": "$s3ML50A7DatasetC5split5using4seedAA0B5SplitVyxGAA0bF13ConfigurationV_s6UInt64VSgtF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "snapshot",
+            "printedName": "snapshot()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DatasetSnapshot",
+                "printedName": "ML5.DatasetSnapshot<Sample>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Sample"
+                  }
+                ],
+                "usr": "s:3ML515DatasetSnapshotV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A7DatasetC8snapshotAA0B8SnapshotVyxGyKF",
+            "mangledName": "$s3ML50A7DatasetC8snapshotAA0B8SnapshotVyxGyKF",
+            "moduleName": "ML5",
+            "genericSig": "<Sample where Sample : Swift.Sendable>",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "unownedExecutor",
+            "printedName": "unownedExecutor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnownedSerialExecutor",
+                "printedName": "_Concurrency.UnownedSerialExecutor",
+                "usr": "s:Sce"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A7DatasetC15unownedExecutorScevp",
+            "mangledName": "$s3ML50A7DatasetC15unownedExecutorScevp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "intro_Macosx": "10.15",
+            "intro_iOS": "13.0",
+            "intro_tvOS": "13.0",
+            "intro_watchOS": "6.0",
+            "declAttributes": [
+              "Available",
+              "Available",
+              "Available",
+              "Available",
+              "Final",
+              "Nonisolated",
+              "Semantics"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnownedSerialExecutor",
+                    "printedName": "_Concurrency.UnownedSerialExecutor",
+                    "usr": "s:Sce"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A7DatasetC15unownedExecutorScevg",
+                "mangledName": "$s3ML50A7DatasetC15unownedExecutorScevg",
+                "moduleName": "ML5",
+                "genericSig": "<Sample where Sample : Swift.Sendable>",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:3ML50A7DatasetC",
+        "mangledName": "$s3ML50A7DatasetC",
+        "moduleName": "ML5",
+        "genericSig": "<Sample where Sample : Swift.Sendable>",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Actor",
+            "printedName": "Actor",
+            "usr": "s:ScA",
+            "mangledName": "$sScA"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ML5Error",
         "printedName": "ML5Error",
         "children": [
@@ -1518,6 +4265,207 @@
             "declKind": "EnumElement",
             "usr": "s:3ML50A5ErrorO19tensorShapeMismatchyACSS_SaySiGAEtcACmF",
             "mangledName": "$s3ML50A5ErrorO19tensorShapeMismatchyACSS_SaySiGAEtcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidDatasetSampleID",
+            "printedName": "invalidDatasetSampleID",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.UInt64) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.UInt64) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt64",
+                        "printedName": "Swift.UInt64",
+                        "usr": "s:s6UInt64V"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO22invalidDatasetSampleIDyACs6UInt64VcACmF",
+            "mangledName": "$s3ML50A5ErrorO22invalidDatasetSampleIDyACs6UInt64VcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidDatasetSnapshot",
+            "printedName": "invalidDatasetSnapshot",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(reason: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO22invalidDatasetSnapshotyACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO22invalidDatasetSnapshotyACSS_tcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "datasetIdentifierExhausted",
+            "printedName": "datasetIdentifierExhausted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5Error",
+                    "printedName": "ML5.ML5Error",
+                    "usr": "s:3ML50A5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO26datasetIdentifierExhaustedyA2CmF",
+            "mangledName": "$s3ML50A5ErrorO26datasetIdentifierExhaustedyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidDatasetSplit",
+            "printedName": "invalidDatasetSplit",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(reason: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO19invalidDatasetSplityACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO19invalidDatasetSplityACSS_tcACmF",
             "moduleName": "ML5"
           },
           {
@@ -8459,6 +11407,64 @@
             "init_kind": "Designated"
           },
           {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ClassificationSample",
+                "printedName": "ML5.ClassificationSample<Label>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "Label"
+                  }
+                ],
+                "usr": "s:3ML520ClassificationSampleV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML520ClassificationSampleV4fromACyxGs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML520ClassificationSampleV4fromACyxGs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "genericSig": "<Label where Label : ML5.ClassificationLabel>",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML520ClassificationSampleV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML520ClassificationSampleV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "genericSig": "<Label where Label : ML5.ClassificationLabel>",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Function",
             "name": "__derived_struct_equals",
             "printedName": "__derived_struct_equals(_:_:)",
@@ -8507,6 +11513,72 @@
               "Implements"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML520ClassificationSampleV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML520ClassificationSampleV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "genericSig": "<Label where Label : ML5.ClassificationLabel>",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML520ClassificationSampleV9hashValueSivp",
+            "mangledName": "$s3ML520ClassificationSampleV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML520ClassificationSampleV9hashValueSivg",
+                "mangledName": "$s3ML520ClassificationSampleV9hashValueSivg",
+                "moduleName": "ML5",
+                "genericSig": "<Label where Label : ML5.ClassificationLabel>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -8524,6 +11596,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -8535,6 +11621,13 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           },
           {
             "kind": "Conformance",
@@ -8681,6 +11774,55 @@
             "init_kind": "Designated"
           },
           {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RegressionSample",
+                "printedName": "ML5.RegressionSample",
+                "usr": "s:3ML516RegressionSampleV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML516RegressionSampleV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML516RegressionSampleV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML516RegressionSampleV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML516RegressionSampleV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Function",
             "name": "__derived_struct_equals",
             "printedName": "__derived_struct_equals(_:_:)",
@@ -8714,6 +11856,70 @@
               "Implements"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML516RegressionSampleV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML516RegressionSampleV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML516RegressionSampleV9hashValueSivp",
+            "mangledName": "$s3ML516RegressionSampleV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML516RegressionSampleV9hashValueSivg",
+                "mangledName": "$s3ML516RegressionSampleV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -8730,6 +11936,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -8741,6 +11961,13 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           },
           {
             "kind": "Conformance",

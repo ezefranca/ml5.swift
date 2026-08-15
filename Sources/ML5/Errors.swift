@@ -34,6 +34,14 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     )
     /// A tensor's dimensions did not match its schema field.
     case tensorShapeMismatch(name: String, expected: [Int], actual: [Int])
+    /// A dataset sample identifier was zero.
+    case invalidDatasetSampleID(UInt64)
+    /// A persisted dataset contained contradictory identity metadata.
+    case invalidDatasetSnapshot(reason: String)
+    /// A dataset could not allocate another stable sample identifier.
+    case datasetIdentifierExhausted
+    /// Dataset split fractions were nonfinite, negative, or totaled more than one.
+    case invalidDatasetSplit(reason: String)
     /// A task configuration contained contradictory settings.
     case invalidConfiguration(reason: String)
     /// A training request contained no samples.
@@ -86,6 +94,14 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Feature \(name.debugDescription) must be \(expected.rawValue), but was \(actual.rawValue)."
         case let .tensorShapeMismatch(name, expected, actual):
             "Tensor feature \(name.debugDescription) requires shape \(expected), but received \(actual)."
+        case let .invalidDatasetSampleID(rawValue):
+            "Dataset sample identifiers must be positive, but received \(rawValue)."
+        case let .invalidDatasetSnapshot(reason):
+            "Invalid dataset snapshot: \(reason)"
+        case .datasetIdentifierExhausted:
+            "The dataset exhausted its stable sample identifier space."
+        case let .invalidDatasetSplit(reason):
+            "Invalid dataset split: \(reason)"
         case let .invalidConfiguration(reason):
             "Invalid configuration: \(reason)"
         case .invalidTrainingSamples:

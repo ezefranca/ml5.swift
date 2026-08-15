@@ -29,6 +29,14 @@ Prediction APIs are asynchronous and cooperatively check cancellation before and
 after Core ML evaluation. Evaluation already underway may complete first, but a
 cancelled caller will not receive decoded output.
 
+## Dataset isolation
+
+``ML5Dataset`` owns mutable sample order and identifier allocation inside an actor.
+Its ``DatasetSnapshot`` and ``DatasetSplit`` results are immutable values, so training
+adapters can consume them without sharing actor state. Seeded shuffling uses a fixed
+SplitMix64 sequence and an implementation-owned Fisher-Yates pass for reproducibility
+across supported platforms.
+
 ## Training
 
 Core ML model loading does not provide general-purpose, arbitrary-model on-device

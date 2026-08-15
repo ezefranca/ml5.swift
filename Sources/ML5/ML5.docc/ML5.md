@@ -55,6 +55,16 @@ defaults, or explicit missing and unknown-field policies.
 ### Data guides
 
 - <doc:StructuredModelData>
+- <doc:ManagingDatasets>
+
+### Datasets
+
+- ``ML5Dataset``
+- ``DatasetSampleID``
+- ``DatasetEntry``
+- ``DatasetSnapshot``
+- ``DatasetSplitConfiguration``
+- ``DatasetSplit``
 
 ### Prediction
 

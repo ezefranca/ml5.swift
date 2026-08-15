@@ -163,7 +163,7 @@ public struct RegressionTask: NeuralNetworkTask {
 }
 
 /// A labeled sample suitable for a future classification training adapter.
-public struct ClassificationSample<Label: ClassificationLabel>: Sendable, Equatable {
+public struct ClassificationSample<Label: ClassificationLabel>: Sendable, Hashable, Codable {
     /// The input features associated with the label.
     public let features: FeatureVector
     /// The expected classification label.
@@ -174,10 +174,35 @@ public struct ClassificationSample<Label: ClassificationLabel>: Sendable, Equata
         self.features = features
         self.label = label
     }
+
+    /// Decodes features and reconstructs the label from its stable ML5 string.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let rawLabel = try container.decode(String.self, forKey: .label)
+        guard let label = Label(ml5RawValue: rawLabel) else {
+            throw ML5Error.invalidClassLabel(rawLabel)
+        }
+        self.init(
+            features: try container.decode(FeatureVector.self, forKey: .features),
+            label: label
+        )
+    }
+
+    /// Encodes features and the label's stable ML5 string.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(features, forKey: .features)
+        try container.encode(label.ml5RawValue, forKey: .label)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case features
+        case label
+    }
 }
 
 /// A labeled sample suitable for a future regression training adapter.
-public struct RegressionSample: Sendable, Equatable {
+public struct RegressionSample: Sendable, Hashable, Codable {
     /// The input features associated with the target.
     public let features: FeatureVector
     /// The finite scalar the model should learn to predict.
@@ -193,5 +218,26 @@ public struct RegressionSample: Sendable, Equatable {
 
         self.features = features
         self.target = target
+    }
+
+    /// Decodes a sample and revalidates its finite target.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        try self.init(
+            features: container.decode(FeatureVector.self, forKey: .features),
+            target: container.decode(Double.self, forKey: .target)
+        )
+    }
+
+    /// Encodes features and the finite scalar target.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(features, forKey: .features)
+        try container.encode(target, forKey: .target)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case features
+        case target
     }
 }

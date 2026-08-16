@@ -62,6 +62,16 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidNeuroevolutionConfiguration(reason: String)
     /// Two dense brains could not reproduce because their network topologies differ.
     case incompatibleBrainTopologies
+    /// A SHA-256 digest was not a lowercase 64-character hexadecimal value.
+    case invalidModelDigest(String)
+    /// Model bytes or a compiled directory did not match the declared integrity digest.
+    case modelIntegrityMismatch(expected: String, actual: String)
+    /// A file, bundle, or remote model source was malformed or unsupported.
+    case invalidModelSource(reason: String)
+    /// A model resource could not be read, downloaded, compiled, or copied.
+    case modelResourceFailed(location: String, message: String)
+    /// A model-cache directory or manifest could not be created, read, or updated.
+    case modelCacheFailed(path: String, message: String)
     /// A requested Apple training accelerator could not be created or execute a graph.
     case trainingAcceleratorUnavailable(reason: String)
     /// A persisted training checkpoint was malformed or did not match its resume request.
@@ -152,6 +162,16 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Invalid neuroevolution configuration: \(reason)"
         case .incompatibleBrainTopologies:
             "Dense brain topologies are incompatible."
+        case let .invalidModelDigest(value):
+            "Model digests must be lowercase 64-character SHA-256 hexadecimal values: \(value.debugDescription)."
+        case let .modelIntegrityMismatch(expected, actual):
+            "Model integrity check failed: expected \(expected), but computed \(actual)."
+        case let .invalidModelSource(reason):
+            "Invalid model source: \(reason)"
+        case let .modelResourceFailed(location, message):
+            "Model resource failed at \(location.debugDescription): \(message)"
+        case let .modelCacheFailed(path, message):
+            "Model cache failed at \(path.debugDescription): \(message)"
         case let .trainingAcceleratorUnavailable(reason):
             "Training accelerator unavailable: \(reason)"
         case let .invalidTrainingCheckpoint(reason):

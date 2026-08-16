@@ -767,6 +767,49 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load(from:using:configuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreMLModelPredictor",
+                "printedName": "ML5.CoreMLModelPredictor",
+                "usr": "s:3ML520CoreMLModelPredictorC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCache",
+                "printedName": "ML5.ML5ModelCache",
+                "usr": "s:3ML50A10ModelCacheC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreMLModelConfiguration",
+                "printedName": "ML5.CoreMLModelConfiguration",
+                "hasDefaultArg": true,
+                "usr": "s:3ML524CoreMLModelConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML520CoreMLModelPredictorC4load4from5using13configurationAcA0A11ModelSourceV_AA0aI5CacheCAA0bC13ConfigurationVtYaKFZ",
+            "mangledName": "$s3ML520CoreMLModelPredictorC4load4from5using13configurationAcA0A11ModelSourceV_AA0aI5CacheCAA0bC13ConfigurationVtYaKFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -21085,6 +21128,302 @@
           },
           {
             "kind": "Var",
+            "name": "invalidModelDigest",
+            "printedName": "invalidModelDigest",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO18invalidModelDigestyACSScACmF",
+            "mangledName": "$s3ML50A5ErrorO18invalidModelDigestyACSScACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "modelIntegrityMismatch",
+            "printedName": "modelIntegrityMismatch",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String, Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(expected: Swift.String, actual: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO22modelIntegrityMismatchyACSS_SStcACmF",
+            "mangledName": "$s3ML50A5ErrorO22modelIntegrityMismatchyACSS_SStcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidModelSource",
+            "printedName": "invalidModelSource",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(reason: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO18invalidModelSourceyACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO18invalidModelSourceyACSS_tcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "modelResourceFailed",
+            "printedName": "modelResourceFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String, Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(location: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO19modelResourceFailedyACSS_SStcACmF",
+            "mangledName": "$s3ML50A5ErrorO19modelResourceFailedyACSS_SStcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "modelCacheFailed",
+            "printedName": "modelCacheFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String, Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(path: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO16modelCacheFailedyACSS_SStcACmF",
+            "mangledName": "$s3ML50A5ErrorO16modelCacheFailedyACSS_SStcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
             "name": "trainingAcceleratorUnavailable",
             "printedName": "trainingAcceleratorUnavailable",
             "children": [
@@ -25624,6 +25963,2505 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5ModelDigest",
+        "printedName": "ML5ModelDigest",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11ModelDigestV8rawValueSSvp",
+            "mangledName": "$s3ML50A11ModelDigestV8rawValueSSvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11ModelDigestV8rawValueSSvg",
+                "mangledName": "$s3ML50A11ModelDigestV8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11ModelDigestV11descriptionSSvp",
+            "mangledName": "$s3ML50A11ModelDigestV11descriptionSSvp",
+            "moduleName": "ML5",
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11ModelDigestV11descriptionSSvg",
+                "mangledName": "$s3ML50A11ModelDigestV11descriptionSSvg",
+                "moduleName": "ML5",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A11ModelDigestVyACSSKcfc",
+            "mangledName": "$s3ML50A11ModelDigestVyACSSKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A11ModelDigestV8rawValueACSS_tcfc",
+            "mangledName": "$s3ML50A11ModelDigestV8rawValueACSS_tcfc",
+            "moduleName": "ML5",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "sha256",
+            "printedName": "sha256(data:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelDigestV6sha2564dataAC10Foundation4DataV_tFZ",
+            "mangledName": "$s3ML50A11ModelDigestV6sha2564dataAC10Foundation4DataV_tFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sha256",
+            "printedName": "sha256(contentsOf:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelDigestV6sha25610contentsOfAC10Foundation3URLV_tKFZ",
+            "mangledName": "$s3ML50A11ModelDigestV6sha25610contentsOfAC10Foundation3URLV_tKFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A11ModelDigestV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML50A11ModelDigestV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelDigestV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML50A11ModelDigestV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML50A11ModelDigestV8RawValuea",
+            "mangledName": "$s3ML50A11ModelDigestV8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML50A11ModelDigestV",
+        "mangledName": "$s3ML50A11ModelDigestV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5ModelSource",
+        "printedName": "ML5ModelSource",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "Location",
+            "printedName": "Location",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "file",
+                "printedName": "file",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(ML5.ML5ModelSource.Location.Type) -> (Foundation.URL) -> ML5.ML5ModelSource.Location",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.URL) -> ML5.ML5ModelSource.Location",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Location",
+                            "printedName": "ML5.ML5ModelSource.Location",
+                            "usr": "s:3ML50A11ModelSourceV8LocationO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "ML5.ML5ModelSource.Location.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Location",
+                            "printedName": "ML5.ML5ModelSource.Location",
+                            "usr": "s:3ML50A11ModelSourceV8LocationO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:3ML50A11ModelSourceV8LocationO4fileyAE10Foundation3URLVcAEmF",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO4fileyAE10Foundation3URLVcAEmF",
+                "moduleName": "ML5"
+              },
+              {
+                "kind": "Var",
+                "name": "remote",
+                "printedName": "remote",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(ML5.ML5ModelSource.Location.Type) -> (Foundation.URL) -> ML5.ML5ModelSource.Location",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.URL) -> ML5.ML5ModelSource.Location",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Location",
+                            "printedName": "ML5.ML5ModelSource.Location",
+                            "usr": "s:3ML50A11ModelSourceV8LocationO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "ML5.ML5ModelSource.Location.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Location",
+                            "printedName": "ML5.ML5ModelSource.Location",
+                            "usr": "s:3ML50A11ModelSourceV8LocationO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:3ML50A11ModelSourceV8LocationO6remoteyAE10Foundation3URLVcAEmF",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO6remoteyAE10Foundation3URLVcAEmF",
+                "moduleName": "ML5"
+              },
+              {
+                "kind": "Function",
+                "name": "__derived_enum_equals",
+                "printedName": "__derived_enum_equals(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Location",
+                    "printedName": "ML5.ML5ModelSource.Location",
+                    "usr": "s:3ML50A11ModelSourceV8LocationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Location",
+                    "printedName": "ML5.ML5ModelSource.Location",
+                    "usr": "s:3ML50A11ModelSourceV8LocationO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:3ML50A11ModelSourceV8LocationO21__derived_enum_equalsySbAE_AEtFZ",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO21__derived_enum_equalsySbAE_AEtFZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Implements",
+                  "Semantics"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "encode",
+                "printedName": "encode(to:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Encoder",
+                    "printedName": "any Swift.Encoder",
+                    "usr": "s:s7EncoderP"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:3ML50A11ModelSourceV8LocationO6encode2toys7Encoder_p_tKF",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO6encode2toys7Encoder_p_tKF",
+                "moduleName": "ML5",
+                "implicit": true,
+                "throwing": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:3ML50A11ModelSourceV8LocationO4hash4intoys6HasherVz_tF",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO4hash4intoys6HasherVz_tF",
+                "moduleName": "ML5",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:3ML50A11ModelSourceV8LocationO9hashValueSivp",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO9hashValueSivp",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:3ML50A11ModelSourceV8LocationO9hashValueSivg",
+                    "mangledName": "$s3ML50A11ModelSourceV8LocationO9hashValueSivg",
+                    "moduleName": "ML5",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(from:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Location",
+                    "printedName": "ML5.ML5ModelSource.Location",
+                    "usr": "s:3ML50A11ModelSourceV8LocationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Decoder",
+                    "printedName": "any Swift.Decoder",
+                    "usr": "s:s7DecoderP"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:3ML50A11ModelSourceV8LocationO4fromAEs7Decoder_p_tKcfc",
+                "mangledName": "$s3ML50A11ModelSourceV8LocationO4fromAEs7Decoder_p_tKcfc",
+                "moduleName": "ML5",
+                "implicit": true,
+                "throwing": true,
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:3ML50A11ModelSourceV8LocationO",
+            "mangledName": "$s3ML50A11ModelSourceV8LocationO",
+            "moduleName": "ML5",
+            "isEnumExhaustive": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Decodable",
+                "printedName": "Decodable",
+                "usr": "s:Se",
+                "mangledName": "$sSe"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Encodable",
+                "printedName": "Encodable",
+                "usr": "s:SE",
+                "mangledName": "$sSE"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "location",
+            "printedName": "location",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Location",
+                "printedName": "ML5.ML5ModelSource.Location",
+                "usr": "s:3ML50A11ModelSourceV8LocationO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11ModelSourceV8locationAC8LocationOvp",
+            "mangledName": "$s3ML50A11ModelSourceV8locationAC8LocationOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Location",
+                    "printedName": "ML5.ML5ModelSource.Location",
+                    "usr": "s:3ML50A11ModelSourceV8LocationO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11ModelSourceV8locationAC8LocationOvg",
+                "mangledName": "$s3ML50A11ModelSourceV8locationAC8LocationOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "integrityDigest",
+            "printedName": "integrityDigest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11ModelSourceV15integrityDigestAA0abE0Vvp",
+            "mangledName": "$s3ML50A11ModelSourceV15integrityDigestAA0abE0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelDigest",
+                    "printedName": "ML5.ML5ModelDigest",
+                    "usr": "s:3ML50A11ModelDigestV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11ModelSourceV15integrityDigestAA0abE0Vvg",
+                "mangledName": "$s3ML50A11ModelSourceV15integrityDigestAA0abE0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "metadata",
+            "printedName": "metadata",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelMetadata",
+                "printedName": "ML5.ML5ModelMetadata",
+                "usr": "s:3ML50A13ModelMetadataV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11ModelSourceV8metadataAA0aB8MetadataVvp",
+            "mangledName": "$s3ML50A11ModelSourceV8metadataAA0aB8MetadataVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelMetadata",
+                    "printedName": "ML5.ML5ModelMetadata",
+                    "usr": "s:3ML50A13ModelMetadataV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11ModelSourceV8metadataAA0aB8MetadataVvg",
+                "mangledName": "$s3ML50A11ModelSourceV8metadataAA0aB8MetadataVvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(fileURL:integrityDigest:metadata:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelMetadata",
+                "printedName": "ML5.ML5ModelMetadata",
+                "usr": "s:3ML50A13ModelMetadataV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A11ModelSourceV7fileURL15integrityDigest8metadataAC10Foundation0E0V_AA0abG0VAA0aB8MetadataVtKcfc",
+            "mangledName": "$s3ML50A11ModelSourceV7fileURL15integrityDigest8metadataAC10Foundation0E0V_AA0abG0VAA0aB8MetadataVtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(remoteURL:integrityDigest:metadata:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelMetadata",
+                "printedName": "ML5.ML5ModelMetadata",
+                "usr": "s:3ML50A13ModelMetadataV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A11ModelSourceV9remoteURL15integrityDigest8metadataAC10Foundation0E0V_AA0abG0VAA0aB8MetadataVtKcfc",
+            "mangledName": "$s3ML50A11ModelSourceV9remoteURL15integrityDigest8metadataAC10Foundation0E0V_AA0abG0VAA0aB8MetadataVtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "bundledResource",
+            "printedName": "bundledResource(named:withExtension:subdirectory:in:integrityDigest:metadata:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bundle",
+                "printedName": "Foundation.Bundle",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSBundle"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelMetadata",
+                "printedName": "ML5.ML5ModelMetadata",
+                "usr": "s:3ML50A13ModelMetadataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelSourceV15bundledResource5named13withExtension12subdirectory2in15integrityDigest8metadataACSS_S2SSgSo8NSBundleCAA0abL0VAA0aB8MetadataVtKFZ",
+            "mangledName": "$s3ML50A11ModelSourceV15bundledResource5named13withExtension12subdirectory2in15integrityDigest8metadataACSS_S2SSgSo8NSBundleCAA0abL0VAA0aB8MetadataVtKFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A11ModelSourceV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML50A11ModelSourceV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelSourceV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML50A11ModelSourceV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelSourceV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML50A11ModelSourceV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11ModelSourceV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML50A11ModelSourceV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11ModelSourceV9hashValueSivp",
+            "mangledName": "$s3ML50A11ModelSourceV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11ModelSourceV9hashValueSivg",
+                "mangledName": "$s3ML50A11ModelSourceV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML50A11ModelSourceV",
+        "mangledName": "$s3ML50A11ModelSourceV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5ModelCacheConfiguration",
+        "printedName": "ML5ModelCacheConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "directory",
+            "printedName": "directory",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A23ModelCacheConfigurationV9directory10Foundation3URLVvp",
+            "mangledName": "$s3ML50A23ModelCacheConfigurationV9directory10Foundation3URLVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A23ModelCacheConfigurationV9directory10Foundation3URLVvg",
+                "mangledName": "$s3ML50A23ModelCacheConfigurationV9directory10Foundation3URLVvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "maximumEntryCount",
+            "printedName": "maximumEntryCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A23ModelCacheConfigurationV17maximumEntryCountSivp",
+            "mangledName": "$s3ML50A23ModelCacheConfigurationV17maximumEntryCountSivp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A23ModelCacheConfigurationV17maximumEntryCountSivg",
+                "mangledName": "$s3ML50A23ModelCacheConfigurationV17maximumEntryCountSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(directory:maximumEntryCount:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheConfiguration",
+                "printedName": "ML5.ML5ModelCacheConfiguration",
+                "usr": "s:3ML50A23ModelCacheConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A23ModelCacheConfigurationV9directory17maximumEntryCountAC10Foundation3URLV_SitKcfc",
+            "mangledName": "$s3ML50A23ModelCacheConfigurationV9directory17maximumEntryCountAC10Foundation3URLV_SitKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheConfiguration",
+                "printedName": "ML5.ML5ModelCacheConfiguration",
+                "usr": "s:3ML50A23ModelCacheConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheConfiguration",
+                "printedName": "ML5.ML5ModelCacheConfiguration",
+                "usr": "s:3ML50A23ModelCacheConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A23ModelCacheConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML50A23ModelCacheConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A23ModelCacheConfigurationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML50A23ModelCacheConfigurationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A23ModelCacheConfigurationV9hashValueSivp",
+            "mangledName": "$s3ML50A23ModelCacheConfigurationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A23ModelCacheConfigurationV9hashValueSivg",
+                "mangledName": "$s3ML50A23ModelCacheConfigurationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML50A23ModelCacheConfigurationV",
+        "mangledName": "$s3ML50A23ModelCacheConfigurationV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5CachedModel",
+        "printedName": "ML5CachedModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "modelURL",
+            "printedName": "modelURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11CachedModelV8modelURL10Foundation0E0Vvp",
+            "mangledName": "$s3ML50A11CachedModelV8modelURL10Foundation0E0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11CachedModelV8modelURL10Foundation0E0Vvg",
+                "mangledName": "$s3ML50A11CachedModelV8modelURL10Foundation0E0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sourceDigest",
+            "printedName": "sourceDigest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11CachedModelV12sourceDigestAA0acE0Vvp",
+            "mangledName": "$s3ML50A11CachedModelV12sourceDigestAA0acE0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelDigest",
+                    "printedName": "ML5.ML5ModelDigest",
+                    "usr": "s:3ML50A11ModelDigestV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11CachedModelV12sourceDigestAA0acE0Vvg",
+                "mangledName": "$s3ML50A11CachedModelV12sourceDigestAA0acE0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "compiledDigest",
+            "printedName": "compiledDigest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11CachedModelV14compiledDigestAA0acE0Vvp",
+            "mangledName": "$s3ML50A11CachedModelV14compiledDigestAA0acE0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelDigest",
+                    "printedName": "ML5.ML5ModelDigest",
+                    "usr": "s:3ML50A11ModelDigestV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11CachedModelV14compiledDigestAA0acE0Vvg",
+                "mangledName": "$s3ML50A11CachedModelV14compiledDigestAA0acE0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "metadata",
+            "printedName": "metadata",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelMetadata",
+                "printedName": "ML5.ML5ModelMetadata",
+                "usr": "s:3ML50A13ModelMetadataV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11CachedModelV8metadataAA0aC8MetadataVvp",
+            "mangledName": "$s3ML50A11CachedModelV8metadataAA0aC8MetadataVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelMetadata",
+                    "printedName": "ML5.ML5ModelMetadata",
+                    "usr": "s:3ML50A13ModelMetadataV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11CachedModelV8metadataAA0aC8MetadataVvg",
+                "mangledName": "$s3ML50A11CachedModelV8metadataAA0aC8MetadataVvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isCacheHit",
+            "printedName": "isCacheHit",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11CachedModelV10isCacheHitSbvp",
+            "mangledName": "$s3ML50A11CachedModelV10isCacheHitSbvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11CachedModelV10isCacheHitSbvg",
+                "mangledName": "$s3ML50A11CachedModelV10isCacheHitSbvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5CachedModel",
+                "printedName": "ML5.ML5CachedModel",
+                "usr": "s:3ML50A11CachedModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5CachedModel",
+                "printedName": "ML5.ML5CachedModel",
+                "usr": "s:3ML50A11CachedModelV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11CachedModelV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML50A11CachedModelV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A11CachedModelV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML50A11CachedModelV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A11CachedModelV9hashValueSivp",
+            "mangledName": "$s3ML50A11CachedModelV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A11CachedModelV9hashValueSivg",
+                "mangledName": "$s3ML50A11CachedModelV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML50A11CachedModelV",
+        "mangledName": "$s3ML50A11CachedModelV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5ModelCacheEntry",
+        "printedName": "ML5ModelCacheEntry",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sourceDigest",
+            "printedName": "sourceDigest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A15ModelCacheEntryV12sourceDigestAA0abF0Vvp",
+            "mangledName": "$s3ML50A15ModelCacheEntryV12sourceDigestAA0abF0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelDigest",
+                    "printedName": "ML5.ML5ModelDigest",
+                    "usr": "s:3ML50A11ModelDigestV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A15ModelCacheEntryV12sourceDigestAA0abF0Vvg",
+                "mangledName": "$s3ML50A15ModelCacheEntryV12sourceDigestAA0abF0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "compiledDigest",
+            "printedName": "compiledDigest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A15ModelCacheEntryV14compiledDigestAA0abF0Vvp",
+            "mangledName": "$s3ML50A15ModelCacheEntryV14compiledDigestAA0abF0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelDigest",
+                    "printedName": "ML5.ML5ModelDigest",
+                    "usr": "s:3ML50A11ModelDigestV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A15ModelCacheEntryV14compiledDigestAA0abF0Vvg",
+                "mangledName": "$s3ML50A15ModelCacheEntryV14compiledDigestAA0abF0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "metadata",
+            "printedName": "metadata",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelMetadata",
+                "printedName": "ML5.ML5ModelMetadata",
+                "usr": "s:3ML50A13ModelMetadataV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A15ModelCacheEntryV8metadataAA0aB8MetadataVvp",
+            "mangledName": "$s3ML50A15ModelCacheEntryV8metadataAA0aB8MetadataVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelMetadata",
+                    "printedName": "ML5.ML5ModelMetadata",
+                    "usr": "s:3ML50A13ModelMetadataV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A15ModelCacheEntryV8metadataAA0aB8MetadataVvg",
+                "mangledName": "$s3ML50A15ModelCacheEntryV8metadataAA0aB8MetadataVvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "lastAccessDate",
+            "printedName": "lastAccessDate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A15ModelCacheEntryV14lastAccessDate10Foundation0G0Vvp",
+            "mangledName": "$s3ML50A15ModelCacheEntryV14lastAccessDate10Foundation0G0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A15ModelCacheEntryV14lastAccessDate10Foundation0G0Vvg",
+                "mangledName": "$s3ML50A15ModelCacheEntryV14lastAccessDate10Foundation0G0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "byteCount",
+            "printedName": "byteCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A15ModelCacheEntryV9byteCounts6UInt64Vvp",
+            "mangledName": "$s3ML50A15ModelCacheEntryV9byteCounts6UInt64Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A15ModelCacheEntryV9byteCounts6UInt64Vvg",
+                "mangledName": "$s3ML50A15ModelCacheEntryV9byteCounts6UInt64Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheEntry",
+                "printedName": "ML5.ML5ModelCacheEntry",
+                "usr": "s:3ML50A15ModelCacheEntryV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheEntry",
+                "printedName": "ML5.ML5ModelCacheEntry",
+                "usr": "s:3ML50A15ModelCacheEntryV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A15ModelCacheEntryV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML50A15ModelCacheEntryV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A15ModelCacheEntryV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML50A15ModelCacheEntryV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A15ModelCacheEntryV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML50A15ModelCacheEntryV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A15ModelCacheEntryV9hashValueSivp",
+            "mangledName": "$s3ML50A15ModelCacheEntryV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A15ModelCacheEntryV9hashValueSivg",
+                "mangledName": "$s3ML50A15ModelCacheEntryV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheEntry",
+                "printedName": "ML5.ML5ModelCacheEntry",
+                "usr": "s:3ML50A15ModelCacheEntryV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A15ModelCacheEntryV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML50A15ModelCacheEntryV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML50A15ModelCacheEntryV",
+        "mangledName": "$s3ML50A15ModelCacheEntryV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ML5ModelCache",
+        "printedName": "ML5ModelCache",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(configuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCache",
+                "printedName": "ML5.ML5ModelCache",
+                "usr": "s:3ML50A10ModelCacheC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCacheConfiguration",
+                "printedName": "ML5.ML5ModelCacheConfiguration",
+                "usr": "s:3ML50A23ModelCacheConfigurationV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML50A10ModelCacheC13configurationAcA0abC13ConfigurationV_tKcfc",
+            "mangledName": "$s3ML50A10ModelCacheC13configurationAcA0abC13ConfigurationV_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Function",
+            "name": "model",
+            "printedName": "model(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ML5CachedModel",
+                "printedName": "ML5.ML5CachedModel",
+                "usr": "s:3ML50A11CachedModelV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A10ModelCacheC5model3forAA0a6CachedB0VAA0aB6SourceV_tYaKF",
+            "mangledName": "$s3ML50A10ModelCacheC5model3forAA0a6CachedB0VAA0aB6SourceV_tYaKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "entries",
+            "printedName": "entries()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.ML5ModelCacheEntry]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ML5ModelCacheEntry",
+                    "printedName": "ML5.ML5ModelCacheEntry",
+                    "usr": "s:3ML50A15ModelCacheEntryV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A10ModelCacheC7entriesSayAA0abC5EntryVGyKF",
+            "mangledName": "$s3ML50A10ModelCacheC7entriesSayAA0abC5EntryVGyKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removeModel",
+            "printedName": "removeModel(withSourceDigest:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelDigest",
+                "printedName": "ML5.ML5ModelDigest",
+                "usr": "s:3ML50A11ModelDigestV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A10ModelCacheC06removeB016withSourceDigestSbAA0abG0V_tKF",
+            "mangledName": "$s3ML50A10ModelCacheC06removeB016withSourceDigestSbAA0abG0V_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removeAll",
+            "printedName": "removeAll()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML50A10ModelCacheC9removeAllyyKF",
+            "mangledName": "$s3ML50A10ModelCacheC9removeAllyyKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "unownedExecutor",
+            "printedName": "unownedExecutor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnownedSerialExecutor",
+                "printedName": "_Concurrency.UnownedSerialExecutor",
+                "usr": "s:Sce"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML50A10ModelCacheC15unownedExecutorScevp",
+            "mangledName": "$s3ML50A10ModelCacheC15unownedExecutorScevp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "intro_Macosx": "10.15",
+            "intro_iOS": "13.0",
+            "intro_tvOS": "13.0",
+            "intro_watchOS": "6.0",
+            "declAttributes": [
+              "Available",
+              "Available",
+              "Available",
+              "Available",
+              "Final",
+              "Nonisolated",
+              "Semantics"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnownedSerialExecutor",
+                    "printedName": "_Concurrency.UnownedSerialExecutor",
+                    "usr": "s:Sce"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML50A10ModelCacheC15unownedExecutorScevg",
+                "mangledName": "$s3ML50A10ModelCacheC15unownedExecutorScevg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:3ML50A10ModelCacheC",
+        "mangledName": "$s3ML50A10ModelCacheC",
+        "moduleName": "ML5",
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Actor",
+            "printedName": "Actor",
+            "usr": "s:ScA",
+            "mangledName": "$sScA"
           }
         ]
       },

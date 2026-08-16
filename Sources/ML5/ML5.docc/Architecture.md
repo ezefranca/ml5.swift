@@ -126,3 +126,17 @@ generation so decoding and applying the same policy produces the same next popul
 Fitness evaluation, selection, elitism, and population sizing remain application-owned:
 they depend on the simulation rather than on the neural-network representation. See
 <doc:EvolvingDenseBrains> for the complete lifecycle.
+
+## Trusted model resources
+
+``ML5ModelSource`` combines a local, bundled, or HTTPS model location with a required
+``ML5ModelDigest`` and ``ML5ModelMetadata`` card. Integrity is verified before Core ML
+compilation. File digests cover bytes directly; compiled directories and packages are
+hashed in sorted relative-path order, with path and length boundaries included and
+symbolic links rejected.
+
+``ML5ModelCache`` serializes download, verification, compilation, cache validation, and
+eviction behind an actor. Each entry stores both its source digest and a second digest of
+the compiled `.mlmodelc` directory. A cache hit recomputes the compiled digest before
+returning the URL; corrupt or incomplete entries are removed and rebuilt from the trusted
+source. See <doc:LoadingAndCachingModels> for bundle and remote workflows.

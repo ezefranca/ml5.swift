@@ -62,6 +62,7 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:ConfiguringDenseNetworks>
 - <doc:PersistingAndExportingDenseModels>
 - <doc:EvolvingDenseBrains>
+- <doc:LoadingAndCachingModels>
 
 ### Datasets
 
@@ -146,6 +147,12 @@ defaults, or explicit missing and unknown-field policies.
 - ``ML5ModelMetadata``
 - ``DenseModelArchive``
 - ``DenseCoreMLExportConfiguration``
+- ``ML5ModelDigest``
+- ``ML5ModelSource``
+- ``ML5ModelCacheConfiguration``
+- ``ML5ModelCache``
+- ``ML5CachedModel``
+- ``ML5ModelCacheEntry``
 
 ### Neuroevolution
 

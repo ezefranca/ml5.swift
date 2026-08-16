@@ -58,6 +58,7 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:ManagingDatasets>
 - <doc:PreprocessingData>
 - <doc:InferenceModes>
+- <doc:EvaluatingModels>
 
 ### Datasets
 
@@ -86,6 +87,23 @@ defaults, or explicit missing and unknown-field policies.
 - ``ModelInferenceSnapshot``
 - ``NeuralNetworkInferenceSnapshot``
 - ``ModelInferenceSnapshotProviding``
+- ``ClassificationPrediction``
+- ``RankedClassificationPrediction``
+- ``RankedClassificationTask``
+- ``RankedClassificationConfiguration``
+- ``ClassificationScoreInterpretation``
+- ``TemperatureScaling``
+- ``RegressionPrediction``
+- ``RegressionVectorPrediction``
+- ``RegressionVectorTask``
+- ``RegressionVectorConfiguration``
+
+### Evaluation
+
+- ``ClassificationEvaluation``
+- ``ClassificationLabelMetrics``
+- ``RegressionEvaluation``
+- ``RegressionComponentMetrics``
 
 ### Extensibility
 

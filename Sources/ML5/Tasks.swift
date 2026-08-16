@@ -162,6 +162,187 @@ public struct RegressionTask: NeuralNetworkTask {
     }
 }
 
+/// Output selection and score interpretation for ranked classification.
+public struct RankedClassificationConfiguration: Sendable, Hashable, Codable {
+    /// The dictionary output mapping raw label strings to numeric scores.
+    public let scoresOutput: OutputName
+    /// How the task converts model scores into calibrated confidence values.
+    public let interpretation: ClassificationScoreInterpretation
+
+    /// Creates ranked-classification output rules.
+    public init(
+        scoresOutput: OutputName,
+        interpretation: ClassificationScoreInterpretation = .probabilities
+    ) {
+        self.scoresOutput = scoresOutput
+        self.interpretation = interpretation
+    }
+}
+
+/// A classification task that returns every label ordered by confidence.
+public struct RankedClassificationTask<Label: ClassificationLabel>: NeuralNetworkTask {
+    /// The score output and calibration rules used to decode model results.
+    public let configuration: RankedClassificationConfiguration
+
+    /// Creates a ranked classification task.
+    public init(configuration: RankedClassificationConfiguration) {
+        self.configuration = configuration
+    }
+
+    /// The classification task family.
+    public var kind: NeuralNetworkTaskKind {
+        .classification
+    }
+
+    /// Decodes, calibrates, and deterministically ranks a string-keyed score dictionary.
+    ///
+    /// - Throws: ``ML5Error`` when the output is absent, mistyped, invalid, or includes a label
+    ///   unsupported by `Label`.
+    public func decode(_ output: ModelOutput) throws -> RankedClassificationPrediction<Label> {
+        guard let rawScores = output[configuration.scoresOutput] else {
+            throw ML5Error.missingOutput(name: configuration.scoresOutput.rawValue)
+        }
+        guard case let .dictionary(scores) = rawScores else {
+            throw ML5Error.unexpectedOutputType(
+                name: configuration.scoresOutput.rawValue,
+                expected: .dictionary,
+                actual: rawScores.kind
+            )
+        }
+
+        let orderedScores = scores.sorted { $0.key < $1.key }
+        var labels: [Label] = []
+        var decodedLabels: Set<Label> = []
+        for (rawLabel, _) in orderedScores {
+            guard let label = Label(ml5RawValue: rawLabel) else {
+                throw ML5Error.invalidClassLabel(rawLabel)
+            }
+            guard decodedLabels.insert(label).inserted else {
+                throw ML5Error.invalidClassificationScores(
+                    reason: "Distinct model labels decoded to the same classification label."
+                )
+            }
+            labels.append(label)
+        }
+
+        let confidences = try Self.confidences(
+            scores: orderedScores.map(\.value),
+            interpretation: configuration.interpretation
+        )
+        let rankedIndices = labels.indices.sorted {
+            if confidences[$0] == confidences[$1] {
+                return labels[$0].ml5RawValue < labels[$1].ml5RawValue
+            }
+            return confidences[$0] > confidences[$1]
+        }
+        let predictions = try rankedIndices.map {
+            try ClassificationPrediction(label: labels[$0], confidence: confidences[$0])
+        }
+        return try RankedClassificationPrediction(predictions: predictions)
+    }
+
+    private static func confidences(
+        scores: [Double],
+        interpretation: ClassificationScoreInterpretation
+    ) throws -> [Double] {
+        switch interpretation {
+        case .probabilities:
+            guard scores.allSatisfy({ $0.isFinite && $0 >= 0 }) else {
+                throw ML5Error.invalidClassificationScores(
+                    reason: "Probability weights must be finite and nonnegative."
+                )
+            }
+            let total = scores.reduce(0, +)
+            guard total.isFinite, total > 0 else {
+                throw ML5Error.invalidClassificationScores(
+                    reason: "Probability weights must have a positive finite sum."
+                )
+            }
+            return scores.map { $0 / total }
+        case let .logits(calibration):
+            // ModelOutput guarantees that numeric dictionaries are nonempty and finite.
+            let maximum = scores.reduce(-Double.infinity, max)
+            let exponentials = scores.map {
+                Foundation.exp(($0 - maximum) / calibration.temperature)
+            }
+            let total = exponentials.reduce(0, +)
+            return exponentials.map { $0 / total }
+        }
+    }
+}
+
+/// Ordered output selection rules for vector regression.
+public struct RegressionVectorConfiguration: Sendable, Hashable, Codable {
+    /// Numeric model outputs in the vector's public component order.
+    public let valueOutputs: [OutputName]
+
+    /// Creates vector-regression output rules.
+    ///
+    /// - Throws: ``ML5Error/invalidRegressionVector(reason:)`` when no output is supplied or an
+    ///   output name appears more than once.
+    public init(valueOutputs: [OutputName]) throws {
+        guard valueOutputs.isEmpty == false else {
+            throw ML5Error.invalidRegressionVector(
+                reason: "At least one value output is required."
+            )
+        }
+        guard Set(valueOutputs).count == valueOutputs.count else {
+            throw ML5Error.invalidRegressionVector(
+                reason: "Value output names must be unique."
+            )
+        }
+        self.valueOutputs = valueOutputs
+    }
+
+    /// Decodes and revalidates persisted output ordering.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        try self.init(valueOutputs: container.decode([OutputName].self))
+    }
+
+    /// Encodes output names in their declared component order.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(valueOutputs)
+    }
+}
+
+/// A regression task that decodes multiple scalar outputs in a declared order.
+public struct RegressionVectorTask: NeuralNetworkTask {
+    /// The ordered output names used to decode the model result.
+    public let configuration: RegressionVectorConfiguration
+
+    /// Creates a vector regression task.
+    public init(configuration: RegressionVectorConfiguration) {
+        self.configuration = configuration
+    }
+
+    /// The regression task family.
+    public var kind: NeuralNetworkTaskKind {
+        .regression
+    }
+
+    /// Decodes finite number or integer outputs into an ordered vector.
+    ///
+    /// - Throws: ``ML5Error`` when an output is missing, mistyped, or nonfinite.
+    public func decode(_ output: ModelOutput) throws -> RegressionVectorPrediction {
+        let values = try configuration.valueOutputs.map { outputName in
+            guard let rawValue = output[outputName] else {
+                throw ML5Error.missingOutput(name: outputName.rawValue)
+            }
+            guard let value = rawValue.numericValue else {
+                throw ML5Error.unexpectedOutputType(
+                    name: outputName.rawValue,
+                    expected: .number,
+                    actual: rawValue.kind
+                )
+            }
+            return value
+        }
+        return try RegressionVectorPrediction(values: values)
+    }
+}
+
 /// A labeled sample suitable for a future classification training adapter.
 public struct ClassificationSample<Label: ClassificationLabel>: Sendable, Hashable, Codable {
     /// The input features associated with the label.

@@ -50,6 +50,20 @@ operation over training values, while normalization and denormalization use an
 immutable snapshot of population statistics. A fitted pipeline contains no mutable
 state and can be shared across actors or persisted beside a model checkpoint.
 
+## Prediction semantics and evaluation
+
+Task decoding owns model-output semantics. ``RankedClassificationTask`` converts a
+string-keyed score dictionary into a complete, deterministic distribution using
+normalization or temperature-scaled stable softmax. ``RegressionVectorTask`` maps
+independently named numeric outputs into an explicit order. Neither operation depends
+on Core ML, so injected, trained, and loaded backends share identical behavior.
+
+Evaluation remains a pure value operation. ``ClassificationEvaluation`` retains the
+typed expected labels and rankings needed for top-k accuracy while publishing
+confusion and macro summaries. ``RegressionEvaluation`` computes aggregate and
+per-component error metrics; undefined R² for constant targets is represented by
+`nil` rather than a sentinel or nonfinite number.
+
 ## Training
 
 Core ML model loading does not provide general-purpose, arbitrary-model on-device

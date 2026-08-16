@@ -58,8 +58,14 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidClassLabel(String)
     /// A confidence value was nonfinite or outside the closed range from zero to one.
     case invalidConfidence(Double)
+    /// Classification scores, probabilities, or ranking invariants were invalid.
+    case invalidClassificationScores(reason: String)
     /// A regression target or prediction was nonfinite.
     case invalidRegressionValue(Double)
+    /// A regression vector was empty or contained inconsistent dimensions.
+    case invalidRegressionVector(reason: String)
+    /// Evaluation inputs were empty, mismatched, or otherwise unusable.
+    case invalidEvaluation(reason: String)
     /// The selected backend deliberately does not provide an operation.
     case unsupportedOperation(UnsupportedOperation)
     /// Core ML could not load the compiled model at the supplied path.
@@ -122,8 +128,14 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "The model label \(label.debugDescription) cannot be decoded by this classification task."
         case let .invalidConfidence(value):
             "Classification confidence must be finite and between 0 and 1, but was \(value)."
+        case let .invalidClassificationScores(reason):
+            "Invalid classification scores: \(reason)"
         case let .invalidRegressionValue(value):
             "A regression prediction must be finite, but was \(value)."
+        case let .invalidRegressionVector(reason):
+            "Invalid regression vector: \(reason)"
+        case let .invalidEvaluation(reason):
+            "Invalid evaluation input: \(reason)"
         case let .unsupportedOperation(operation):
             operation.description
         case let .modelLoadingFailed(path, message):

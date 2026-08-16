@@ -1,3 +1,4 @@
+import Foundation
 import ML5
 
 @main
@@ -29,6 +30,9 @@ struct ML5SmokeSample {
             throw SmokeSampleError.missingPrediction
         }
         print("ML5 predicted \(value) after \(result.history.count) epochs.")
+        if ProcessInfo.processInfo.environment["SWIFT_PACKAGE_INSTRUMENTS_HOLD"] == "1" {
+            try await Task.sleep(for: .seconds(20))
+        }
     }
 }
 

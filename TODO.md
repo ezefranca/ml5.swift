@@ -17,4 +17,4 @@ The independent ml5.swift repository has no remaining implementation work for it
 - [ ] Enable GitHub Pages and confirm the custom documentation route.
 - [ ] Tag the reviewed semantic version and let the release workflow publish it.
 - [ ] Add the public repository to Swift Package Index and confirm macOS/iOS/DocC builds.
-- [ ] Record device-authorized Allocations, Leaks, Core ML, and Power Profiler summaries for the tagged candidate.
+- [ ] Record the Power Profiler pass on a physical iOS/iPadOS application target for the tagged candidate; macOS Time, Allocations, Leaks, and Core ML traces pass.

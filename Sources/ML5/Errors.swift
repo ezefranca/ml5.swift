@@ -54,6 +54,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidModel(reason: String)
     /// A training request contained no samples.
     case invalidTrainingSamples
+    /// A dense training sample had invalid targets or did not match its configuration.
+    case invalidTrainingSample(reason: String)
     /// A task's required output was absent from the model result.
     case missingOutput(name: String)
     /// A model output's scalar kind did not match the task configuration.
@@ -128,6 +130,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Invalid dense model: \(reason)"
         case .invalidTrainingSamples:
             "Training requires at least one sample."
+        case let .invalidTrainingSample(reason):
+            "Invalid training sample: \(reason)"
         case let .missingOutput(name):
             "The model did not provide the required output \(name.debugDescription)."
         case let .unexpectedOutputType(name, expected, actual):

@@ -74,3 +74,32 @@ Dense models conform to ``ModelInferenceSnapshotProviding``. Because their param
 arrays are immutable values, snapshot prediction requires no actor hop or lock. Model
 and parameter decoding repeats every shape and finiteness check before accepting an
 archive.
+
+## Train with the CPU reference backend
+
+``DenseCPUTrainer`` accepts ``DenseTrainingSample`` values containing ordered numeric
+targets. It supports mini-batch SGD with momentum and Adam across mean-squared,
+categorical-cross-entropy, and binary-cross-entropy objectives:
+
+```swift
+let samples = try observations.map { observation in
+    try DenseTrainingSample(
+        features: observation.features,
+        targets: [observation.expectedValue]
+    )
+}
+let result = try await DenseCPUTrainer().train(
+    samples,
+    configuration: configuration
+)
+```
+
+Use ``DenseTrainingSample/classification(features:label:labels:)`` to create one-hot
+targets from an ordered typed label list. The trainer validates target dimensions and
+loss-specific probability domains before allocating parameters.
+
+Initialization, validation splitting, and per-epoch shuffling are derived from the
+configuration seed. Identical samples and configuration therefore produce identical
+``DenseTrainingResult/model`` and ``DenseTrainingResult/history`` values. The CPU
+backend is a readable numerical reference and a practical choice for small models;
+larger workloads should select an accelerated backend when one is available.

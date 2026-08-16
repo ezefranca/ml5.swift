@@ -63,6 +63,7 @@ struct ML5ValidationTests {
             .invalidTrainingConfiguration(reason: "bad architecture"),
             .invalidModel(reason: "bad parameters"),
             .invalidTrainingSamples,
+            .invalidTrainingSample(reason: "bad target"),
             .missingOutput(name: "label"),
             .unexpectedOutputType(name: "label", expected: .string, actual: .number),
             .invalidClassLabel("unknown"),

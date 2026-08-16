@@ -73,3 +73,10 @@ training. Accordingly, ``NeuralNetwork/train(_:)`` throws
 ``NeuralNetworkTrainingAdapter`` is the extension point for a separate Create ML
 integration. An adapter can train a task-specific model and return a
 ``ModelPredicting`` backend, preserving the same value-safe execution boundary.
+
+ML5-owned dense networks are trainable independently of Core ML model loading.
+``DenseCPUTrainer`` is the deterministic reference implementation for initialization,
+forward evaluation, backpropagation, SGD/Adam updates, loss calculation, and validation
+history. It returns an immutable ``DenseNetworkModel`` that can be passed directly to
+``NeuralNetwork/init(task:predictor:)``. Accelerated trainers must preserve the same
+configuration, output ordering, and model representation.

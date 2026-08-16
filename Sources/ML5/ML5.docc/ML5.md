@@ -122,3 +122,7 @@ defaults, or explicit missing and unknown-field policies.
 - ``TrainingLoss``
 - ``OptimizerConfiguration``
 - ``OptimizerKind``
+- ``DenseTrainingSample``
+- ``DenseCPUTrainer``
+- ``DenseTrainingResult``
+- ``DenseEpochMetrics``

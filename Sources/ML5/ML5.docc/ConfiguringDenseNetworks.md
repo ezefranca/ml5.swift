@@ -174,6 +174,21 @@ Use ``DenseCPUTrainer`` when exact cross-machine seed reproducibility is require
 GPU scheduling and float32 arithmetic can introduce small backend-dependent numeric
 differences even though ordering, shapes, objectives, and update equations match.
 
+## Treat model quality as a tested contract
+
+ML5's training tests use fixed datasets and numeric acceptance thresholds rather than
+checking only that a run completes. The reference suite requires a nonlinear dense
+network to solve the canonical XOR truth table at 100% accuracy with greater than 0.98
+probability for every expected class. A separate affine problem measures root-mean-square
+error on coordinates that were not part of its training lattice and requires an RMSE
+below 0.01.
+
+On Metal-capable CI hosts, an identical zero-initialized, full-batch regression run is
+also executed through ``DenseCPUTrainer`` and ``DenseMPSGraphTrainer``. Predictions and
+per-epoch losses must agree within `1e-5`. These deterministic thresholds are regression
+gates for optimizer, graph, activation, and storage changes; application-specific models
+still need representative validation data and domain-appropriate metrics.
+
 For policy-based selection, use ``DenseTrainer`` with a
 ``DenseTrainingExecutionPolicy``. CPU fallback is explicit and applies only when Metal cannot be
 constructed before a run starts; a graph or numerical failure never causes the operation to be

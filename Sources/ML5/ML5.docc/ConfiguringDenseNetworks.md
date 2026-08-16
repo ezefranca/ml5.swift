@@ -104,6 +104,54 @@ configuration seed. Identical samples and configuration therefore produce identi
 backend is a readable numerical reference and a practical choice for small models;
 larger workloads should select an accelerated backend when one is available.
 
+## Observe, stop, and resume training
+
+Both dense trainers accept ``DenseTrainingOptions`` and a serial asynchronous
+``DenseTrainingProgressHandler``. Progress is delivered after an epoch becomes durable, so a
+checkpoint supplied by ``DenseTrainingProgress/checkpoint`` contains the matching parameters,
+optimizer moments, partitions, loss history, and next epoch:
+
+```swift
+let options = try DenseTrainingOptions(
+    earlyStopping: DenseEarlyStoppingConfiguration(
+        patience: 8,
+        minimumImprovement: 0.0001
+    ),
+    checkpointInterval: 5
+)
+let result = try await DenseCPUTrainer().train(
+    samples,
+    configuration: configuration,
+    options: options
+) { update in
+    if let checkpoint = update.checkpoint {
+        try await checkpointStore.save(checkpoint)
+    }
+}
+```
+
+The callback is awaited before training continues. It can update an actor-isolated UI or throw
+to stop the run; ordinary task cancellation is also checked between samples, batches, graph
+executions, metrics passes, and epochs. ``DenseTrainingCheckpoint`` is `Codable` and binds its
+schema to ``DenseTrainingCheckpoint/currentFormatVersion`` and its state to the ordered sample
+content using ``DenseTrainingCheckpoint/sampleFingerprint``. Resume
+with the same concrete trainer or let ``DenseTrainer/resume(_:samples:progress:)`` select the
+backend recorded by ``DenseTrainingCheckpoint/backend``:
+
+```swift
+let checkpoint = try JSONDecoder().decode(
+    DenseTrainingCheckpoint.self,
+    from: savedData
+)
+let result = try await DenseTrainer().resume(checkpoint, samples: samples)
+```
+
+Resume rejects reordered or changed samples and refuses CPU/Metal or Metal-device changes.
+This preserves optimizer and numerical semantics instead of treating a saved model as a full
+training checkpoint. ``DenseTrainingResult/stopReason`` distinguishes the configured epoch limit
+from early stopping. When requested, an early-stopped result restores the best model while its
+checkpoint retains the exact final optimizer state.
+
 ## Train with Metal Performance Shaders Graph
 
 ``DenseMPSGraphTrainer`` executes batched forward evaluation and automatic
@@ -125,3 +173,18 @@ reference semantics.
 Use ``DenseCPUTrainer`` when exact cross-machine seed reproducibility is required.
 GPU scheduling and float32 arithmetic can introduce small backend-dependent numeric
 differences even though ordering, shapes, objectives, and update equations match.
+
+For policy-based selection, use ``DenseTrainer`` with a
+``DenseTrainingExecutionPolicy``. CPU fallback is explicit and applies only when Metal cannot be
+constructed before a run starts; a graph or numerical failure never causes the operation to be
+replayed silently on another backend:
+
+```swift
+let trainer = DenseTrainer(
+    executionPolicy: DenseTrainingExecutionPolicy(
+        preference: .automatic,
+        fallback: .cpu
+    )
+)
+let result = try await trainer.train(samples, configuration: configuration)
+```

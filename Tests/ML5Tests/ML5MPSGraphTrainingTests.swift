@@ -5,6 +5,18 @@
 
     @testable import ML5
 
+    private enum MPSPause: Error {
+        case captured
+    }
+
+    private actor MPSCheckpointRecorder {
+        private(set) var checkpoint: DenseTrainingCheckpoint?
+
+        func record(_ value: DenseTrainingCheckpoint?) {
+            checkpoint = value
+        }
+    }
+
     @Suite("ML5 MPSGraph training")
     struct ML5MPSGraphTrainingTests {
         @Test("Trainer construction exposes selected devices and explicit failures")
@@ -174,6 +186,92 @@
             )
             #expect(throws: ML5Error.self) {
                 _ = try MPSGraphDenseBatch.values(for: parameter, count: 1, results: [:])
+            }
+        }
+
+        @Test("Metal checkpoints resume only on the same device")
+        func checkpointResume() async throws {
+            let trainer = try DenseMPSGraphTrainer()
+            let sample = try DenseTrainingSample(
+                features: FeatureVector(["x": .number(1)]),
+                targets: [2]
+            )
+            let configuration = try DenseNetworkConfiguration(
+                inputFeatures: ["x"],
+                outputNames: ["y"],
+                weightInitialization: .zeros,
+                optimizer: .stochasticGradientDescent,
+                learningRate: 0.05,
+                batchSize: 1,
+                epochs: 2,
+                validationFraction: 0,
+                seed: 2
+            )
+            let recorder = MPSCheckpointRecorder()
+            do {
+                _ = try await trainer.train(
+                    [sample],
+                    configuration: configuration,
+                    options: DenseTrainingOptions(checkpointInterval: 1)
+                ) { update in
+                    await recorder.record(update.checkpoint)
+                    throw MPSPause.captured
+                }
+                Issue.record("The progress handler should stop the first run.")
+            } catch MPSPause.captured {
+            }
+
+            let checkpoint = try #require(await recorder.checkpoint)
+            #expect(checkpoint.backend == .metal(deviceName: trainer.deviceName))
+            let resumed = try await trainer.resume(checkpoint, samples: [sample])
+            #expect(resumed.history.count == 2)
+            #expect(resumed.stopReason == .completed)
+
+            let highLevel = DenseTrainer(
+                executionPolicy: DenseTrainingExecutionPolicy(
+                    preference: .metal,
+                    fallback: .none
+                ),
+                makeMetalTrainer: { trainer }
+            )
+            #expect(
+                try await highLevel.resume(checkpoint, samples: [sample]).backend
+                    == checkpoint.backend
+            )
+            #expect(
+                try await highLevel.train([sample], configuration: configuration).backend
+                    == checkpoint.backend
+            )
+            #expect(
+                try await DenseTrainer().train([sample], configuration: configuration).backend
+                    == checkpoint.backend
+            )
+
+            let cpuResult = try await DenseCPUTrainer().train(
+                [sample],
+                configuration: configuration
+            )
+            await #expect(throws: ML5Error.self) {
+                _ = try await trainer.resume(cpuResult.checkpoint, samples: [sample])
+            }
+            let wrongDevice = try DenseTrainingCheckpoint(
+                configuration: checkpoint.configuration,
+                options: checkpoint.options,
+                completedEpochs: checkpoint.completedEpochs,
+                history: checkpoint.history,
+                sampleCount: checkpoint.sampleCount,
+                sampleFingerprint: checkpoint.sampleFingerprint,
+                backend: .metal(deviceName: "Different Metal Device"),
+                optimizerStep: checkpoint.optimizerStep,
+                trainingIndices: checkpoint.trainingIndices,
+                validationIndices: checkpoint.validationIndices,
+                layers: checkpoint.layers,
+                bestLoss: checkpoint.bestLoss,
+                bestLayers: checkpoint.bestLayers,
+                staleEpochCount: checkpoint.staleEpochCount
+            )
+            await #expect(throws: ML5Error.self) {
+                _ = try await trainer.resume(wrongDevice, samples: [sample])
             }
         }
     }

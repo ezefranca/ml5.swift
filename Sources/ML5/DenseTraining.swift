@@ -84,14 +84,403 @@ public struct DenseTrainingSample: Sendable, Hashable, Codable {
 }
 
 /// Loss measurements captured after one complete training epoch.
-public struct DenseEpochMetrics: Sendable, Hashable {
+public struct DenseEpochMetrics: Sendable, Hashable, Codable {
     /// One-based epoch number.
     public let epoch: Int
     /// Mean loss across the epoch's training partition after updates.
     public let trainingLoss: Double
     /// Mean loss across the held-out validation partition, or `nil` when it is empty.
     public let validationLoss: Double?
+
+    /// Creates validated finite measurements for a one-based epoch.
+    ///
+    /// - Throws: ``ML5Error/invalidTrainingConfiguration(reason:)`` when the epoch is not
+    ///   positive or either supplied loss is nonfinite.
+    public init(epoch: Int, trainingLoss: Double, validationLoss: Double?) throws {
+        guard epoch > 0 else {
+            throw ML5Error.invalidTrainingConfiguration(
+                reason: "Training metric epochs must be positive."
+            )
+        }
+        guard trainingLoss.isFinite, validationLoss?.isFinite ?? true else {
+            throw ML5Error.invalidTrainingConfiguration(
+                reason: "Training metrics must contain finite losses."
+            )
+        }
+        self.epoch = epoch
+        self.trainingLoss = trainingLoss
+        self.validationLoss = validationLoss
+    }
+
+    /// Decodes and revalidates persisted epoch metrics.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        try self.init(
+            epoch: container.decode(Int.self, forKey: .epoch),
+            trainingLoss: container.decode(Double.self, forKey: .trainingLoss),
+            validationLoss: container.decodeIfPresent(Double.self, forKey: .validationLoss)
+        )
+    }
+
+    /// Encodes the epoch and its training and optional validation losses.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(epoch, forKey: .epoch)
+        try container.encode(trainingLoss, forKey: .trainingLoss)
+        try container.encodeIfPresent(validationLoss, forKey: .validationLoss)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case epoch
+        case trainingLoss
+        case validationLoss
+    }
 }
+
+/// The concrete compute backend that performed dense training.
+public enum DenseTrainingBackend: Sendable, Hashable, Codable {
+    /// Deterministic scalar CPU execution.
+    case cpu
+    /// Metal Performance Shaders Graph execution on the named device.
+    case metal(deviceName: String)
+}
+
+/// Why a dense training run returned control to its caller.
+public enum DenseTrainingStopReason: String, Sendable, Hashable, Codable {
+    /// Every configured epoch completed.
+    case completed
+    /// Validation or training loss stopped improving for the configured patience.
+    case earlyStopping
+}
+
+/// Validated loss-monitoring behavior for ending training before its epoch limit.
+public struct DenseEarlyStoppingConfiguration: Sendable, Hashable, Codable {
+    /// Number of consecutive non-improving epochs accepted before stopping.
+    public let patience: Int
+    /// Smallest absolute loss reduction considered an improvement.
+    public let minimumImprovement: Double
+    /// Whether the returned model restores the best observed parameters.
+    public let restoresBestModel: Bool
+
+    /// Creates an early-stopping policy.
+    ///
+    /// - Throws: ``ML5Error/invalidTrainingConfiguration(reason:)`` when patience is not
+    ///   positive or the minimum improvement is negative or nonfinite.
+    public init(
+        patience: Int,
+        minimumImprovement: Double = 0,
+        restoresBestModel: Bool = true
+    ) throws {
+        guard patience > 0 else {
+            throw ML5Error.invalidTrainingConfiguration(
+                reason: "Early-stopping patience must be greater than zero."
+            )
+        }
+        guard minimumImprovement.isFinite, minimumImprovement >= 0 else {
+            throw ML5Error.invalidTrainingConfiguration(
+                reason: "Early-stopping minimum improvement must be finite and nonnegative."
+            )
+        }
+        self.patience = patience
+        self.minimumImprovement = minimumImprovement
+        self.restoresBestModel = restoresBestModel
+    }
+
+    /// Decodes and revalidates a persisted early-stopping policy.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        try self.init(
+            patience: container.decode(Int.self, forKey: .patience),
+            minimumImprovement: container.decode(Double.self, forKey: .minimumImprovement),
+            restoresBestModel: container.decode(Bool.self, forKey: .restoresBestModel)
+        )
+    }
+
+    /// Encodes the complete early-stopping policy.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(patience, forKey: .patience)
+        try container.encode(minimumImprovement, forKey: .minimumImprovement)
+        try container.encode(restoresBestModel, forKey: .restoresBestModel)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case patience
+        case minimumImprovement
+        case restoresBestModel
+    }
+}
+
+/// Lifecycle controls shared by CPU and Metal dense trainers.
+public struct DenseTrainingOptions: Sendable, Hashable, Codable {
+    /// Optional early-stopping behavior.
+    public let earlyStopping: DenseEarlyStoppingConfiguration?
+    /// Epoch interval at which progress updates include resumable checkpoints.
+    public let checkpointInterval: Int?
+
+    /// Creates lifecycle controls with optional early stopping and checkpoint emission.
+    ///
+    /// - Throws: ``ML5Error/invalidTrainingConfiguration(reason:)`` when a checkpoint interval
+    ///   is present but not positive.
+    public init(
+        earlyStopping: DenseEarlyStoppingConfiguration? = nil,
+        checkpointInterval: Int? = nil
+    ) throws {
+        guard checkpointInterval.map({ $0 > 0 }) ?? true else {
+            throw ML5Error.invalidTrainingConfiguration(
+                reason: "Checkpoint intervals must be greater than zero."
+            )
+        }
+        self.earlyStopping = earlyStopping
+        self.checkpointInterval = checkpointInterval
+    }
+
+    private init(standard: Void) {
+        earlyStopping = nil
+        checkpointInterval = nil
+    }
+
+    /// Lifecycle controls that run every configured epoch without intermediate checkpoints.
+    public static let standard = Self(standard: ())
+
+    /// Decodes and revalidates persisted lifecycle controls.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        try self.init(
+            earlyStopping: container.decodeIfPresent(
+                DenseEarlyStoppingConfiguration.self,
+                forKey: .earlyStopping
+            ),
+            checkpointInterval: container.decodeIfPresent(Int.self, forKey: .checkpointInterval)
+        )
+    }
+
+    /// Encodes early-stopping and checkpoint-emission controls.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(earlyStopping, forKey: .earlyStopping)
+        try container.encodeIfPresent(checkpointInterval, forKey: .checkpointInterval)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case earlyStopping
+        case checkpointInterval
+    }
+}
+
+/// A serializable optimizer-complete snapshot that can resume dense training exactly.
+public struct DenseTrainingCheckpoint: Sendable, Hashable, Codable {
+    /// Checkpoint schema version written by this release.
+    public static let currentFormatVersion = 1
+    /// Persisted schema version used to reject unsupported future checkpoint layouts.
+    public let formatVersion: Int
+    /// Training architecture and hyperparameters captured by the checkpoint.
+    public let configuration: DenseNetworkConfiguration
+    /// Lifecycle controls captured by the checkpoint.
+    public let options: DenseTrainingOptions
+    /// Number of fully completed epochs.
+    public let completedEpochs: Int
+    /// Metrics for every completed epoch.
+    public let history: [DenseEpochMetrics]
+    /// Number of samples whose ordered content is bound to this checkpoint.
+    public let sampleCount: Int
+    /// Stable identity of the ordered training samples.
+    public let sampleFingerprint: UInt64
+
+    /// Compute backend whose numerical state must be used when resuming.
+    public let backend: DenseTrainingBackend
+    let optimizerStep: Int
+    let trainingIndices: [Int]
+    let validationIndices: [Int]
+    let layers: [DenseLayerTrainingState]
+    let bestLoss: Double?
+    let bestLayers: [DenseLayerTrainingState]?
+    let staleEpochCount: Int
+
+    /// Reconstructs the current immutable model stored in this checkpoint.
+    ///
+    /// This is the current optimizer state, which can differ from a best model restored in an
+    /// early-stopped result.
+    public func makeModel() throws -> DenseNetworkModel {
+        try DenseNetworkModel(
+            configuration: configuration,
+            layers: layers.map(\.parameters)
+        )
+    }
+
+    init(
+        formatVersion: Int = Self.currentFormatVersion,
+        configuration: DenseNetworkConfiguration,
+        options: DenseTrainingOptions,
+        completedEpochs: Int,
+        history: [DenseEpochMetrics],
+        sampleCount: Int,
+        sampleFingerprint: UInt64,
+        backend: DenseTrainingBackend,
+        optimizerStep: Int,
+        trainingIndices: [Int],
+        validationIndices: [Int],
+        layers: [DenseLayerTrainingState],
+        bestLoss: Double?,
+        bestLayers: [DenseLayerTrainingState]?,
+        staleEpochCount: Int
+    ) throws {
+        guard formatVersion == Self.currentFormatVersion else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Unsupported checkpoint format version \(formatVersion)."
+            )
+        }
+        guard (0...configuration.epochs).contains(completedEpochs) else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Completed epochs must be within the configured epoch range."
+            )
+        }
+        guard history.count == completedEpochs,
+            history.enumerated().allSatisfy({ $0.offset + 1 == $0.element.epoch })
+        else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "History must contain one ordered metric per completed epoch."
+            )
+        }
+        guard sampleCount > 0 else {
+            throw ML5Error.invalidTrainingCheckpoint(reason: "Sample count must be positive.")
+        }
+        let allIndices = trainingIndices + validationIndices
+        guard allIndices.sorted() == Array(0..<sampleCount) else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Training and validation indices must partition every sample exactly once."
+            )
+        }
+        let expectedValidationCount = Int(
+            Double(sampleCount) * configuration.validationFraction
+        )
+        guard validationIndices.count == expectedValidationCount else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Validation indices do not match the configured fraction."
+            )
+        }
+        guard optimizerStep >= 0, staleEpochCount >= 0 else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Optimizer and early-stopping counters cannot be negative."
+            )
+        }
+        guard bestLoss?.isFinite ?? true else {
+            throw ML5Error.invalidTrainingCheckpoint(reason: "Best loss must be finite.")
+        }
+        guard (bestLayers == nil) == (bestLoss == nil) else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Best loss and best parameter state must be present together."
+            )
+        }
+        _ = try DenseNetworkModel(
+            configuration: configuration,
+            layers: layers.map(\.parameters)
+        )
+        if let bestLayers {
+            _ = try DenseNetworkModel(
+                configuration: configuration,
+                layers: bestLayers.map(\.parameters)
+            )
+        }
+        self.formatVersion = formatVersion
+        self.configuration = configuration
+        self.options = options
+        self.completedEpochs = completedEpochs
+        self.history = history
+        self.sampleCount = sampleCount
+        self.sampleFingerprint = sampleFingerprint
+        self.backend = backend
+        self.optimizerStep = optimizerStep
+        self.trainingIndices = trainingIndices
+        self.validationIndices = validationIndices
+        self.layers = layers
+        self.bestLoss = bestLoss
+        self.bestLayers = bestLayers
+        self.staleEpochCount = staleEpochCount
+    }
+
+    /// Decodes and revalidates a persisted optimizer checkpoint.
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        try self.init(
+            formatVersion: container.decode(Int.self, forKey: .formatVersion),
+            configuration: container.decode(
+                DenseNetworkConfiguration.self,
+                forKey: .configuration
+            ),
+            options: container.decode(DenseTrainingOptions.self, forKey: .options),
+            completedEpochs: container.decode(Int.self, forKey: .completedEpochs),
+            history: container.decode([DenseEpochMetrics].self, forKey: .history),
+            sampleCount: container.decode(Int.self, forKey: .sampleCount),
+            sampleFingerprint: container.decode(UInt64.self, forKey: .sampleFingerprint),
+            backend: container.decode(DenseTrainingBackend.self, forKey: .backend),
+            optimizerStep: container.decode(Int.self, forKey: .optimizerStep),
+            trainingIndices: container.decode([Int].self, forKey: .trainingIndices),
+            validationIndices: container.decode([Int].self, forKey: .validationIndices),
+            layers: container.decode([DenseLayerTrainingState].self, forKey: .layers),
+            bestLoss: container.decodeIfPresent(Double.self, forKey: .bestLoss),
+            bestLayers: container.decodeIfPresent(
+                [DenseLayerTrainingState].self,
+                forKey: .bestLayers
+            ),
+            staleEpochCount: container.decode(Int.self, forKey: .staleEpochCount)
+        )
+    }
+
+    /// Encodes model parameters, optimizer moments, partitions, and lifecycle state.
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(formatVersion, forKey: .formatVersion)
+        try container.encode(configuration, forKey: .configuration)
+        try container.encode(options, forKey: .options)
+        try container.encode(completedEpochs, forKey: .completedEpochs)
+        try container.encode(history, forKey: .history)
+        try container.encode(sampleCount, forKey: .sampleCount)
+        try container.encode(sampleFingerprint, forKey: .sampleFingerprint)
+        try container.encode(backend, forKey: .backend)
+        try container.encode(optimizerStep, forKey: .optimizerStep)
+        try container.encode(trainingIndices, forKey: .trainingIndices)
+        try container.encode(validationIndices, forKey: .validationIndices)
+        try container.encode(layers, forKey: .layers)
+        try container.encodeIfPresent(bestLoss, forKey: .bestLoss)
+        try container.encodeIfPresent(bestLayers, forKey: .bestLayers)
+        try container.encode(staleEpochCount, forKey: .staleEpochCount)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case formatVersion
+        case configuration
+        case options
+        case completedEpochs
+        case history
+        case sampleCount
+        case sampleFingerprint
+        case backend
+        case optimizerStep
+        case trainingIndices
+        case validationIndices
+        case layers
+        case bestLoss
+        case bestLayers
+        case staleEpochCount
+    }
+}
+
+/// An immutable epoch update delivered by a dense trainer.
+public struct DenseTrainingProgress: Sendable, Hashable {
+    /// Metrics for the epoch that just completed.
+    public let metrics: DenseEpochMetrics
+    /// Total epoch limit in the training configuration.
+    public let totalEpochs: Int
+    /// Compute backend executing the training run.
+    public let backend: DenseTrainingBackend
+    /// Resumable state when the completed epoch matches the checkpoint interval.
+    public let checkpoint: DenseTrainingCheckpoint?
+}
+
+/// An asynchronous callback invoked after each completed dense-training epoch.
+public typealias DenseTrainingProgressHandler =
+    @Sendable (DenseTrainingProgress) async throws -> Void
 
 /// The immutable model and complete loss history produced by dense training.
 public struct DenseTrainingResult: Sendable, Hashable {
@@ -99,6 +488,12 @@ public struct DenseTrainingResult: Sendable, Hashable {
     public let model: DenseNetworkModel
     /// One metrics value for every completed epoch.
     public let history: [DenseEpochMetrics]
+    /// Compute backend that produced the result.
+    public let backend: DenseTrainingBackend
+    /// Whether the epoch limit completed or early stopping ended the run.
+    public let stopReason: DenseTrainingStopReason
+    /// Optimizer-complete state at the final executed epoch.
+    public let checkpoint: DenseTrainingCheckpoint
 }
 
 /// A deterministic reference trainer for small dense classification and regression models.
@@ -120,39 +515,68 @@ public struct DenseCPUTrainer: Sendable {
         _ samples: [DenseTrainingSample],
         configuration: DenseNetworkConfiguration
     ) async throws -> DenseTrainingResult {
+        try await train(
+            samples,
+            configuration: configuration,
+            options: .standard,
+            progress: nil
+        )
+    }
+
+    /// Fits an immutable dense model with progress, early stopping, and resumable checkpoints.
+    ///
+    /// The optional progress handler executes serially after each epoch. Throwing from the
+    /// handler immediately ends training with that error.
+    ///
+    /// - Throws: ``ML5Error`` for invalid inputs or state; `CancellationError` when cancelled;
+    ///   or an error propagated by `progress`.
+    public func train(
+        _ samples: [DenseTrainingSample],
+        configuration: DenseNetworkConfiguration,
+        options: DenseTrainingOptions,
+        progress: DenseTrainingProgressHandler? = nil
+    ) async throws -> DenseTrainingResult {
         try Task.checkCancellation()
         guard samples.isEmpty == false else {
             throw ML5Error.invalidTrainingSamples
         }
-        let prepared = try samples.map { try Self.prepare($0, configuration: configuration) }
-        var layers = try Self.initialize(configuration: configuration)
-        var indices = Array(prepared.indices)
+        _ = try samples.map { try Self.prepare($0, configuration: configuration) }
+        let layers = try Self.initialize(configuration: configuration)
+        var indices = Array(samples.indices)
         Self.shuffle(&indices, seed: configuration.seed)
         let validationCount = Int(Double(indices.count) * configuration.validationFraction)
         let trainingCount = indices.count - validationCount
         let trainingIndices = Array(indices[..<trainingCount])
         let validationIndices = Array(indices[trainingCount...])
-        var history: [DenseEpochMetrics] = []
-        history.reserveCapacity(configuration.epochs)
-        var optimizerStep = 0
-
-        for epochIndex in 0..<configuration.epochs {
-            try Task.checkCancellation()
-            var epochIndices = trainingIndices
-            Self.shuffle(&epochIndices, seed: configuration.seed &+ UInt64(epochIndex) &+ 1)
-            for batchStart in stride(
-                from: 0,
-                to: epochIndices.count,
-                by: configuration.batchSize
-            ) {
-                try Task.checkCancellation()
-                let batchEnd = min(batchStart + configuration.batchSize, epochIndices.count)
-                let batch = epochIndices[batchStart..<batchEnd]
+        let checkpoint = try DenseTrainingCheckpoint(
+            configuration: configuration,
+            options: options,
+            completedEpochs: 0,
+            history: [],
+            sampleCount: samples.count,
+            sampleFingerprint: try Self.fingerprint(samples),
+            backend: .cpu,
+            optimizerStep: 0,
+            trainingIndices: trainingIndices,
+            validationIndices: validationIndices,
+            layers: layers.map(DenseLayerTrainingState.init(layer:)),
+            bestLoss: nil,
+            bestLayers: nil,
+            staleEpochCount: 0
+        )
+        return try await Self.run(
+            samples,
+            checkpoint: checkpoint,
+            progress: progress,
+            gradientProvider: { batch, prepared, layers, configuration in
                 var gradients = layers.map(LayerGradients.init(layer:))
                 for sampleIndex in batch {
                     try Task.checkCancellation()
                     let pass = Self.forward(
-                        prepared[sampleIndex].input, layers: layers, configuration: configuration)
+                        prepared[sampleIndex].input,
+                        layers: layers,
+                        configuration: configuration
+                    )
                     try Self.accumulateGradients(
                         pass: pass,
                         target: prepared[sampleIndex].target,
@@ -161,10 +585,105 @@ public struct DenseCPUTrainer: Sendable {
                         gradients: &gradients
                     )
                 }
+                return (gradients, batch.count)
+            }
+        )
+    }
+
+    /// Continues a CPU checkpoint with the exact saved partitions, optimizer moments, and epoch.
+    ///
+    /// Samples must have the same order and content used to create the checkpoint.
+    ///
+    /// - Throws: ``ML5Error/invalidTrainingCheckpoint(reason:)`` for a different backend or
+    ///   dataset; otherwise the errors documented by ``train(_:configuration:options:progress:)``.
+    public func resume(
+        _ checkpoint: DenseTrainingCheckpoint,
+        samples: [DenseTrainingSample],
+        progress: DenseTrainingProgressHandler? = nil
+    ) async throws -> DenseTrainingResult {
+        guard checkpoint.backend == .cpu else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "A CPU trainer can resume only a CPU checkpoint."
+            )
+        }
+        return try await Self.run(
+            samples,
+            checkpoint: checkpoint,
+            progress: progress,
+            gradientProvider: { batch, prepared, layers, configuration in
+                var gradients = layers.map(LayerGradients.init(layer:))
+                for sampleIndex in batch {
+                    try Task.checkCancellation()
+                    let pass = Self.forward(
+                        prepared[sampleIndex].input,
+                        layers: layers,
+                        configuration: configuration
+                    )
+                    try Self.accumulateGradients(
+                        pass: pass,
+                        target: prepared[sampleIndex].target,
+                        layers: layers,
+                        configuration: configuration,
+                        gradients: &gradients
+                    )
+                }
+                return (gradients, batch.count)
+            }
+        )
+    }
+
+    fileprivate static func run(
+        _ samples: [DenseTrainingSample],
+        checkpoint: DenseTrainingCheckpoint,
+        progress: DenseTrainingProgressHandler?,
+        gradientProvider:
+            @Sendable (
+                _ batch: [Int],
+                _ samples: [PreparedSample],
+                _ layers: [TrainableLayer],
+                _ configuration: DenseNetworkConfiguration
+            ) throws -> ([LayerGradients], Int)
+    ) async throws -> DenseTrainingResult {
+        try Task.checkCancellation()
+        guard samples.count == checkpoint.sampleCount,
+            try Self.fingerprint(samples) == checkpoint.sampleFingerprint
+        else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "The ordered samples do not match the checkpoint dataset."
+            )
+        }
+        let configuration = checkpoint.configuration
+        let prepared = try samples.map { try Self.prepare($0, configuration: configuration) }
+        var layers = checkpoint.layers.map(\.trainableLayer)
+        var history = checkpoint.history
+        history.reserveCapacity(configuration.epochs)
+        var optimizerStep = checkpoint.optimizerStep
+        var bestLoss = checkpoint.bestLoss
+        var bestLayers = checkpoint.bestLayers?.map(\.trainableLayer)
+        var staleEpochCount = checkpoint.staleEpochCount
+        var stopReason = DenseTrainingStopReason.completed
+
+        for epochIndex in checkpoint.completedEpochs..<configuration.epochs {
+            try Task.checkCancellation()
+            var epochIndices = checkpoint.trainingIndices
+            Self.shuffle(&epochIndices, seed: configuration.seed &+ UInt64(epochIndex) &+ 1)
+            for batchStart in stride(
+                from: 0,
+                to: epochIndices.count,
+                by: configuration.batchSize
+            ) {
+                try Task.checkCancellation()
+                let batchEnd = min(batchStart + configuration.batchSize, epochIndices.count)
+                let (gradients, gradientSampleCount) = try gradientProvider(
+                    Array(epochIndices[batchStart..<batchEnd]),
+                    prepared,
+                    layers,
+                    configuration
+                )
                 optimizerStep += 1
                 try Self.apply(
                     gradients: gradients,
-                    sampleCount: batch.count,
+                    sampleCount: gradientSampleCount,
                     step: optimizerStep,
                     configuration: configuration,
                     layers: &layers
@@ -172,34 +691,134 @@ public struct DenseCPUTrainer: Sendable {
             }
 
             let trainingLoss = try Self.meanLoss(
-                indices: trainingIndices,
+                indices: checkpoint.trainingIndices,
                 samples: prepared,
                 layers: layers,
                 configuration: configuration
             )
             let validationLoss =
-                validationIndices.isEmpty
+                checkpoint.validationIndices.isEmpty
                 ? nil
                 : try Self.meanLoss(
-                    indices: validationIndices,
+                    indices: checkpoint.validationIndices,
                     samples: prepared,
                     layers: layers,
                     configuration: configuration
                 )
-            history.append(
-                DenseEpochMetrics(
-                    epoch: epochIndex + 1,
-                    trainingLoss: trainingLoss,
-                    validationLoss: validationLoss
-                )
+            let metrics = try DenseEpochMetrics(
+                epoch: epochIndex + 1,
+                trainingLoss: trainingLoss,
+                validationLoss: validationLoss
             )
+            history.append(metrics)
+
+            var shouldStop = false
+            if let earlyStopping = checkpoint.options.earlyStopping {
+                let monitoredLoss = validationLoss ?? trainingLoss
+                if bestLoss.map({ $0 - monitoredLoss > earlyStopping.minimumImprovement }) ?? true {
+                    bestLoss = monitoredLoss
+                    bestLayers = layers
+                    staleEpochCount = 0
+                } else {
+                    staleEpochCount += 1
+                    shouldStop = staleEpochCount >= earlyStopping.patience
+                }
+            }
+
+            let includesCheckpoint =
+                checkpoint.options.checkpointInterval.map {
+                    metrics.epoch.isMultiple(of: $0)
+                } ?? false
+            let currentCheckpoint = try Self.checkpoint(
+                template: checkpoint,
+                completedEpochs: metrics.epoch,
+                history: history,
+                optimizerStep: optimizerStep,
+                layers: layers,
+                bestLoss: bestLoss,
+                bestLayers: bestLayers,
+                staleEpochCount: staleEpochCount
+            )
+            if let progress {
+                try await progress(
+                    DenseTrainingProgress(
+                        metrics: metrics,
+                        totalEpochs: configuration.epochs,
+                        backend: checkpoint.backend,
+                        checkpoint: includesCheckpoint ? currentCheckpoint : nil
+                    )
+                )
+            }
+            if shouldStop {
+                stopReason = .earlyStopping
+                break
+            }
             await Task.yield()
         }
         try Task.checkCancellation()
-        return DenseTrainingResult(
-            model: try Self.model(configuration: configuration, layers: layers),
-            history: history
+        let finalCheckpoint = try Self.checkpoint(
+            template: checkpoint,
+            completedEpochs: history.count,
+            history: history,
+            optimizerStep: optimizerStep,
+            layers: layers,
+            bestLoss: bestLoss,
+            bestLayers: bestLayers,
+            staleEpochCount: staleEpochCount
         )
+        let resultLayers: [TrainableLayer]
+        if stopReason == .earlyStopping,
+            checkpoint.options.earlyStopping?.restoresBestModel == true,
+            let bestLayers
+        {
+            resultLayers = bestLayers
+        } else {
+            resultLayers = layers
+        }
+        return DenseTrainingResult(
+            model: try Self.model(configuration: configuration, layers: resultLayers),
+            history: history,
+            backend: checkpoint.backend,
+            stopReason: stopReason,
+            checkpoint: finalCheckpoint
+        )
+    }
+
+    fileprivate static func checkpoint(
+        template: DenseTrainingCheckpoint,
+        completedEpochs: Int,
+        history: [DenseEpochMetrics],
+        optimizerStep: Int,
+        layers: [TrainableLayer],
+        bestLoss: Double?,
+        bestLayers: [TrainableLayer]?,
+        staleEpochCount: Int
+    ) throws -> DenseTrainingCheckpoint {
+        try DenseTrainingCheckpoint(
+            configuration: template.configuration,
+            options: template.options,
+            completedEpochs: completedEpochs,
+            history: history,
+            sampleCount: template.sampleCount,
+            sampleFingerprint: template.sampleFingerprint,
+            backend: template.backend,
+            optimizerStep: optimizerStep,
+            trainingIndices: template.trainingIndices,
+            validationIndices: template.validationIndices,
+            layers: layers.map(DenseLayerTrainingState.init(layer:)),
+            bestLoss: bestLoss,
+            bestLayers: bestLayers?.map(DenseLayerTrainingState.init(layer:)),
+            staleEpochCount: staleEpochCount
+        )
+    }
+
+    fileprivate static func fingerprint(_ samples: [DenseTrainingSample]) throws -> UInt64 {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys]
+        let data = try encoder.encode(samples)
+        return data.reduce(0xcbf2_9ce4_8422_2325) { hash, byte in
+            (hash ^ UInt64(byte)) &* 0x0000_0100_0000_01B3
+        }
     }
 
     fileprivate static func prepare(
@@ -587,85 +1206,99 @@ public struct DenseCPUTrainer: Sendable {
             _ samples: [DenseTrainingSample],
             configuration: DenseNetworkConfiguration
         ) async throws -> DenseTrainingResult {
+            try await train(
+                samples,
+                configuration: configuration,
+                options: .standard,
+                progress: nil
+            )
+        }
+
+        /// Fits a dense model on Metal with progress, early stopping, and resumable checkpoints.
+        ///
+        /// - Throws: ``ML5Error`` for invalid inputs, graph failures, or state; `CancellationError`
+        ///   when cancelled; or an error propagated by `progress`.
+        public func train(
+            _ samples: [DenseTrainingSample],
+            configuration: DenseNetworkConfiguration,
+            options: DenseTrainingOptions,
+            progress: DenseTrainingProgressHandler? = nil
+        ) async throws -> DenseTrainingResult {
             try Task.checkCancellation()
             guard samples.isEmpty == false else {
                 throw ML5Error.invalidTrainingSamples
             }
-            let prepared = try samples.map {
+            _ = try samples.map {
                 try DenseCPUTrainer.prepare($0, configuration: configuration)
             }
-            var layers = try DenseCPUTrainer.initialize(configuration: configuration)
-            var indices = Array(prepared.indices)
+            let layers = try DenseCPUTrainer.initialize(configuration: configuration)
+            var indices = Array(samples.indices)
             DenseCPUTrainer.shuffle(&indices, seed: configuration.seed)
             let validationCount = Int(Double(indices.count) * configuration.validationFraction)
             let trainingCount = indices.count - validationCount
             let trainingIndices = Array(indices[..<trainingCount])
             let validationIndices = Array(indices[trainingCount...])
-            var history: [DenseEpochMetrics] = []
-            history.reserveCapacity(configuration.epochs)
-            var optimizerStep = 0
+            let checkpoint = try DenseTrainingCheckpoint(
+                configuration: configuration,
+                options: options,
+                completedEpochs: 0,
+                history: [],
+                sampleCount: samples.count,
+                sampleFingerprint: try DenseCPUTrainer.fingerprint(samples),
+                backend: .metal(deviceName: deviceName),
+                optimizerStep: 0,
+                trainingIndices: trainingIndices,
+                validationIndices: validationIndices,
+                layers: layers.map(DenseLayerTrainingState.init(layer:)),
+                bestLoss: nil,
+                bestLayers: nil,
+                staleEpochCount: 0
+            )
+            return try await run(samples, checkpoint: checkpoint, progress: progress)
+        }
 
-            for epochIndex in 0..<configuration.epochs {
-                try Task.checkCancellation()
-                var epochIndices = trainingIndices
-                DenseCPUTrainer.shuffle(
-                    &epochIndices,
-                    seed: configuration.seed &+ UInt64(epochIndex) &+ 1
+        /// Continues a checkpoint made on this named Metal device.
+        ///
+        /// - Throws: ``ML5Error/invalidTrainingCheckpoint(reason:)`` when the checkpoint uses a
+        ///   different backend or device; otherwise the errors documented by
+        ///   ``train(_:configuration:options:progress:)``.
+        public func resume(
+            _ checkpoint: DenseTrainingCheckpoint,
+            samples: [DenseTrainingSample],
+            progress: DenseTrainingProgressHandler? = nil
+        ) async throws -> DenseTrainingResult {
+            guard checkpoint.backend == .metal(deviceName: deviceName) else {
+                throw ML5Error.invalidTrainingCheckpoint(
+                    reason: "A Metal trainer can resume only a checkpoint from the same device."
                 )
-                for batchStart in stride(
-                    from: 0,
-                    to: epochIndices.count,
-                    by: configuration.batchSize
-                ) {
-                    try Task.checkCancellation()
-                    let batchEnd = min(batchStart + configuration.batchSize, epochIndices.count)
-                    let gradients = try MPSGraphDenseBatch.gradients(
-                        sampleIndices: Array(epochIndices[batchStart..<batchEnd]),
-                        samples: prepared,
-                        layers: layers,
-                        configuration: configuration,
-                        device: device,
-                        commandQueue: commandQueue
-                    )
-                    optimizerStep += 1
-                    // MPSGraph losses already average over the batch.
-                    try DenseCPUTrainer.apply(
-                        gradients: gradients,
-                        sampleCount: 1,
-                        step: optimizerStep,
-                        configuration: configuration,
-                        layers: &layers
+            }
+            return try await run(samples, checkpoint: checkpoint, progress: progress)
+        }
+
+        private func run(
+            _ samples: [DenseTrainingSample],
+            checkpoint: DenseTrainingCheckpoint,
+            progress: DenseTrainingProgressHandler?
+        ) async throws -> DenseTrainingResult {
+            let selectedDevice = device
+            let selectedCommandQueue = commandQueue
+            return try await DenseCPUTrainer.run(
+                samples,
+                checkpoint: checkpoint,
+                progress: progress,
+                gradientProvider: { batch, prepared, layers, configuration in
+                    (
+                        try MPSGraphDenseBatch.gradients(
+                            sampleIndices: batch,
+                            samples: prepared,
+                            layers: layers,
+                            configuration: configuration,
+                            device: selectedDevice,
+                            commandQueue: selectedCommandQueue
+                        ),
+                        1
                     )
                 }
-
-                let trainingLoss = try DenseCPUTrainer.meanLoss(
-                    indices: trainingIndices,
-                    samples: prepared,
-                    layers: layers,
-                    configuration: configuration
-                )
-                let validationLoss =
-                    validationIndices.isEmpty
-                    ? nil
-                    : try DenseCPUTrainer.meanLoss(
-                        indices: validationIndices,
-                        samples: prepared,
-                        layers: layers,
-                        configuration: configuration
-                    )
-                history.append(
-                    DenseEpochMetrics(
-                        epoch: epochIndex + 1,
-                        trainingLoss: trainingLoss,
-                        validationLoss: validationLoss
-                    )
-                )
-                await Task.yield()
-            }
-            try Task.checkCancellation()
-            return DenseTrainingResult(
-                model: try DenseCPUTrainer.model(configuration: configuration, layers: layers),
-                history: history
             )
         }
     }
@@ -931,6 +1564,157 @@ public struct DenseCPUTrainer: Sendable {
     }
 #endif
 
+/// Preferred compute device for high-level dense training.
+public enum DenseTrainingDevicePreference: String, Sendable, Hashable, Codable {
+    /// Select Metal when available and otherwise apply the configured fallback.
+    case automatic
+    /// Always use deterministic scalar CPU training.
+    case cpu
+    /// Request the system's default Metal device.
+    case metal
+}
+
+/// Behavior when a requested automatic or Metal training device cannot be constructed.
+public enum DenseTrainingFallback: String, Sendable, Hashable, Codable {
+    /// Report accelerator construction failure to the caller.
+    case none
+    /// Continue with deterministic CPU training.
+    case cpu
+}
+
+/// Explicit device-selection and fallback policy for ``DenseTrainer``.
+public struct DenseTrainingExecutionPolicy: Sendable, Hashable, Codable {
+    /// Preferred compute device.
+    public let preference: DenseTrainingDevicePreference
+    /// Behavior used only when Metal is unavailable before training begins.
+    public let fallback: DenseTrainingFallback
+
+    /// Creates an explicit device-selection policy.
+    public init(
+        preference: DenseTrainingDevicePreference = .automatic,
+        fallback: DenseTrainingFallback = .cpu
+    ) {
+        self.preference = preference
+        self.fallback = fallback
+    }
+}
+
+/// A stateless high-level trainer that applies an explicit CPU/Metal selection policy.
+///
+/// CPU fallback occurs only when a Metal trainer cannot be constructed. Errors after training
+/// begins are returned rather than replaying updates on a numerically different backend.
+public struct DenseTrainer: Sendable {
+    /// Device and fallback behavior used for new runs.
+    public let executionPolicy: DenseTrainingExecutionPolicy
+
+    #if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+        private let makeMetalTrainer: @Sendable () throws -> DenseMPSGraphTrainer
+    #endif
+
+    /// Creates a high-level trainer with explicit execution behavior.
+    public init(executionPolicy: DenseTrainingExecutionPolicy = .init()) {
+        self.executionPolicy = executionPolicy
+        #if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+            makeMetalTrainer = { try DenseMPSGraphTrainer() }
+        #endif
+    }
+
+    #if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+        init(
+            executionPolicy: DenseTrainingExecutionPolicy,
+            makeMetalTrainer: @escaping @Sendable () throws -> DenseMPSGraphTrainer
+        ) {
+            self.executionPolicy = executionPolicy
+            self.makeMetalTrainer = makeMetalTrainer
+        }
+    #endif
+
+    /// Fits a model on the selected backend with progress and lifecycle controls.
+    ///
+    /// - Throws: Accelerator construction errors when fallback is disabled, or the errors
+    ///   documented by the selected concrete trainer.
+    public func train(
+        _ samples: [DenseTrainingSample],
+        configuration: DenseNetworkConfiguration,
+        options: DenseTrainingOptions = .standard,
+        progress: DenseTrainingProgressHandler? = nil
+    ) async throws -> DenseTrainingResult {
+        switch executionPolicy.preference {
+        case .cpu:
+            return try await DenseCPUTrainer().train(
+                samples,
+                configuration: configuration,
+                options: options,
+                progress: progress
+            )
+        case .automatic, .metal:
+            #if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+                let trainer: DenseMPSGraphTrainer
+                do {
+                    trainer = try makeMetalTrainer()
+                } catch {
+                    guard executionPolicy.fallback == .cpu else { throw error }
+                    return try await DenseCPUTrainer().train(
+                        samples,
+                        configuration: configuration,
+                        options: options,
+                        progress: progress
+                    )
+                }
+                return try await trainer.train(
+                    samples,
+                    configuration: configuration,
+                    options: options,
+                    progress: progress
+                )
+            #else
+                guard executionPolicy.fallback == .cpu else {
+                    throw ML5Error.trainingAcceleratorUnavailable(
+                        reason: "Metal Performance Shaders Graph is unavailable on this platform."
+                    )
+                }
+                return try await DenseCPUTrainer().train(
+                    samples,
+                    configuration: configuration,
+                    options: options,
+                    progress: progress
+                )
+            #endif
+        }
+    }
+
+    /// Resumes on the backend recorded in a checkpoint without numerical fallback.
+    ///
+    /// - Throws: An accelerator or checkpoint error if the recorded backend is unavailable or
+    ///   differs from the selected Metal device.
+    public func resume(
+        _ checkpoint: DenseTrainingCheckpoint,
+        samples: [DenseTrainingSample],
+        progress: DenseTrainingProgressHandler? = nil
+    ) async throws -> DenseTrainingResult {
+        switch checkpoint.backend {
+        case .cpu:
+            return try await DenseCPUTrainer().resume(
+                checkpoint,
+                samples: samples,
+                progress: progress
+            )
+        case .metal:
+            #if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+                return try await makeMetalTrainer().resume(
+                    checkpoint,
+                    samples: samples,
+                    progress: progress
+                )
+            #else
+                throw ML5Error.trainingAcceleratorUnavailable(
+                    reason: "Metal Performance Shaders Graph is unavailable on this platform."
+                )
+            #endif
+        }
+    }
+}
+
 extension DenseNetworkMath {
     static func derivative(
         preactivation: Double,
@@ -952,17 +1736,17 @@ extension DenseNetworkMath {
     }
 }
 
-private struct PreparedSample {
+private struct PreparedSample: Sendable {
     let input: [Double]
     let target: [Double]
 }
 
-private struct ForwardPass {
+private struct ForwardPass: Sendable {
     let activations: [[Double]]
     let preactivations: [[Double]]
 }
 
-private struct LayerGradients {
+private struct LayerGradients: Sendable {
     var weights: [Double]
     var biases: [Double]
 
@@ -977,7 +1761,99 @@ private struct LayerGradients {
     }
 }
 
-private struct TrainableLayer {
+struct DenseLayerTrainingState: Sendable, Hashable, Codable {
+    let parameters: DenseLayerParameters
+    let weightVelocity: [Double]
+    let biasVelocity: [Double]
+    let weightFirstMoment: [Double]
+    let biasFirstMoment: [Double]
+    let weightSecondMoment: [Double]
+    let biasSecondMoment: [Double]
+
+    init(layer: TrainableLayer) {
+        parameters = DenseLayerParameters(
+            validatedInputCount: layer.inputCount,
+            validatedOutputCount: layer.outputCount,
+            weights: layer.weights,
+            biases: layer.biases
+        )
+        weightVelocity = layer.weightVelocity
+        biasVelocity = layer.biasVelocity
+        weightFirstMoment = layer.weightFirstMoment
+        biasFirstMoment = layer.biasFirstMoment
+        weightSecondMoment = layer.weightSecondMoment
+        biasSecondMoment = layer.biasSecondMoment
+    }
+
+    init(
+        parameters: DenseLayerParameters,
+        weightVelocity: [Double],
+        biasVelocity: [Double],
+        weightFirstMoment: [Double],
+        biasFirstMoment: [Double],
+        weightSecondMoment: [Double],
+        biasSecondMoment: [Double]
+    ) throws {
+        let weightCollections = [
+            weightVelocity,
+            weightFirstMoment,
+            weightSecondMoment,
+        ]
+        let biasCollections = [
+            biasVelocity,
+            biasFirstMoment,
+            biasSecondMoment,
+        ]
+        guard weightCollections.allSatisfy({ $0.count == parameters.weights.count }),
+            biasCollections.allSatisfy({ $0.count == parameters.biases.count })
+        else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Optimizer storage must match its layer parameter counts."
+            )
+        }
+        guard weightCollections.joined().allSatisfy(\.isFinite),
+            biasCollections.joined().allSatisfy(\.isFinite)
+        else {
+            throw ML5Error.invalidTrainingCheckpoint(
+                reason: "Optimizer storage must contain only finite values."
+            )
+        }
+        self.parameters = parameters
+        self.weightVelocity = weightVelocity
+        self.biasVelocity = biasVelocity
+        self.weightFirstMoment = weightFirstMoment
+        self.biasFirstMoment = biasFirstMoment
+        self.weightSecondMoment = weightSecondMoment
+        self.biasSecondMoment = biasSecondMoment
+    }
+
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        try self.init(
+            parameters: container.decode(DenseLayerParameters.self, forKey: .parameters),
+            weightVelocity: container.decode([Double].self, forKey: .weightVelocity),
+            biasVelocity: container.decode([Double].self, forKey: .biasVelocity),
+            weightFirstMoment: container.decode([Double].self, forKey: .weightFirstMoment),
+            biasFirstMoment: container.decode([Double].self, forKey: .biasFirstMoment),
+            weightSecondMoment: container.decode([Double].self, forKey: .weightSecondMoment),
+            biasSecondMoment: container.decode([Double].self, forKey: .biasSecondMoment)
+        )
+    }
+
+    var trainableLayer: TrainableLayer {
+        TrainableLayer(
+            parameters: parameters,
+            weightVelocity: weightVelocity,
+            biasVelocity: biasVelocity,
+            weightFirstMoment: weightFirstMoment,
+            biasFirstMoment: biasFirstMoment,
+            weightSecondMoment: weightSecondMoment,
+            biasSecondMoment: biasSecondMoment
+        )
+    }
+}
+
+struct TrainableLayer: Sendable {
     let inputCount: Int
     let outputCount: Int
     var weights: [Double]
@@ -1000,6 +1876,27 @@ private struct TrainableLayer {
         biasFirstMoment = Array(repeating: 0, count: biases.count)
         weightSecondMoment = Array(repeating: 0, count: weights.count)
         biasSecondMoment = Array(repeating: 0, count: biases.count)
+    }
+
+    init(
+        parameters: DenseLayerParameters,
+        weightVelocity: [Double],
+        biasVelocity: [Double],
+        weightFirstMoment: [Double],
+        biasFirstMoment: [Double],
+        weightSecondMoment: [Double],
+        biasSecondMoment: [Double]
+    ) {
+        inputCount = parameters.inputCount
+        outputCount = parameters.outputCount
+        weights = parameters.weights
+        biases = parameters.biases
+        self.weightVelocity = weightVelocity
+        self.biasVelocity = biasVelocity
+        self.weightFirstMoment = weightFirstMoment
+        self.biasFirstMoment = biasFirstMoment
+        self.weightSecondMoment = weightSecondMoment
+        self.biasSecondMoment = biasSecondMoment
     }
 
     func affine(_ input: [Double]) -> [Double] {

@@ -86,5 +86,12 @@ batch graphs for affine layers, activations, configured loss, and automatic
 differentiation, then executes them on an explicitly owned Metal command queue.
 Optimizer updates and metric calculation share the reference code, preventing the
 CPU and Metal paths from drifting into different checkpoint formats or loss
-definitions. Backend selection is explicit and absence of Metal is an error rather
-than an implicit fallback.
+definitions. ``DenseTrainingCheckpoint`` captures parameters, SGD velocity or Adam
+moments, optimizer step, deterministic partitions, early-stopping state, and ordered
+sample identity. Resume requires the recorded backend and, for Metal, the same device
+name.
+
+``DenseTrainer`` adds policy-based selection through ``DenseTrainingExecutionPolicy``.
+Its fallback is explicit and is considered only when Metal construction fails before
+the first update. Runtime graph, cancellation, and numerical failures remain visible
+to the caller and are never replayed on CPU.

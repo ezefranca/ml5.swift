@@ -127,3 +127,14 @@ defaults, or explicit missing and unknown-field policies.
 - ``DenseMPSGraphTrainer``
 - ``DenseTrainingResult``
 - ``DenseEpochMetrics``
+- ``DenseTrainer``
+- ``DenseTrainingDevicePreference``
+- ``DenseTrainingFallback``
+- ``DenseTrainingExecutionPolicy``
+- ``DenseTrainingOptions``
+- ``DenseEarlyStoppingConfiguration``
+- ``DenseTrainingProgress``
+- ``DenseTrainingProgressHandler``
+- ``DenseTrainingCheckpoint``
+- ``DenseTrainingBackend``
+- ``DenseTrainingStopReason``

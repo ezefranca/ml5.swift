@@ -54,6 +54,18 @@ public struct DenseLayerParameters: Sendable, Hashable, Codable {
         self.biases = biases
     }
 
+    init(
+        validatedInputCount inputCount: Int,
+        validatedOutputCount outputCount: Int,
+        weights: [Double],
+        biases: [Double]
+    ) {
+        self.inputCount = inputCount
+        self.outputCount = outputCount
+        self.weights = weights
+        self.biases = biases
+    }
+
     /// Decodes and revalidates persisted dense-layer parameters.
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -57,6 +57,7 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:StructuredModelData>
 - <doc:ManagingDatasets>
 - <doc:PreprocessingData>
+- <doc:InferenceModes>
 
 ### Datasets
 
@@ -82,6 +83,9 @@ defaults, or explicit missing and unknown-field policies.
 - ``CoreMLModelPredictor``
 - ``ModelPredicting``
 - ``CoreMLModelConfiguration``
+- ``ModelInferenceSnapshot``
+- ``NeuralNetworkInferenceSnapshot``
+- ``ModelInferenceSnapshotProviding``
 
 ### Extensibility
 

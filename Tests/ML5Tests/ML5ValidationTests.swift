@@ -58,6 +58,7 @@ struct ML5ValidationTests {
             .datasetIdentifierExhausted,
             .invalidDatasetSplit(reason: "bad fractions"),
             .invalidNormalization(reason: "bad statistics"),
+            .batchPredictionCountMismatch(expected: 2, actual: 1),
             .invalidConfiguration(reason: "duplicate output"),
             .invalidTrainingSamples,
             .missingOutput(name: "label"),
@@ -74,6 +75,9 @@ struct ML5ValidationTests {
             #expect(error.errorDescription?.isEmpty == false)
         }
         #expect(UnsupportedOperation.onDeviceTraining.description.contains("not supported"))
+        #expect(
+            UnsupportedOperation.synchronousInferenceSnapshot.description.contains("snapshot")
+        )
     }
 
     @Test("Feature and output names support validated construction and Codable")

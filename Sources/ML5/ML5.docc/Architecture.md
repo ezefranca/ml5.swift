@@ -12,10 +12,10 @@ ML5 separates task semantics from model execution:
 
 ## Core ML boundary
 
-``CoreMLModelPredictor`` owns `MLModel` inside an actor. The model does not leave that
-actor, and no detached task captures it. Input and output conversion happens at the
-actor boundary, where ``FeatureValue`` cases become `MLFeatureValue` instances only
-for the duration of the Core ML call. Numeric arrays and tensors use dense
+``CoreMLModelPredictor`` owns normal async and batch execution inside an actor, and no
+detached task captures its model operation. Input and output conversion happens at
+the execution boundary, where ``FeatureValue`` cases become `MLFeatureValue`
+instances only for the duration of the Core ML call. Numeric arrays and tensors use dense
 double-precision `MLMultiArray` storage, dictionaries retain string keys, sequences
 retain their homogeneous element type, and images cross the boundary as copied
 `CVPixelBuffer` storage. RGBA input is channel-swizzled to Core Video's supported
@@ -28,6 +28,14 @@ field-name, image-stride, schema-uniqueness, or default-value invariants.
 Prediction APIs are asynchronous and cooperatively check cancellation before and
 after Core ML evaluation. Evaluation already underway may complete first, but a
 cancelled caller will not receive decoded output.
+
+Snapshot creation is an explicit exception to actor-isolated execution.
+``ModelInferenceSnapshotProviding`` vends an immutable synchronous closure backed by
+the loaded model. This value contains no mutable ML5 state and performs conversion
+and prediction directly on the caller. It exists for latency-sensitive loops; callers
+remain responsible for choosing an appropriate thread. Core ML snapshot calls are
+serialized with a private lock; custom backend implementers must make their snapshot
+closures safe for the concurrency promised by `Sendable`.
 
 ## Dataset isolation
 

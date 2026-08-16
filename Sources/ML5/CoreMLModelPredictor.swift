@@ -43,6 +43,35 @@ public struct CoreMLModelConfiguration: Sendable, Equatable {
 
 struct CoreMLPredictionOperation: @unchecked Sendable {
     var predict: (any MLFeatureProvider) async throws -> any MLFeatureProvider
+    var predictBatch: (([any MLFeatureProvider]) async throws -> [any MLFeatureProvider])?
+    var predictSynchronously: ((any MLFeatureProvider) throws -> any MLFeatureProvider)?
+
+    init(
+        predict: @escaping (any MLFeatureProvider) async throws -> any MLFeatureProvider
+    ) {
+        self.predict = predict
+        self.predictBatch = nil
+        self.predictSynchronously = nil
+    }
+
+    init(
+        predict: @escaping (any MLFeatureProvider) async throws -> any MLFeatureProvider,
+        predictBatch: @escaping ([any MLFeatureProvider]) async throws -> [any MLFeatureProvider],
+        predictSynchronously: @escaping (any MLFeatureProvider) throws -> any MLFeatureProvider
+    ) {
+        self.predict = predict
+        self.predictBatch = predictBatch
+        self.predictSynchronously = predictSynchronously
+    }
+
+    func synchronousPrediction(
+        from provider: any MLFeatureProvider
+    ) throws -> any MLFeatureProvider {
+        guard let predictSynchronously else {
+            throw ML5Error.unsupportedOperation(.synchronousInferenceSnapshot)
+        }
+        return try predictSynchronously(provider)
+    }
 }
 
 struct CoreMLModelLoader: @unchecked Sendable {
@@ -50,9 +79,39 @@ struct CoreMLModelLoader: @unchecked Sendable {
 
     static let system = Self { modelURL, configuration in
         let model = try MLModel(contentsOf: modelURL, configuration: configuration)
-        return CoreMLPredictionOperation { provider in
-            try await model.prediction(from: provider)
-        }
+        return CoreMLPredictionOperation(
+            predict: { provider in
+                try await model.prediction(from: provider)
+            },
+            predictBatch: { providers in
+                let input = MLArrayBatchProvider(array: providers)
+                let output = try model.predictions(
+                    from: input,
+                    options: MLPredictionOptions()
+                )
+                return (0..<output.count).map { output.features(at: $0) }
+            },
+            predictSynchronously: { provider in
+                try model.prediction(from: provider)
+            }
+        )
+    }
+}
+
+private final class CoreMLSynchronousPredictionBox: @unchecked Sendable {
+    private let operation: CoreMLPredictionOperation
+    private let lock = NSLock()
+
+    init(operation: CoreMLPredictionOperation) {
+        self.operation = operation
+    }
+
+    func predict(
+        _ provider: any MLFeatureProvider
+    ) throws -> any MLFeatureProvider {
+        lock.lock()
+        defer { lock.unlock() }
+        return try operation.synchronousPrediction(from: provider)
     }
 }
 
@@ -60,7 +119,7 @@ struct CoreMLModelLoader: @unchecked Sendable {
 ///
 /// `MLModel` is never exposed or captured by detached work, so the non-Sendable
 /// framework object remains isolated to this actor.
-public actor CoreMLModelPredictor: ModelPredicting {
+public actor CoreMLModelPredictor: ModelInferenceSnapshotProviding {
     private let predictionOperation: CoreMLPredictionOperation
 
     /// Loads a compiled `.mlmodelc` model from disk.
@@ -98,28 +157,11 @@ public actor CoreMLModelPredictor: ModelPredicting {
         try Task.checkCancellation()
 
         do {
-            var inputs: [String: Any] = [:]
-            for (name, value) in features.values {
-                try Task.checkCancellation()
-                inputs[name.rawValue] = try value.makeCoreMLValue()
-            }
-
-            let provider = try MLDictionaryFeatureProvider(dictionary: inputs)
+            let provider = try Self.makeFeatureProvider(features)
             try Task.checkCancellation()
             let prediction = try await predictionOperation.predict(provider)
             try Task.checkCancellation()
-
-            var output: [OutputName: FeatureValue] = [:]
-            for name in prediction.featureNames {
-                try Task.checkCancellation()
-                guard let value = prediction.featureValue(for: name) else {
-                    continue
-                }
-                output[try OutputName(name)] = try FeatureValue(
-                    coreMLValue: value, outputName: name)
-            }
-
-            return try ModelOutput(output)
+            return try Self.makeModelOutput(prediction)
         } catch is CancellationError {
             throw CancellationError()
         } catch let error as ML5Error {
@@ -127,6 +169,96 @@ public actor CoreMLModelPredictor: ModelPredicting {
         } catch {
             throw ML5Error.predictionFailed(message: error.localizedDescription)
         }
+    }
+
+    /// Evaluates a Core ML batch in input order, using native batch execution when available.
+    public func predict(_ batch: [FeatureVector]) async throws -> [ModelOutput] {
+        try Task.checkCancellation()
+        guard !batch.isEmpty else { return [] }
+
+        do {
+            var providers: [any MLFeatureProvider] = []
+            providers.reserveCapacity(batch.count)
+            for features in batch {
+                try Task.checkCancellation()
+                providers.append(try Self.makeFeatureProvider(features))
+            }
+
+            let predictions: [any MLFeatureProvider]
+            if let predictBatch = predictionOperation.predictBatch {
+                predictions = try await predictBatch(providers)
+            } else {
+                var sequential: [any MLFeatureProvider] = []
+                sequential.reserveCapacity(providers.count)
+                for provider in providers {
+                    try Task.checkCancellation()
+                    sequential.append(try await predictionOperation.predict(provider))
+                }
+                predictions = sequential
+            }
+            try Task.checkCancellation()
+            guard predictions.count == batch.count else {
+                throw ML5Error.batchPredictionCountMismatch(
+                    expected: batch.count,
+                    actual: predictions.count
+                )
+            }
+            return try predictions.map { prediction in
+                try Task.checkCancellation()
+                return try Self.makeModelOutput(prediction)
+            }
+        } catch is CancellationError {
+            throw CancellationError()
+        } catch let error as ML5Error {
+            throw error
+        } catch {
+            throw ML5Error.predictionFailed(message: error.localizedDescription)
+        }
+    }
+
+    /// Captures a synchronous Core ML operation for latency-sensitive inference.
+    public func makeInferenceSnapshot() async throws -> ModelInferenceSnapshot {
+        guard predictionOperation.predictSynchronously != nil else {
+            throw ML5Error.unsupportedOperation(.synchronousInferenceSnapshot)
+        }
+        let operation = CoreMLSynchronousPredictionBox(operation: predictionOperation)
+        return ModelInferenceSnapshot { features in
+            do {
+                let provider = try Self.makeFeatureProvider(features)
+                let prediction = try operation.predict(provider)
+                return try Self.makeModelOutput(prediction)
+            } catch let error as ML5Error {
+                throw error
+            } catch {
+                throw ML5Error.predictionFailed(message: error.localizedDescription)
+            }
+        }
+    }
+
+    private static func makeFeatureProvider(
+        _ features: FeatureVector
+    ) throws -> any MLFeatureProvider {
+        var inputs: [String: Any] = [:]
+        for (name, value) in features.values {
+            inputs[name.rawValue] = try value.makeCoreMLValue()
+        }
+        return try MLDictionaryFeatureProvider(dictionary: inputs)
+    }
+
+    private static func makeModelOutput(
+        _ prediction: any MLFeatureProvider
+    ) throws -> ModelOutput {
+        var output: [OutputName: FeatureValue] = [:]
+        for name in prediction.featureNames {
+            guard let value = prediction.featureValue(for: name) else {
+                continue
+            }
+            output[try OutputName(name)] = try FeatureValue(
+                coreMLValue: value,
+                outputName: name
+            )
+        }
+        return try ModelOutput(output)
     }
 }
 

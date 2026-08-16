@@ -30,6 +30,14 @@ struct CoreMLModelPredictorTests {
         )
         let directOutput = try await predictor.predict(features)
         #expect(directOutput["prediction"] == .number(2.5))
+        let batchOutput = try await predictor.predict([
+            features,
+            FeatureVector(["x": .number(4)]),
+        ])
+        #expect(batchOutput.map { $0["prediction"] } == [.number(2.5), .number(4)])
+
+        let rawSnapshot = try await predictor.makeInferenceSnapshot()
+        #expect(try rawSnapshot.predict(features)["prediction"] == .number(2.5))
 
         let network = try NeuralNetwork(
             task: RegressionTask(
@@ -40,6 +48,117 @@ struct CoreMLModelPredictorTests {
         )
         let typedOutput = try await network.predict(features)
         #expect(typedOutput.value == 2.5)
+        let typedSnapshot = try await network.makeInferenceSnapshot()
+        #expect(try typedSnapshot.predict(features).value == 2.5)
+    }
+
+    @Test("Injected native and fallback batches preserve input order")
+    func batchPrediction() async throws {
+        let native = try CoreMLModelPredictor(
+            contentsOf: URL(fileURLWithPath: "/injected/model.mlmodelc"),
+            loader: CoreMLModelLoader { _, _ in
+                CoreMLPredictionOperation(
+                    predict: { provider in provider },
+                    predictBatch: { providers in
+                        try providers.map { provider in
+                            let value = try #require(provider.featureValue(for: "x"))
+                            return try MLDictionaryFeatureProvider(dictionary: [
+                                "score": value.doubleValue * 2
+                            ])
+                        }
+                    },
+                    predictSynchronously: { provider in provider }
+                )
+            }
+        )
+        let inputs = try [1.0, 3.0].map { try FeatureVector(["x": .number($0)]) }
+        #expect(
+            try await native.predict(inputs).map { $0["score"] } == [.number(2), .number(6)]
+        )
+        #expect(try await native.predict([FeatureVector]()).isEmpty)
+
+        let fallback = try makePredictor { provider in
+            let value = try #require(provider.featureValue(for: "x"))
+            return try MLDictionaryFeatureProvider(dictionary: [
+                "score": value.doubleValue + 1
+            ])
+        }
+        #expect(
+            try await fallback.predict(inputs).map { $0["score"] } == [.number(2), .number(4)]
+        )
+    }
+
+    @Test("Core ML batches validate counts and wrap framework failures")
+    func batchFailures() async throws {
+        let inputs = try [1.0, 2.0].map { try FeatureVector(["x": .number($0)]) }
+        let mismatch = try makeBatchPredictor { _ in
+            [try MLDictionaryFeatureProvider(dictionary: ["score": 1.0])]
+        }
+        await #expect(
+            throws: ML5Error.batchPredictionCountMismatch(expected: 2, actual: 1)
+        ) {
+            try await mismatch.predict(inputs)
+        }
+
+        let failure = try makeBatchPredictor { _ in
+            throw SyntheticCoreMLError.expected
+        }
+        await #expect(
+            throws: ML5Error.predictionFailed(message: "Synthetic Core ML failure.")
+        ) {
+            try await failure.predict(inputs)
+        }
+
+        let cancelled = try makeBatchPredictor { providers in
+            withUnsafeCurrentTask { task in task?.cancel() }
+            return providers
+        }
+        await #expect(throws: CancellationError.self) {
+            try await cancelled.predict(inputs)
+        }
+    }
+
+    @Test("Injected synchronous snapshots convert and wrap failures")
+    func synchronousSnapshots() async throws {
+        let features = try FeatureVector(["x": .number(2)])
+        let success = try makeSynchronousPredictor { provider in
+            let value = try #require(provider.featureValue(for: "x"))
+            return try MLDictionaryFeatureProvider(dictionary: [
+                "score": value.doubleValue * 3
+            ])
+        }
+        let snapshot = try await success.makeInferenceSnapshot()
+        #expect(try snapshot.predict(features)["score"] == .number(6))
+
+        let frameworkFailure = try makeSynchronousPredictor { _ in
+            throw SyntheticCoreMLError.expected
+        }
+        let failureSnapshot = try await frameworkFailure.makeInferenceSnapshot()
+        #expect(
+            throws: ML5Error.predictionFailed(message: "Synthetic Core ML failure.")
+        ) {
+            try failureSnapshot.predict(features)
+        }
+
+        let conversionFailure = try makeSynchronousPredictor { _ in MissingValueProvider() }
+        let conversionSnapshot = try await conversionFailure.makeInferenceSnapshot()
+        #expect(throws: ML5Error.emptyModelOutput) {
+            try conversionSnapshot.predict(features)
+        }
+
+        let unsupported = try makePredictor { provider in provider }
+        await #expect(
+            throws: ML5Error.unsupportedOperation(.synchronousInferenceSnapshot)
+        ) {
+            try await unsupported.makeInferenceSnapshot()
+        }
+        let provider = try MLDictionaryFeatureProvider(dictionary: ["x": 1.0])
+        let operation = CoreMLPredictionOperation { provider in provider }
+        #expect(
+            throws: ML5Error.unsupportedOperation(.synchronousInferenceSnapshot)
+        ) {
+            try operation.synchronousPrediction(from: provider)
+        }
     }
 
     @Test("Compute-unit configuration maps every value to Core ML")
@@ -292,6 +411,36 @@ struct CoreMLModelPredictorTests {
             contentsOf: URL(fileURLWithPath: "/injected/model.mlmodelc"),
             loader: CoreMLModelLoader { _, _ in
                 CoreMLPredictionOperation(predict: operation)
+            }
+        )
+    }
+
+    private func makeBatchPredictor(
+        operation: @escaping ([any MLFeatureProvider]) async throws -> [any MLFeatureProvider]
+    ) throws -> CoreMLModelPredictor {
+        try CoreMLModelPredictor(
+            contentsOf: URL(fileURLWithPath: "/injected/model.mlmodelc"),
+            loader: CoreMLModelLoader { _, _ in
+                CoreMLPredictionOperation(
+                    predict: { provider in provider },
+                    predictBatch: operation,
+                    predictSynchronously: { provider in provider }
+                )
+            }
+        )
+    }
+
+    private func makeSynchronousPredictor(
+        operation: @escaping (any MLFeatureProvider) throws -> any MLFeatureProvider
+    ) throws -> CoreMLModelPredictor {
+        try CoreMLModelPredictor(
+            contentsOf: URL(fileURLWithPath: "/injected/model.mlmodelc"),
+            loader: CoreMLModelLoader { _, _ in
+                CoreMLPredictionOperation(
+                    predict: { provider in provider },
+                    predictBatch: { providers in providers },
+                    predictSynchronously: operation
+                )
             }
         )
     }

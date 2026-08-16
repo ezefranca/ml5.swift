@@ -43,6 +43,40 @@ public actor NeuralNetwork<Definition: NeuralNetworkTask> {
         return try task.decode(output)
     }
 
+    /// Produces typed predictions for a batch in exactly the supplied order.
+    ///
+    /// Cancellation is checked before backend execution and before each output is
+    /// decoded. A backend returning the wrong output count is rejected.
+    public func predict(_ batch: [FeatureVector]) async throws -> [Definition.Prediction] {
+        try Task.checkCancellation()
+        let outputs = try await predictor.predict(batch)
+        try Task.checkCancellation()
+        guard outputs.count == batch.count else {
+            throw ML5Error.batchPredictionCountMismatch(
+                expected: batch.count,
+                actual: outputs.count
+            )
+        }
+        return try outputs.map { output in
+            try Task.checkCancellation()
+            return try task.decode(output)
+        }
+    }
+
+    /// Captures a typed synchronous snapshot for latency-sensitive inference.
+    ///
+    /// - Throws: ``ML5Error/unsupportedOperation(_:)`` when the backend cannot vend
+    ///   a synchronous snapshot, or a backend-specific snapshot error.
+    public func makeInferenceSnapshot() async throws -> NeuralNetworkInferenceSnapshot<Definition> {
+        guard let provider = predictor as? any ModelInferenceSnapshotProviding else {
+            throw ML5Error.unsupportedOperation(.synchronousInferenceSnapshot)
+        }
+        return NeuralNetworkInferenceSnapshot(
+            task: task,
+            modelSnapshot: try await provider.makeInferenceSnapshot()
+        )
+    }
+
     /// Explicitly reports that arbitrary-model, on-device training is unavailable.
     ///
     /// Use `NeuralNetworkTrainingAdapter` in a separate integration module when
@@ -54,5 +88,33 @@ public actor NeuralNetwork<Definition: NeuralNetworkTask> {
             throw ML5Error.invalidTrainingSamples
         }
         throw ML5Error.unsupportedOperation(.onDeviceTraining)
+    }
+}
+
+/// An immutable typed synchronous snapshot suitable for a draw loop.
+public struct NeuralNetworkInferenceSnapshot<Definition: NeuralNetworkTask>: Sendable {
+    /// Task definition used to decode raw model output.
+    public let task: Definition
+    /// Synchronous framework-independent model operation.
+    public let modelSnapshot: ModelInferenceSnapshot
+
+    /// Creates a typed snapshot from a task and raw-model snapshot.
+    public init(task: Definition, modelSnapshot: ModelInferenceSnapshot) {
+        self.task = task
+        self.modelSnapshot = modelSnapshot
+    }
+
+    /// Produces and decodes one typed prediction synchronously.
+    ///
+    /// - Throws: A backend prediction or task-decoding error.
+    public func predict(_ features: FeatureVector) throws -> Definition.Prediction {
+        try task.decode(modelSnapshot.predict(features))
+    }
+
+    /// Produces and decodes a batch synchronously in input order.
+    ///
+    /// - Throws: The first backend prediction or task-decoding error.
+    public func predict(_ batch: [FeatureVector]) throws -> [Definition.Prediction] {
+        try modelSnapshot.predict(batch).map(task.decode)
     }
 }

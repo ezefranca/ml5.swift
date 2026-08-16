@@ -44,6 +44,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidDatasetSplit(reason: String)
     /// A preprocessing configuration, fitted statistic, or transformation was invalid.
     case invalidNormalization(reason: String)
+    /// A batch backend returned a different number of outputs than inputs.
+    case batchPredictionCountMismatch(expected: Int, actual: Int)
     /// A task configuration contained contradictory settings.
     case invalidConfiguration(reason: String)
     /// A training request contained no samples.
@@ -106,6 +108,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Invalid dataset split: \(reason)"
         case let .invalidNormalization(reason):
             "Invalid normalization: \(reason)"
+        case let .batchPredictionCountMismatch(expected, actual):
+            "Batch prediction requires \(expected) outputs, but received \(actual)."
         case let .invalidConfiguration(reason):
             "Invalid configuration: \(reason)"
         case .invalidTrainingSamples:
@@ -134,12 +138,16 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
 public enum UnsupportedOperation: String, Sendable, Equatable {
     /// Training arbitrary neural networks on device requires a separate training adapter.
     case onDeviceTraining
+    /// The selected backend cannot provide immutable synchronous inference.
+    case synchronousInferenceSnapshot
 
     /// A description of why the operation is unavailable and which extension point to use.
     public var description: String {
         switch self {
         case .onDeviceTraining:
             "On-device training for arbitrary models is not supported by Core ML model loading. Supply a future Create ML-compatible training adapter instead."
+        case .synchronousInferenceSnapshot:
+            "This prediction backend does not provide an immutable synchronous inference snapshot. Use async prediction or select a snapshot-capable backend."
         }
     }
 }

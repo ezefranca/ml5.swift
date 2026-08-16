@@ -60,6 +60,7 @@ struct ML5ValidationTests {
             .invalidNormalization(reason: "bad statistics"),
             .batchPredictionCountMismatch(expected: 2, actual: 1),
             .invalidConfiguration(reason: "duplicate output"),
+            .invalidTrainingConfiguration(reason: "bad architecture"),
             .invalidTrainingSamples,
             .missingOutput(name: "label"),
             .unexpectedOutputType(name: "label", expected: .string, actual: .number),

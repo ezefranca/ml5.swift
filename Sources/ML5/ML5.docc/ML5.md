@@ -59,6 +59,7 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:PreprocessingData>
 - <doc:InferenceModes>
 - <doc:EvaluatingModels>
+- <doc:ConfiguringDenseNetworks>
 
 ### Datasets
 
@@ -109,3 +110,13 @@ defaults, or explicit missing and unknown-field policies.
 
 - ``NeuralNetworkTrainingAdapter``
 - ``UnsupportedOperation``
+
+### Dense-network training configuration
+
+- ``DenseNetworkConfiguration``
+- ``DenseLayerConfiguration``
+- ``ActivationFunction``
+- ``WeightInitialization``
+- ``TrainingLoss``
+- ``OptimizerConfiguration``
+- ``OptimizerKind``

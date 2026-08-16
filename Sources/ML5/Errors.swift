@@ -48,6 +48,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case batchPredictionCountMismatch(expected: Int, actual: Int)
     /// A task configuration contained contradictory settings.
     case invalidConfiguration(reason: String)
+    /// A dense-network architecture or training option was invalid.
+    case invalidTrainingConfiguration(reason: String)
     /// A training request contained no samples.
     case invalidTrainingSamples
     /// A task's required output was absent from the model result.
@@ -118,6 +120,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Batch prediction requires \(expected) outputs, but received \(actual)."
         case let .invalidConfiguration(reason):
             "Invalid configuration: \(reason)"
+        case let .invalidTrainingConfiguration(reason):
+            "Invalid training configuration: \(reason)"
         case .invalidTrainingSamples:
             "Training requires at least one sample."
         case let .missingOutput(name):

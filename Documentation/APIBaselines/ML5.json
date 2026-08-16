@@ -3554,6 +3554,3589 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "ActivationFunction",
+        "printedName": "ActivationFunction",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "linear",
+            "printedName": "linear",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ActivationFunction.Type) -> ML5.ActivationFunction",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ActivationFunction.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML518ActivationFunctionO6linearyA2CmF",
+            "mangledName": "$s3ML518ActivationFunctionO6linearyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "rectifiedLinear",
+            "printedName": "rectifiedLinear",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ActivationFunction.Type) -> ML5.ActivationFunction",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ActivationFunction.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML518ActivationFunctionO15rectifiedLinearyA2CmF",
+            "mangledName": "$s3ML518ActivationFunctionO15rectifiedLinearyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "sigmoid",
+            "printedName": "sigmoid",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ActivationFunction.Type) -> ML5.ActivationFunction",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ActivationFunction.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML518ActivationFunctionO7sigmoidyA2CmF",
+            "mangledName": "$s3ML518ActivationFunctionO7sigmoidyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "hyperbolicTangent",
+            "printedName": "hyperbolicTangent",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ActivationFunction.Type) -> ML5.ActivationFunction",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ActivationFunction.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML518ActivationFunctionO17hyperbolicTangentyA2CmF",
+            "mangledName": "$s3ML518ActivationFunctionO17hyperbolicTangentyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "softmax",
+            "printedName": "softmax",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ActivationFunction.Type) -> ML5.ActivationFunction",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ActivationFunction.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML518ActivationFunctionO7softmaxyA2CmF",
+            "mangledName": "$s3ML518ActivationFunctionO7softmaxyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.ActivationFunction?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML518ActivationFunctionO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML518ActivationFunctionO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.ActivationFunction]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML518ActivationFunctionO8AllCasesa",
+            "mangledName": "$s3ML518ActivationFunctionO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML518ActivationFunctionO8RawValuea",
+            "mangledName": "$s3ML518ActivationFunctionO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.ActivationFunction]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML518ActivationFunctionO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML518ActivationFunctionO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.ActivationFunction]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML518ActivationFunctionO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML518ActivationFunctionO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML518ActivationFunctionO8rawValueSSvp",
+            "mangledName": "$s3ML518ActivationFunctionO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML518ActivationFunctionO8rawValueSSvg",
+                "mangledName": "$s3ML518ActivationFunctionO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML518ActivationFunctionO",
+        "mangledName": "$s3ML518ActivationFunctionO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.ActivationFunction]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ActivationFunction",
+                        "printedName": "ML5.ActivationFunction",
+                        "usr": "s:3ML518ActivationFunctionO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "WeightInitialization",
+        "printedName": "WeightInitialization",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "glorotUniform",
+            "printedName": "glorotUniform",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.WeightInitialization.Type) -> ML5.WeightInitialization",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.WeightInitialization.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WeightInitialization",
+                        "printedName": "ML5.WeightInitialization",
+                        "usr": "s:3ML520WeightInitializationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML520WeightInitializationO13glorotUniformyA2CmF",
+            "mangledName": "$s3ML520WeightInitializationO13glorotUniformyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "heNormal",
+            "printedName": "heNormal",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.WeightInitialization.Type) -> ML5.WeightInitialization",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.WeightInitialization.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WeightInitialization",
+                        "printedName": "ML5.WeightInitialization",
+                        "usr": "s:3ML520WeightInitializationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML520WeightInitializationO8heNormalyA2CmF",
+            "mangledName": "$s3ML520WeightInitializationO8heNormalyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "zeros",
+            "printedName": "zeros",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.WeightInitialization.Type) -> ML5.WeightInitialization",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.WeightInitialization.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WeightInitialization",
+                        "printedName": "ML5.WeightInitialization",
+                        "usr": "s:3ML520WeightInitializationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML520WeightInitializationO5zerosyA2CmF",
+            "mangledName": "$s3ML520WeightInitializationO5zerosyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.WeightInitialization?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML520WeightInitializationO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML520WeightInitializationO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.WeightInitialization]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML520WeightInitializationO8AllCasesa",
+            "mangledName": "$s3ML520WeightInitializationO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML520WeightInitializationO8RawValuea",
+            "mangledName": "$s3ML520WeightInitializationO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.WeightInitialization]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML520WeightInitializationO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML520WeightInitializationO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.WeightInitialization]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WeightInitialization",
+                        "printedName": "ML5.WeightInitialization",
+                        "usr": "s:3ML520WeightInitializationO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML520WeightInitializationO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML520WeightInitializationO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML520WeightInitializationO8rawValueSSvp",
+            "mangledName": "$s3ML520WeightInitializationO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML520WeightInitializationO8rawValueSSvg",
+                "mangledName": "$s3ML520WeightInitializationO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML520WeightInitializationO",
+        "mangledName": "$s3ML520WeightInitializationO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.WeightInitialization]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "WeightInitialization",
+                        "printedName": "ML5.WeightInitialization",
+                        "usr": "s:3ML520WeightInitializationO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TrainingLoss",
+        "printedName": "TrainingLoss",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "meanSquaredError",
+            "printedName": "meanSquaredError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.TrainingLoss.Type) -> ML5.TrainingLoss",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.TrainingLoss.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrainingLoss",
+                        "printedName": "ML5.TrainingLoss",
+                        "usr": "s:3ML512TrainingLossO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML512TrainingLossO16meanSquaredErroryA2CmF",
+            "mangledName": "$s3ML512TrainingLossO16meanSquaredErroryA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "categoricalCrossEntropy",
+            "printedName": "categoricalCrossEntropy",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.TrainingLoss.Type) -> ML5.TrainingLoss",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.TrainingLoss.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrainingLoss",
+                        "printedName": "ML5.TrainingLoss",
+                        "usr": "s:3ML512TrainingLossO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML512TrainingLossO23categoricalCrossEntropyyA2CmF",
+            "mangledName": "$s3ML512TrainingLossO23categoricalCrossEntropyyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "binaryCrossEntropy",
+            "printedName": "binaryCrossEntropy",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.TrainingLoss.Type) -> ML5.TrainingLoss",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.TrainingLoss.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrainingLoss",
+                        "printedName": "ML5.TrainingLoss",
+                        "usr": "s:3ML512TrainingLossO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML512TrainingLossO18binaryCrossEntropyyA2CmF",
+            "mangledName": "$s3ML512TrainingLossO18binaryCrossEntropyyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.TrainingLoss?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML512TrainingLossO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML512TrainingLossO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.TrainingLoss]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML512TrainingLossO8AllCasesa",
+            "mangledName": "$s3ML512TrainingLossO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML512TrainingLossO8RawValuea",
+            "mangledName": "$s3ML512TrainingLossO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.TrainingLoss]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512TrainingLossO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML512TrainingLossO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.TrainingLoss]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrainingLoss",
+                        "printedName": "ML5.TrainingLoss",
+                        "usr": "s:3ML512TrainingLossO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512TrainingLossO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML512TrainingLossO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML512TrainingLossO8rawValueSSvp",
+            "mangledName": "$s3ML512TrainingLossO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML512TrainingLossO8rawValueSSvg",
+                "mangledName": "$s3ML512TrainingLossO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML512TrainingLossO",
+        "mangledName": "$s3ML512TrainingLossO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.TrainingLoss]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TrainingLoss",
+                        "printedName": "ML5.TrainingLoss",
+                        "usr": "s:3ML512TrainingLossO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OptimizerKind",
+        "printedName": "OptimizerKind",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "stochasticGradientDescent",
+            "printedName": "stochasticGradientDescent",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.OptimizerKind.Type) -> ML5.OptimizerKind",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerKind",
+                    "printedName": "ML5.OptimizerKind",
+                    "usr": "s:3ML513OptimizerKindO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.OptimizerKind.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OptimizerKind",
+                        "printedName": "ML5.OptimizerKind",
+                        "usr": "s:3ML513OptimizerKindO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML513OptimizerKindO25stochasticGradientDescentyA2CmF",
+            "mangledName": "$s3ML513OptimizerKindO25stochasticGradientDescentyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "adam",
+            "printedName": "adam",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.OptimizerKind.Type) -> ML5.OptimizerKind",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerKind",
+                    "printedName": "ML5.OptimizerKind",
+                    "usr": "s:3ML513OptimizerKindO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.OptimizerKind.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OptimizerKind",
+                        "printedName": "ML5.OptimizerKind",
+                        "usr": "s:3ML513OptimizerKindO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML513OptimizerKindO4adamyA2CmF",
+            "mangledName": "$s3ML513OptimizerKindO4adamyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.OptimizerKind?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerKind",
+                    "printedName": "ML5.OptimizerKind",
+                    "usr": "s:3ML513OptimizerKindO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML513OptimizerKindO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML513OptimizerKindO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.OptimizerKind]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerKind",
+                    "printedName": "ML5.OptimizerKind",
+                    "usr": "s:3ML513OptimizerKindO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML513OptimizerKindO8AllCasesa",
+            "mangledName": "$s3ML513OptimizerKindO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML513OptimizerKindO8RawValuea",
+            "mangledName": "$s3ML513OptimizerKindO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.OptimizerKind]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerKind",
+                    "printedName": "ML5.OptimizerKind",
+                    "usr": "s:3ML513OptimizerKindO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML513OptimizerKindO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML513OptimizerKindO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.OptimizerKind]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OptimizerKind",
+                        "printedName": "ML5.OptimizerKind",
+                        "usr": "s:3ML513OptimizerKindO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML513OptimizerKindO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML513OptimizerKindO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML513OptimizerKindO8rawValueSSvp",
+            "mangledName": "$s3ML513OptimizerKindO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML513OptimizerKindO8rawValueSSvg",
+                "mangledName": "$s3ML513OptimizerKindO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML513OptimizerKindO",
+        "mangledName": "$s3ML513OptimizerKindO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.OptimizerKind]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OptimizerKind",
+                        "printedName": "ML5.OptimizerKind",
+                        "usr": "s:3ML513OptimizerKindO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "OptimizerConfiguration",
+        "printedName": "OptimizerConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "adam",
+            "printedName": "adam",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV4adamACvpZ",
+            "mangledName": "$s3ML522OptimizerConfigurationV4adamACvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerConfiguration",
+                    "printedName": "ML5.OptimizerConfiguration",
+                    "usr": "s:3ML522OptimizerConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV4adamACvgZ",
+                "mangledName": "$s3ML522OptimizerConfigurationV4adamACvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "stochasticGradientDescent",
+            "printedName": "stochasticGradientDescent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV25stochasticGradientDescentACvpZ",
+            "mangledName": "$s3ML522OptimizerConfigurationV25stochasticGradientDescentACvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerConfiguration",
+                    "printedName": "ML5.OptimizerConfiguration",
+                    "usr": "s:3ML522OptimizerConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV25stochasticGradientDescentACvgZ",
+                "mangledName": "$s3ML522OptimizerConfigurationV25stochasticGradientDescentACvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "kind",
+            "printedName": "kind",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerKind",
+                "printedName": "ML5.OptimizerKind",
+                "usr": "s:3ML513OptimizerKindO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV4kindAA0B4KindOvp",
+            "mangledName": "$s3ML522OptimizerConfigurationV4kindAA0B4KindOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerKind",
+                    "printedName": "ML5.OptimizerKind",
+                    "usr": "s:3ML513OptimizerKindO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV4kindAA0B4KindOvg",
+                "mangledName": "$s3ML522OptimizerConfigurationV4kindAA0B4KindOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "momentum",
+            "printedName": "momentum",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV8momentumSdvp",
+            "mangledName": "$s3ML522OptimizerConfigurationV8momentumSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV8momentumSdvg",
+                "mangledName": "$s3ML522OptimizerConfigurationV8momentumSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "beta1",
+            "printedName": "beta1",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV5beta1Sdvp",
+            "mangledName": "$s3ML522OptimizerConfigurationV5beta1Sdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV5beta1Sdvg",
+                "mangledName": "$s3ML522OptimizerConfigurationV5beta1Sdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "beta2",
+            "printedName": "beta2",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV5beta2Sdvp",
+            "mangledName": "$s3ML522OptimizerConfigurationV5beta2Sdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV5beta2Sdvg",
+                "mangledName": "$s3ML522OptimizerConfigurationV5beta2Sdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "epsilon",
+            "printedName": "epsilon",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV7epsilonSdvp",
+            "mangledName": "$s3ML522OptimizerConfigurationV7epsilonSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV7epsilonSdvg",
+                "mangledName": "$s3ML522OptimizerConfigurationV7epsilonSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(kind:momentum:beta1:beta2:epsilon:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerKind",
+                "printedName": "ML5.OptimizerKind",
+                "hasDefaultArg": true,
+                "usr": "s:3ML513OptimizerKindO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML522OptimizerConfigurationV4kind8momentum5beta15beta27epsilonAcA0B4KindO_S4dtKcfc",
+            "mangledName": "$s3ML522OptimizerConfigurationV4kind8momentum5beta15beta27epsilonAcA0B4KindO_S4dtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML522OptimizerConfigurationV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML522OptimizerConfigurationV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML522OptimizerConfigurationV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML522OptimizerConfigurationV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML522OptimizerConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML522OptimizerConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML522OptimizerConfigurationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML522OptimizerConfigurationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522OptimizerConfigurationV9hashValueSivp",
+            "mangledName": "$s3ML522OptimizerConfigurationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522OptimizerConfigurationV9hashValueSivg",
+                "mangledName": "$s3ML522OptimizerConfigurationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML522OptimizerConfigurationV",
+        "mangledName": "$s3ML522OptimizerConfigurationV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DenseLayerConfiguration",
+        "printedName": "DenseLayerConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "neuronCount",
+            "printedName": "neuronCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML523DenseLayerConfigurationV11neuronCountSivp",
+            "mangledName": "$s3ML523DenseLayerConfigurationV11neuronCountSivp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML523DenseLayerConfigurationV11neuronCountSivg",
+                "mangledName": "$s3ML523DenseLayerConfigurationV11neuronCountSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "activation",
+            "printedName": "activation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ActivationFunction",
+                "printedName": "ML5.ActivationFunction",
+                "usr": "s:3ML518ActivationFunctionO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML523DenseLayerConfigurationV10activationAA18ActivationFunctionOvp",
+            "mangledName": "$s3ML523DenseLayerConfigurationV10activationAA18ActivationFunctionOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML523DenseLayerConfigurationV10activationAA18ActivationFunctionOvg",
+                "mangledName": "$s3ML523DenseLayerConfigurationV10activationAA18ActivationFunctionOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(neuronCount:activation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DenseLayerConfiguration",
+                "printedName": "ML5.DenseLayerConfiguration",
+                "usr": "s:3ML523DenseLayerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ActivationFunction",
+                "printedName": "ML5.ActivationFunction",
+                "hasDefaultArg": true,
+                "usr": "s:3ML518ActivationFunctionO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML523DenseLayerConfigurationV11neuronCount10activationACSi_AA18ActivationFunctionOtKcfc",
+            "mangledName": "$s3ML523DenseLayerConfigurationV11neuronCount10activationACSi_AA18ActivationFunctionOtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DenseLayerConfiguration",
+                "printedName": "ML5.DenseLayerConfiguration",
+                "usr": "s:3ML523DenseLayerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML523DenseLayerConfigurationV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML523DenseLayerConfigurationV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML523DenseLayerConfigurationV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML523DenseLayerConfigurationV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DenseLayerConfiguration",
+                "printedName": "ML5.DenseLayerConfiguration",
+                "usr": "s:3ML523DenseLayerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DenseLayerConfiguration",
+                "printedName": "ML5.DenseLayerConfiguration",
+                "usr": "s:3ML523DenseLayerConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML523DenseLayerConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML523DenseLayerConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML523DenseLayerConfigurationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML523DenseLayerConfigurationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML523DenseLayerConfigurationV9hashValueSivp",
+            "mangledName": "$s3ML523DenseLayerConfigurationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML523DenseLayerConfigurationV9hashValueSivg",
+                "mangledName": "$s3ML523DenseLayerConfigurationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML523DenseLayerConfigurationV",
+        "mangledName": "$s3ML523DenseLayerConfigurationV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DenseNetworkConfiguration",
+        "printedName": "DenseNetworkConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "inputFeatures",
+            "printedName": "inputFeatures",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.FeatureName]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FeatureName",
+                    "printedName": "ML5.FeatureName",
+                    "usr": "s:3ML511FeatureNameV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV13inputFeaturesSayAA11FeatureNameVGvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV13inputFeaturesSayAA11FeatureNameVGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.FeatureName]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FeatureName",
+                        "printedName": "ML5.FeatureName",
+                        "usr": "s:3ML511FeatureNameV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV13inputFeaturesSayAA11FeatureNameVGvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV13inputFeaturesSayAA11FeatureNameVGvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "outputNames",
+            "printedName": "outputNames",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.OutputName]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OutputName",
+                    "printedName": "ML5.OutputName",
+                    "usr": "s:3ML510OutputNameV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV11outputNamesSayAA10OutputNameVGvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV11outputNamesSayAA10OutputNameVGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.OutputName]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OutputName",
+                        "printedName": "ML5.OutputName",
+                        "usr": "s:3ML510OutputNameV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV11outputNamesSayAA10OutputNameVGvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV11outputNamesSayAA10OutputNameVGvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hiddenLayers",
+            "printedName": "hiddenLayers",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DenseLayerConfiguration]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DenseLayerConfiguration",
+                    "printedName": "ML5.DenseLayerConfiguration",
+                    "usr": "s:3ML523DenseLayerConfigurationV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV12hiddenLayersSayAA0b5LayerD0VGvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV12hiddenLayersSayAA0b5LayerD0VGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.DenseLayerConfiguration]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DenseLayerConfiguration",
+                        "printedName": "ML5.DenseLayerConfiguration",
+                        "usr": "s:3ML523DenseLayerConfigurationV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV12hiddenLayersSayAA0b5LayerD0VGvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV12hiddenLayersSayAA0b5LayerD0VGvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "outputActivation",
+            "printedName": "outputActivation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ActivationFunction",
+                "printedName": "ML5.ActivationFunction",
+                "usr": "s:3ML518ActivationFunctionO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV16outputActivationAA0F8FunctionOvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV16outputActivationAA0F8FunctionOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ActivationFunction",
+                    "printedName": "ML5.ActivationFunction",
+                    "usr": "s:3ML518ActivationFunctionO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV16outputActivationAA0F8FunctionOvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV16outputActivationAA0F8FunctionOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "weightInitialization",
+            "printedName": "weightInitialization",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeightInitialization",
+                "printedName": "ML5.WeightInitialization",
+                "usr": "s:3ML520WeightInitializationO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV20weightInitializationAA06WeightF0Ovp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV20weightInitializationAA06WeightF0Ovp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WeightInitialization",
+                    "printedName": "ML5.WeightInitialization",
+                    "usr": "s:3ML520WeightInitializationO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV20weightInitializationAA06WeightF0Ovg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV20weightInitializationAA06WeightF0Ovg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "loss",
+            "printedName": "loss",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TrainingLoss",
+                "printedName": "ML5.TrainingLoss",
+                "usr": "s:3ML512TrainingLossO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV4lossAA12TrainingLossOvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV4lossAA12TrainingLossOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TrainingLoss",
+                    "printedName": "ML5.TrainingLoss",
+                    "usr": "s:3ML512TrainingLossO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV4lossAA12TrainingLossOvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV4lossAA12TrainingLossOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "optimizer",
+            "printedName": "optimizer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "usr": "s:3ML522OptimizerConfigurationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV9optimizerAA09OptimizerD0Vvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV9optimizerAA09OptimizerD0Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OptimizerConfiguration",
+                    "printedName": "ML5.OptimizerConfiguration",
+                    "usr": "s:3ML522OptimizerConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV9optimizerAA09OptimizerD0Vvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV9optimizerAA09OptimizerD0Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "learningRate",
+            "printedName": "learningRate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV12learningRateSdvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV12learningRateSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV12learningRateSdvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV12learningRateSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "batchSize",
+            "printedName": "batchSize",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV9batchSizeSivp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV9batchSizeSivp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV9batchSizeSivg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV9batchSizeSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "epochs",
+            "printedName": "epochs",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV6epochsSivp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV6epochsSivp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV6epochsSivg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV6epochsSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "validationFraction",
+            "printedName": "validationFraction",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV18validationFractionSdvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV18validationFractionSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV18validationFractionSdvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV18validationFractionSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "seed",
+            "printedName": "seed",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV4seeds6UInt64Vvp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV4seeds6UInt64Vvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt64",
+                    "printedName": "Swift.UInt64",
+                    "usr": "s:s6UInt64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV4seeds6UInt64Vvg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV4seeds6UInt64Vvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(inputFeatures:outputNames:hiddenLayers:outputActivation:weightInitialization:loss:optimizer:learningRate:batchSize:epochs:validationFraction:seed:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DenseNetworkConfiguration",
+                "printedName": "ML5.DenseNetworkConfiguration",
+                "usr": "s:3ML525DenseNetworkConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.FeatureName]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FeatureName",
+                    "printedName": "ML5.FeatureName",
+                    "usr": "s:3ML511FeatureNameV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.OutputName]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OutputName",
+                    "printedName": "ML5.OutputName",
+                    "usr": "s:3ML510OutputNameV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.DenseLayerConfiguration]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DenseLayerConfiguration",
+                    "printedName": "ML5.DenseLayerConfiguration",
+                    "usr": "s:3ML523DenseLayerConfigurationV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ActivationFunction",
+                "printedName": "ML5.ActivationFunction",
+                "hasDefaultArg": true,
+                "usr": "s:3ML518ActivationFunctionO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WeightInitialization",
+                "printedName": "ML5.WeightInitialization",
+                "hasDefaultArg": true,
+                "usr": "s:3ML520WeightInitializationO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TrainingLoss",
+                "printedName": "ML5.TrainingLoss",
+                "hasDefaultArg": true,
+                "usr": "s:3ML512TrainingLossO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OptimizerConfiguration",
+                "printedName": "ML5.OptimizerConfiguration",
+                "hasDefaultArg": true,
+                "usr": "s:3ML522OptimizerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "hasDefaultArg": true,
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML525DenseNetworkConfigurationV13inputFeatures11outputNames12hiddenLayers0G10Activation20weightInitialization4loss9optimizer12learningRate9batchSize6epochs18validationFraction4seedACSayAA11FeatureNameVG_SayAA06OutputY0VGSayAA0b5LayerD0VGAA0K8FunctionOAA06WeightM0OAA12TrainingLossOAA09OptimizerD0VSdS2iSds6UInt64VtKcfc",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV13inputFeatures11outputNames12hiddenLayers0G10Activation20weightInitialization4loss9optimizer12learningRate9batchSize6epochs18validationFraction4seedACSayAA11FeatureNameVG_SayAA06OutputY0VGSayAA0b5LayerD0VGAA0K8FunctionOAA06WeightM0OAA12TrainingLossOAA09OptimizerD0VSdS2iSds6UInt64VtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DenseNetworkConfiguration",
+                "printedName": "ML5.DenseNetworkConfiguration",
+                "usr": "s:3ML525DenseNetworkConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML525DenseNetworkConfigurationV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML525DenseNetworkConfigurationV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DenseNetworkConfiguration",
+                "printedName": "ML5.DenseNetworkConfiguration",
+                "usr": "s:3ML525DenseNetworkConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DenseNetworkConfiguration",
+                "printedName": "ML5.DenseNetworkConfiguration",
+                "usr": "s:3ML525DenseNetworkConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML525DenseNetworkConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML525DenseNetworkConfigurationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML525DenseNetworkConfigurationV9hashValueSivp",
+            "mangledName": "$s3ML525DenseNetworkConfigurationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML525DenseNetworkConfigurationV9hashValueSivg",
+                "mangledName": "$s3ML525DenseNetworkConfigurationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML525DenseNetworkConfigurationV",
+        "mangledName": "$s3ML525DenseNetworkConfigurationV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ML5Error",
         "printedName": "ML5Error",
         "children": [
@@ -4710,6 +8293,63 @@
             "declKind": "EnumElement",
             "usr": "s:3ML50A5ErrorO20invalidConfigurationyACSS_tcACmF",
             "mangledName": "$s3ML50A5ErrorO20invalidConfigurationyACSS_tcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidTrainingConfiguration",
+            "printedName": "invalidTrainingConfiguration",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(reason: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO28invalidTrainingConfigurationyACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO28invalidTrainingConfigurationyACSS_tcACmF",
             "moduleName": "ML5"
           },
           {

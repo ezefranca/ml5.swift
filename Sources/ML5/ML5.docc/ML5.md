@@ -61,6 +61,7 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:EvaluatingModels>
 - <doc:ConfiguringDenseNetworks>
 - <doc:PersistingAndExportingDenseModels>
+- <doc:EvolvingDenseBrains>
 
 ### Datasets
 
@@ -145,3 +146,15 @@ defaults, or explicit missing and unknown-field policies.
 - ``ML5ModelMetadata``
 - ``DenseModelArchive``
 - ``DenseCoreMLExportConfiguration``
+
+### Neuroevolution
+
+- ``DenseBrain``
+- ``DenseBrainTopology``
+- ``DenseBrainClassification``
+- ``DenseBrainSnapshot``
+- ``DenseBrainPopulation``
+- ``DenseMutationStrategy``
+- ``DenseMutationConfiguration``
+- ``DenseCrossoverStrategy``
+- ``DenseCrossoverConfiguration``

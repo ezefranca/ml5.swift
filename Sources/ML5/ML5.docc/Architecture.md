@@ -111,3 +111,18 @@ mapping, and an N-dimensional softmax. Core ML compilation then validates the na
 artifact. This self-contained representation supports the complete ML5 dense-layer
 surface without requiring a Python conversion tool or an external weight bundle.
 See <doc:PersistingAndExportingDenseModels> for ownership and ordering details.
+
+## Neuroevolution values
+
+``DenseBrain`` wraps the same immutable ``DenseNetworkModel`` representation used by
+training and export. Synchronous prediction is therefore a pure value operation without
+an actor hop, lock, or shared mutable parameter storage. ``DenseBrain/copied()`` retains
+value semantics; subsequent mutation or crossover builds fresh parameter arrays and
+cannot change the parent.
+
+Mutation and crossover consume a private, stable SplitMix64 sequence from an explicit
+seed. ``DenseBrainPopulation`` persists the sequence state alongside a homogeneous
+generation so decoding and applying the same policy produces the same next population.
+Fitness evaluation, selection, elitism, and population sizing remain application-owned:
+they depend on the simulation rather than on the neural-network representation. See
+<doc:EvolvingDenseBrains> for the complete lifecycle.

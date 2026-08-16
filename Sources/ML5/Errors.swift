@@ -58,6 +58,10 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case modelPersistenceFailed(path: String, message: String)
     /// A dense model could not be represented as or compiled into a Core ML model.
     case coreMLExportFailed(reason: String)
+    /// A mutation, crossover, topology, population, or brain snapshot was invalid.
+    case invalidNeuroevolutionConfiguration(reason: String)
+    /// Two dense brains could not reproduce because their network topologies differ.
+    case incompatibleBrainTopologies
     /// A requested Apple training accelerator could not be created or execute a graph.
     case trainingAcceleratorUnavailable(reason: String)
     /// A persisted training checkpoint was malformed or did not match its resume request.
@@ -144,6 +148,10 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Model persistence failed at \(path.debugDescription): \(message)"
         case let .coreMLExportFailed(reason):
             "Core ML export failed: \(reason)"
+        case let .invalidNeuroevolutionConfiguration(reason):
+            "Invalid neuroevolution configuration: \(reason)"
+        case .incompatibleBrainTopologies:
+            "Dense brain topologies are incompatible."
         case let .trainingAcceleratorUnavailable(reason):
             "Training accelerator unavailable: \(reason)"
         case let .invalidTrainingCheckpoint(reason):

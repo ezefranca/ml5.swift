@@ -170,6 +170,11 @@ float32 batch gradients, while parameter updates, validation metrics, cancellati
 boundaries, and the final double-precision ``DenseNetworkModel`` use the shared
 reference semantics.
 
+MPSGraph training is unavailable in the iOS Simulator because its simulated Metal
+device cannot create the graph device reliably. Construction returns the same typed
+accelerator-unavailable error there. Use ``DenseTrainer`` with CPU fallback for
+simulator workflows, and validate accelerated behavior on macOS and physical devices.
+
 Use ``DenseCPUTrainer`` when exact cross-machine seed reproducibility is required.
 GPU scheduling and float32 arithmetic can introduce small backend-dependent numeric
 differences even though ordering, shapes, objectives, and update equations match.

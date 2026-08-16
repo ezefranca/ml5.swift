@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>ML5</title><desc>A violet native neural network on a dark rounded square.</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bf5af2"/><stop offset="1" stop-color="#5e5ce6"/></linearGradient></defs>
+  <rect width="512" height="512" rx="112" fill="#111318"/>
+  <g stroke="#8e8e93" stroke-width="14"><path d="M142 150l114 106-114 106M370 150L256 256l114 106"/><path d="M142 150h228M142 362h228"/></g>
+  <g fill="url(#g)" stroke="#f5f5f7" stroke-width="8"><circle cx="142" cy="150" r="38"/><circle cx="142" cy="362" r="38"/><circle cx="256" cy="256" r="46"/><circle cx="370" cy="150" r="38"/><circle cx="370" cy="362" r="38"/></g>
+</svg>

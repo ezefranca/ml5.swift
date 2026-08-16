@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "9F49A918-6DE5-49DE-8D4E-45610585D078",
+      "name" : "Default",
+      "options" : {
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:",
+      "identifier" : "ML5",
+      "name" : "ML5"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ML5Tests",
+        "name" : "ML5Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

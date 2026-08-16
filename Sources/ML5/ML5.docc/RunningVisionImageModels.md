@@ -89,6 +89,10 @@ let distance = try first.distance(to: second)
 Smaller Euclidean distances mean more similar images. Persist the
 ``VisionFeaturePrint/revision`` and ``VisionFeaturePrint/elementType`` with the values.
 Only prints with matching revision, storage type, and element count are comparable.
+Apple's built-in feature-print request may report that it cannot create an Espresso
+context in the iOS Simulator. ML5 preserves that as
+``ML5Error/visionRequestFailed(message:)``; exercise native feature-print success on
+macOS or a physical device.
 
 ## Handle cancellation and failures
 

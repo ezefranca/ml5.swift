@@ -1180,19 +1180,25 @@ public struct DenseCPUTrainer: Sendable {
             testDevice device: (any MTLDevice)?,
             makeCommandQueue: (any MTLDevice) -> (any MTLCommandQueue)? = { $0.makeCommandQueue() }
         ) throws {
-            guard let device else {
+            #if targetEnvironment(simulator)
                 throw ML5Error.trainingAcceleratorUnavailable(
-                    reason: "No Metal device is available."
+                    reason: "MPSGraph training requires macOS or a physical Apple device."
                 )
-            }
-            guard let commandQueue = makeCommandQueue(device) else {
-                throw ML5Error.trainingAcceleratorUnavailable(
-                    reason: "The Metal device could not create a command queue."
-                )
-            }
-            self.device = device
-            self.commandQueue = commandQueue
-            deviceName = device.name
+            #else
+                guard let device else {
+                    throw ML5Error.trainingAcceleratorUnavailable(
+                        reason: "No Metal device is available."
+                    )
+                }
+                guard let commandQueue = makeCommandQueue(device) else {
+                    throw ML5Error.trainingAcceleratorUnavailable(
+                        reason: "The Metal device could not create a command queue."
+                    )
+                }
+                self.device = device
+                self.commandQueue = commandQueue
+                deviceName = device.name
+            #endif
         }
 
         /// Fits a dense model using MPSGraph forward evaluation and automatic differentiation.

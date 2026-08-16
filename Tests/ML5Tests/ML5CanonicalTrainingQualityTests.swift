@@ -118,7 +118,7 @@ struct ML5CanonicalTrainingQualityTests {
         #expect((result.history.last?.trainingLoss ?? .infinity) < 0.0001)
     }
 
-    #if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+    #if canImport(Metal) && canImport(MetalPerformanceShadersGraph) && !targetEnvironment(simulator)
         @Test("CPU and Metal remain numerically conformant on a canonical full batch")
         func cpuMetalConformance() async throws {
             let samples = try (-2...2).map { value in

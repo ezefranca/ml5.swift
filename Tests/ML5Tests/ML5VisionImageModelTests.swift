@@ -420,9 +420,15 @@ struct ML5VisionImageModelTests {
     func featurePrintExtraction() async throws {
         let system = VisionImageFeatureExtractor()
         #expect(system.configuration == .init())
-        let systemPrint = try await system.extract(image(), orientation: .leftMirrored)
-        #expect(!systemPrint.values.isEmpty)
-        #expect(systemPrint.revision == .revision2)
+        #if targetEnvironment(simulator)
+            await #expect(throws: ML5Error.self) {
+                _ = try await system.extract(image(), orientation: .leftMirrored)
+            }
+        #else
+            let systemPrint = try await system.extract(image(), orientation: .leftMirrored)
+            #expect(!systemPrint.values.isEmpty)
+            #expect(systemPrint.revision == .revision2)
+        #endif
 
         let observation = VisionFeaturePrintRawResult(
             elementType: .float,

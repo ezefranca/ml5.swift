@@ -54,6 +54,8 @@ defaults, or explicit missing and unknown-field policies.
 
 ### Data guides
 
+- <doc:GettingStarted>
+- <doc:ML5Compatibility>
 - <doc:StructuredModelData>
 - <doc:ManagingDatasets>
 - <doc:PreprocessingData>

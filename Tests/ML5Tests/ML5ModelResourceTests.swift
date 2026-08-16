@@ -146,12 +146,12 @@ struct ML5ModelResourceTests {
     func sources() throws {
         let metadata = try modelMetadata(name: "Source Model")
         let bundledURL = try #require(
-            Bundle.module.url(forResource: "BundledModel", withExtension: "mlmodel")
+            Bundle.module.url(forResource: "BundledModel", withExtension: "model-fixture")
         )
         let bundledDigest = try ML5ModelDigest.sha256(contentsOf: bundledURL)
         let bundled = try ML5ModelSource.bundledResource(
             named: "BundledModel",
-            withExtension: "mlmodel",
+            withExtension: "model-fixture",
             in: .module,
             integrityDigest: bundledDigest,
             metadata: metadata

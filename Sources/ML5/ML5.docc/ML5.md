@@ -63,6 +63,8 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:PersistingAndExportingDenseModels>
 - <doc:EvolvingDenseBrains>
 - <doc:LoadingAndCachingModels>
+- <doc:RunningVisionImageModels>
+- <doc:DeployingModelsResponsibly>
 
 ### Datasets
 
@@ -153,6 +155,19 @@ defaults, or explicit missing and unknown-field policies.
 - ``ML5ModelCache``
 - ``ML5CachedModel``
 - ``ML5ModelCacheEntry``
+
+### Vision image models
+
+- ``VisionCoreMLImageModel``
+- ``VisionClassification``
+- ``VisionCoreMLFeature``
+- ``VisionImageFeatureExtractor``
+- ``VisionFeaturePrint``
+- ``VisionFeaturePrintConfiguration``
+- ``VisionFeaturePrintRevision``
+- ``VisionFeaturePrintElementType``
+- ``VisionImageOrientation``
+- ``VisionImageCropAndScale``
 
 ### Neuroevolution
 

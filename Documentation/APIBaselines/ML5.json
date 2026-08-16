@@ -34,6 +34,13 @@
       },
       {
         "kind": "Import",
+        "name": "ImageIO",
+        "printedName": "ImageIO",
+        "declKind": "Import",
+        "moduleName": "ML5"
+      },
+      {
+        "kind": "Import",
         "name": "Metal",
         "printedName": "Metal",
         "declKind": "Import",
@@ -50,6 +57,13 @@
         "kind": "Import",
         "name": "SwiftOnoneSupport",
         "printedName": "SwiftOnoneSupport",
+        "declKind": "Import",
+        "moduleName": "ML5"
+      },
+      {
+        "kind": "Import",
+        "name": "Vision",
+        "printedName": "Vision",
         "declKind": "Import",
         "moduleName": "ML5"
       },
@@ -21424,6 +21438,177 @@
           },
           {
             "kind": "Var",
+            "name": "invalidVisionConfiguration",
+            "printedName": "invalidVisionConfiguration",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(reason: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO26invalidVisionConfigurationyACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO26invalidVisionConfigurationyACSS_tcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "visionRequestFailed",
+            "printedName": "visionRequestFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO19visionRequestFailedyACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO19visionRequestFailedyACSS_tcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "unsupportedVisionResult",
+            "printedName": "unsupportedVisionResult",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.ML5Error.Type) -> (Swift.String) -> ML5.ML5Error",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ML5.ML5Error",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(reason: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.ML5Error.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ML5Error",
+                        "printedName": "ML5.ML5Error",
+                        "usr": "s:3ML50A5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML50A5ErrorO23unsupportedVisionResultyACSS_tcACmF",
+            "mangledName": "$s3ML50A5ErrorO23unsupportedVisionResultyACSS_tcACmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
             "name": "trainingAcceleratorUnavailable",
             "printedName": "trainingAcceleratorUnavailable",
             "children": [
@@ -42143,6 +42328,3797 @@
             "printedName": "SendableMetatype",
             "usr": "s:s16SendableMetatypeP",
             "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionImageOrientation",
+        "printedName": "VisionImageOrientation",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "up",
+            "printedName": "up",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO2upyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO2upyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "upMirrored",
+            "printedName": "upMirrored",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO10upMirroredyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO10upMirroredyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "down",
+            "printedName": "down",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO4downyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO4downyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "downMirrored",
+            "printedName": "downMirrored",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO12downMirroredyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO12downMirroredyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "left",
+            "printedName": "left",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO4leftyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO4leftyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "leftMirrored",
+            "printedName": "leftMirrored",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO12leftMirroredyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO12leftMirroredyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "right",
+            "printedName": "right",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO5rightyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO5rightyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "rightMirrored",
+            "printedName": "rightMirrored",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageOrientation.Type) -> ML5.VisionImageOrientation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageOrientation.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML522VisionImageOrientationO13rightMirroredyA2CmF",
+            "mangledName": "$s3ML522VisionImageOrientationO13rightMirroredyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.VisionImageOrientation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML522VisionImageOrientationO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML522VisionImageOrientationO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionImageOrientation]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML522VisionImageOrientationO8AllCasesa",
+            "mangledName": "$s3ML522VisionImageOrientationO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML522VisionImageOrientationO8RawValuea",
+            "mangledName": "$s3ML522VisionImageOrientationO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionImageOrientation]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageOrientation",
+                    "printedName": "ML5.VisionImageOrientation",
+                    "usr": "s:3ML522VisionImageOrientationO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522VisionImageOrientationO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML522VisionImageOrientationO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionImageOrientation]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522VisionImageOrientationO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML522VisionImageOrientationO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522VisionImageOrientationO8rawValueSSvp",
+            "mangledName": "$s3ML522VisionImageOrientationO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522VisionImageOrientationO8rawValueSSvg",
+                "mangledName": "$s3ML522VisionImageOrientationO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML522VisionImageOrientationO",
+        "mangledName": "$s3ML522VisionImageOrientationO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionImageOrientation]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageOrientation",
+                        "printedName": "ML5.VisionImageOrientation",
+                        "usr": "s:3ML522VisionImageOrientationO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionImageCropAndScale",
+        "printedName": "VisionImageCropAndScale",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "centerCrop",
+            "printedName": "centerCrop",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageCropAndScale.Type) -> ML5.VisionImageCropAndScale",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageCropAndScale.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageCropAndScale",
+                        "printedName": "ML5.VisionImageCropAndScale",
+                        "usr": "s:3ML523VisionImageCropAndScaleO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML523VisionImageCropAndScaleO06centerD0yA2CmF",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO06centerD0yA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "scaleFit",
+            "printedName": "scaleFit",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageCropAndScale.Type) -> ML5.VisionImageCropAndScale",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageCropAndScale.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageCropAndScale",
+                        "printedName": "ML5.VisionImageCropAndScale",
+                        "usr": "s:3ML523VisionImageCropAndScaleO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML523VisionImageCropAndScaleO8scaleFityA2CmF",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO8scaleFityA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "scaleFill",
+            "printedName": "scaleFill",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionImageCropAndScale.Type) -> ML5.VisionImageCropAndScale",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionImageCropAndScale.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageCropAndScale",
+                        "printedName": "ML5.VisionImageCropAndScale",
+                        "usr": "s:3ML523VisionImageCropAndScaleO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML523VisionImageCropAndScaleO9scaleFillyA2CmF",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO9scaleFillyA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.VisionImageCropAndScale?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML523VisionImageCropAndScaleO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionImageCropAndScale]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML523VisionImageCropAndScaleO8AllCasesa",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML523VisionImageCropAndScaleO8RawValuea",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionImageCropAndScale]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML523VisionImageCropAndScaleO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionImageCropAndScale]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageCropAndScale",
+                        "printedName": "ML5.VisionImageCropAndScale",
+                        "usr": "s:3ML523VisionImageCropAndScaleO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML523VisionImageCropAndScaleO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML523VisionImageCropAndScaleO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML523VisionImageCropAndScaleO8rawValueSSvp",
+            "mangledName": "$s3ML523VisionImageCropAndScaleO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML523VisionImageCropAndScaleO8rawValueSSvg",
+                "mangledName": "$s3ML523VisionImageCropAndScaleO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML523VisionImageCropAndScaleO",
+        "mangledName": "$s3ML523VisionImageCropAndScaleO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionImageCropAndScale]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionImageCropAndScale",
+                        "printedName": "ML5.VisionImageCropAndScale",
+                        "usr": "s:3ML523VisionImageCropAndScaleO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionClassification",
+        "printedName": "VisionClassification",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "identifier",
+            "printedName": "identifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML520VisionClassificationV10identifierSSvp",
+            "mangledName": "$s3ML520VisionClassificationV10identifierSSvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML520VisionClassificationV10identifierSSvg",
+                "mangledName": "$s3ML520VisionClassificationV10identifierSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "confidence",
+            "printedName": "confidence",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML520VisionClassificationV10confidenceSdvp",
+            "mangledName": "$s3ML520VisionClassificationV10confidenceSdvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML520VisionClassificationV10confidenceSdvg",
+                "mangledName": "$s3ML520VisionClassificationV10confidenceSdvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(identifier:confidence:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionClassification",
+                "printedName": "ML5.VisionClassification",
+                "usr": "s:3ML520VisionClassificationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML520VisionClassificationV10identifier10confidenceACSS_SdtKcfc",
+            "mangledName": "$s3ML520VisionClassificationV10identifier10confidenceACSS_SdtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionClassification",
+                "printedName": "ML5.VisionClassification",
+                "usr": "s:3ML520VisionClassificationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML520VisionClassificationV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML520VisionClassificationV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionClassification",
+                "printedName": "ML5.VisionClassification",
+                "usr": "s:3ML520VisionClassificationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionClassification",
+                "printedName": "ML5.VisionClassification",
+                "usr": "s:3ML520VisionClassificationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML520VisionClassificationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML520VisionClassificationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML520VisionClassificationV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML520VisionClassificationV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML520VisionClassificationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML520VisionClassificationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML520VisionClassificationV9hashValueSivp",
+            "mangledName": "$s3ML520VisionClassificationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML520VisionClassificationV9hashValueSivg",
+                "mangledName": "$s3ML520VisionClassificationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML520VisionClassificationV",
+        "mangledName": "$s3ML520VisionClassificationV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionCoreMLFeature",
+        "printedName": "VisionCoreMLFeature",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "name",
+            "printedName": "name",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OutputName",
+                "printedName": "ML5.OutputName",
+                "usr": "s:3ML510OutputNameV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML519VisionCoreMLFeatureV4nameAA10OutputNameVvp",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV4nameAA10OutputNameVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OutputName",
+                    "printedName": "ML5.OutputName",
+                    "usr": "s:3ML510OutputNameV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML519VisionCoreMLFeatureV4nameAA10OutputNameVvg",
+                "mangledName": "$s3ML519VisionCoreMLFeatureV4nameAA10OutputNameVvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FeatureValue",
+                "printedName": "ML5.FeatureValue",
+                "usr": "s:3ML512FeatureValueO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML519VisionCoreMLFeatureV5valueAA12FeatureValueOvp",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV5valueAA12FeatureValueOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FeatureValue",
+                    "printedName": "ML5.FeatureValue",
+                    "usr": "s:3ML512FeatureValueO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML519VisionCoreMLFeatureV5valueAA12FeatureValueOvg",
+                "mangledName": "$s3ML519VisionCoreMLFeatureV5valueAA12FeatureValueOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(name:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionCoreMLFeature",
+                "printedName": "ML5.VisionCoreMLFeature",
+                "usr": "s:3ML519VisionCoreMLFeatureV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OutputName",
+                "printedName": "ML5.OutputName",
+                "usr": "s:3ML510OutputNameV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FeatureValue",
+                "printedName": "ML5.FeatureValue",
+                "usr": "s:3ML512FeatureValueO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML519VisionCoreMLFeatureV4name5valueAcA10OutputNameV_AA12FeatureValueOtKcfc",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV4name5valueAcA10OutputNameV_AA12FeatureValueOtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionCoreMLFeature",
+                "printedName": "ML5.VisionCoreMLFeature",
+                "usr": "s:3ML519VisionCoreMLFeatureV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML519VisionCoreMLFeatureV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionCoreMLFeature",
+                "printedName": "ML5.VisionCoreMLFeature",
+                "usr": "s:3ML519VisionCoreMLFeatureV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionCoreMLFeature",
+                "printedName": "ML5.VisionCoreMLFeature",
+                "usr": "s:3ML519VisionCoreMLFeatureV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML519VisionCoreMLFeatureV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML519VisionCoreMLFeatureV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML519VisionCoreMLFeatureV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML519VisionCoreMLFeatureV9hashValueSivp",
+            "mangledName": "$s3ML519VisionCoreMLFeatureV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML519VisionCoreMLFeatureV9hashValueSivg",
+                "mangledName": "$s3ML519VisionCoreMLFeatureV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML519VisionCoreMLFeatureV",
+        "mangledName": "$s3ML519VisionCoreMLFeatureV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionCoreMLImageModel",
+        "printedName": "VisionCoreMLImageModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(contentsOf:configuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionCoreMLImageModel",
+                "printedName": "ML5.VisionCoreMLImageModel",
+                "usr": "s:3ML522VisionCoreMLImageModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreMLModelConfiguration",
+                "printedName": "ML5.CoreMLModelConfiguration",
+                "hasDefaultArg": true,
+                "usr": "s:3ML524CoreMLModelConfigurationV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML522VisionCoreMLImageModelC10contentsOf13configurationAC10Foundation3URLV_AA0C20MLModelConfigurationVtKcfc",
+            "mangledName": "$s3ML522VisionCoreMLImageModelC10contentsOf13configurationAC10Foundation3URLV_AA0C20MLModelConfigurationVtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load(from:using:configuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionCoreMLImageModel",
+                "printedName": "ML5.VisionCoreMLImageModel",
+                "usr": "s:3ML522VisionCoreMLImageModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelSource",
+                "printedName": "ML5.ML5ModelSource",
+                "usr": "s:3ML50A11ModelSourceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5ModelCache",
+                "printedName": "ML5.ML5ModelCache",
+                "usr": "s:3ML50A10ModelCacheC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreMLModelConfiguration",
+                "printedName": "ML5.CoreMLModelConfiguration",
+                "hasDefaultArg": true,
+                "usr": "s:3ML524CoreMLModelConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML522VisionCoreMLImageModelC4load4from5using13configurationAcA0aE6SourceV_AA0aE5CacheCAA0C20MLModelConfigurationVtYaKFZ",
+            "mangledName": "$s3ML522VisionCoreMLImageModelC4load4from5using13configurationAcA0aE6SourceV_AA0aE5CacheCAA0C20MLModelConfigurationVtYaKFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "classify",
+            "printedName": "classify(_:orientation:cropAndScale:maximumResults:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionClassification]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionClassification",
+                    "printedName": "ML5.VisionClassification",
+                    "usr": "s:3ML520VisionClassificationV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5Image",
+                "printedName": "ML5.ML5Image",
+                "usr": "s:3ML50A5ImageV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageOrientation",
+                "printedName": "ML5.VisionImageOrientation",
+                "hasDefaultArg": true,
+                "usr": "s:3ML522VisionImageOrientationO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageCropAndScale",
+                "printedName": "ML5.VisionImageCropAndScale",
+                "hasDefaultArg": true,
+                "usr": "s:3ML523VisionImageCropAndScaleO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML522VisionCoreMLImageModelC8classify_11orientation12cropAndScale14maximumResultsSayAA0B14ClassificationVGAA0A5ImageV_AA0bN11OrientationOAA0bn4CropiJ0OSiSgtYaKF",
+            "mangledName": "$s3ML522VisionCoreMLImageModelC8classify_11orientation12cropAndScale14maximumResultsSayAA0B14ClassificationVGAA0A5ImageV_AA0bN11OrientationOAA0bn4CropiJ0OSiSgtYaKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "extractFeatures",
+            "printedName": "extractFeatures(_:orientation:cropAndScale:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionCoreMLFeature]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionCoreMLFeature",
+                    "printedName": "ML5.VisionCoreMLFeature",
+                    "usr": "s:3ML519VisionCoreMLFeatureV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5Image",
+                "printedName": "ML5.ML5Image",
+                "usr": "s:3ML50A5ImageV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageOrientation",
+                "printedName": "ML5.VisionImageOrientation",
+                "hasDefaultArg": true,
+                "usr": "s:3ML522VisionImageOrientationO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageCropAndScale",
+                "printedName": "ML5.VisionImageCropAndScale",
+                "hasDefaultArg": true,
+                "usr": "s:3ML523VisionImageCropAndScaleO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML522VisionCoreMLImageModelC15extractFeatures_11orientation12cropAndScaleSayAA0bC9MLFeatureVGAA0A5ImageV_AA0bM11OrientationOAA0bm4CropjK0OtYaKF",
+            "mangledName": "$s3ML522VisionCoreMLImageModelC15extractFeatures_11orientation12cropAndScaleSayAA0bC9MLFeatureVGAA0A5ImageV_AA0bM11OrientationOAA0bm4CropjK0OtYaKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "unownedExecutor",
+            "printedName": "unownedExecutor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnownedSerialExecutor",
+                "printedName": "_Concurrency.UnownedSerialExecutor",
+                "usr": "s:Sce"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML522VisionCoreMLImageModelC15unownedExecutorScevp",
+            "mangledName": "$s3ML522VisionCoreMLImageModelC15unownedExecutorScevp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "intro_Macosx": "10.15",
+            "intro_iOS": "13.0",
+            "intro_tvOS": "13.0",
+            "intro_watchOS": "6.0",
+            "declAttributes": [
+              "Available",
+              "Available",
+              "Available",
+              "Available",
+              "Final",
+              "Nonisolated",
+              "Semantics"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnownedSerialExecutor",
+                    "printedName": "_Concurrency.UnownedSerialExecutor",
+                    "usr": "s:Sce"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML522VisionCoreMLImageModelC15unownedExecutorScevg",
+                "mangledName": "$s3ML522VisionCoreMLImageModelC15unownedExecutorScevg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:3ML522VisionCoreMLImageModelC",
+        "mangledName": "$s3ML522VisionCoreMLImageModelC",
+        "moduleName": "ML5",
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Actor",
+            "printedName": "Actor",
+            "usr": "s:ScA",
+            "mangledName": "$sScA"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionFeaturePrintRevision",
+        "printedName": "VisionFeaturePrintRevision",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "revision1",
+            "printedName": "revision1",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionFeaturePrintRevision.Type) -> ML5.VisionFeaturePrintRevision",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionFeaturePrintRevision.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintRevision",
+                        "printedName": "ML5.VisionFeaturePrintRevision",
+                        "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO9revision1yA2CmF",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO9revision1yA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "revision2",
+            "printedName": "revision2",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionFeaturePrintRevision.Type) -> ML5.VisionFeaturePrintRevision",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionFeaturePrintRevision.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintRevision",
+                        "printedName": "ML5.VisionFeaturePrintRevision",
+                        "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO9revision2yA2CmF",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO9revision2yA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.VisionFeaturePrintRevision?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO8rawValueACSgSi_tcfc",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO8rawValueACSgSi_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionFeaturePrintRevision]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO8AllCasesa",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO8RawValuea",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionFeaturePrintRevision]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionFeaturePrintRevision]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintRevision",
+                        "printedName": "ML5.VisionFeaturePrintRevision",
+                        "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML526VisionFeaturePrintRevisionO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML526VisionFeaturePrintRevisionO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML526VisionFeaturePrintRevisionO8rawValueSivp",
+            "mangledName": "$s3ML526VisionFeaturePrintRevisionO8rawValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML526VisionFeaturePrintRevisionO8rawValueSivg",
+                "mangledName": "$s3ML526VisionFeaturePrintRevisionO8rawValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML526VisionFeaturePrintRevisionO",
+        "mangledName": "$s3ML526VisionFeaturePrintRevisionO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "Int",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionFeaturePrintRevision]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintRevision",
+                        "printedName": "ML5.VisionFeaturePrintRevision",
+                        "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionFeaturePrintElementType",
+        "printedName": "VisionFeaturePrintElementType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "float32",
+            "printedName": "float32",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionFeaturePrintElementType.Type) -> ML5.VisionFeaturePrintElementType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintElementType",
+                    "printedName": "ML5.VisionFeaturePrintElementType",
+                    "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionFeaturePrintElementType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintElementType",
+                        "printedName": "ML5.VisionFeaturePrintElementType",
+                        "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO7float32yA2CmF",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO7float32yA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Var",
+            "name": "float64",
+            "printedName": "float64",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ML5.VisionFeaturePrintElementType.Type) -> ML5.VisionFeaturePrintElementType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintElementType",
+                    "printedName": "ML5.VisionFeaturePrintElementType",
+                    "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ML5.VisionFeaturePrintElementType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintElementType",
+                        "printedName": "ML5.VisionFeaturePrintElementType",
+                        "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO7float64yA2CmF",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO7float64yA2CmF",
+            "moduleName": "ML5"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ML5.VisionFeaturePrintElementType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintElementType",
+                    "printedName": "ML5.VisionFeaturePrintElementType",
+                    "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO8rawValueACSgSS_tcfc",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8rawValueACSgSS_tcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "declAttributes": [
+              "Inlinable"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "AllCases",
+            "printedName": "AllCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionFeaturePrintElementType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintElementType",
+                    "printedName": "ML5.VisionFeaturePrintElementType",
+                    "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO8AllCasesa",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8AllCasesa",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "TypeAlias",
+            "name": "RawValue",
+            "printedName": "RawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "TypeAlias",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO8RawValuea",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8RawValuea",
+            "moduleName": "ML5",
+            "implicit": true
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[ML5.VisionFeaturePrintElementType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintElementType",
+                    "printedName": "ML5.VisionFeaturePrintElementType",
+                    "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO8allCasesSayACGvpZ",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8allCasesSayACGvpZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionFeaturePrintElementType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintElementType",
+                        "printedName": "ML5.VisionFeaturePrintElementType",
+                        "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML529VisionFeaturePrintElementTypeO8allCasesSayACGvgZ",
+                "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8allCasesSayACGvgZ",
+                "moduleName": "ML5",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML529VisionFeaturePrintElementTypeO8rawValueSSvp",
+            "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8rawValueSSvp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML529VisionFeaturePrintElementTypeO8rawValueSSvg",
+                "mangledName": "$s3ML529VisionFeaturePrintElementTypeO8rawValueSSvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Inlinable"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:3ML529VisionFeaturePrintElementTypeO",
+        "mangledName": "$s3ML529VisionFeaturePrintElementTypeO",
+        "moduleName": "ML5",
+        "enumRawTypeName": "String",
+        "isEnumExhaustive": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[ML5.VisionFeaturePrintElementType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VisionFeaturePrintElementType",
+                        "printedName": "ML5.VisionFeaturePrintElementType",
+                        "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionFeaturePrintConfiguration",
+        "printedName": "VisionFeaturePrintConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "revision",
+            "printedName": "revision",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintRevision",
+                "printedName": "ML5.VisionFeaturePrintRevision",
+                "usr": "s:3ML526VisionFeaturePrintRevisionO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV8revisionAA0bcD8RevisionOvp",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV8revisionAA0bcD8RevisionOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV8revisionAA0bcD8RevisionOvg",
+                "mangledName": "$s3ML531VisionFeaturePrintConfigurationV8revisionAA0bcD8RevisionOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV8revisionAA0bcD8RevisionOvs",
+                "mangledName": "$s3ML531VisionFeaturePrintConfigurationV8revisionAA0bcD8RevisionOvs",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cropAndScale",
+            "printedName": "cropAndScale",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageCropAndScale",
+                "printedName": "ML5.VisionImageCropAndScale",
+                "usr": "s:3ML523VisionImageCropAndScaleO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV12cropAndScaleAA0b9ImageCropgH0Ovp",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV12cropAndScaleAA0b9ImageCropgH0Ovp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV12cropAndScaleAA0b9ImageCropgH0Ovg",
+                "mangledName": "$s3ML531VisionFeaturePrintConfigurationV12cropAndScaleAA0b9ImageCropgH0Ovg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionImageCropAndScale",
+                    "printedName": "ML5.VisionImageCropAndScale",
+                    "usr": "s:3ML523VisionImageCropAndScaleO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV12cropAndScaleAA0b9ImageCropgH0Ovs",
+                "mangledName": "$s3ML531VisionFeaturePrintConfigurationV12cropAndScaleAA0b9ImageCropgH0Ovs",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(revision:cropAndScale:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintConfiguration",
+                "printedName": "ML5.VisionFeaturePrintConfiguration",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintRevision",
+                "printedName": "ML5.VisionFeaturePrintRevision",
+                "hasDefaultArg": true,
+                "usr": "s:3ML526VisionFeaturePrintRevisionO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageCropAndScale",
+                "printedName": "ML5.VisionImageCropAndScale",
+                "hasDefaultArg": true,
+                "usr": "s:3ML523VisionImageCropAndScaleO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV8revision12cropAndScaleAcA0bcD8RevisionO_AA0b9ImageCrophI0Otcfc",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV8revision12cropAndScaleAcA0bcD8RevisionO_AA0b9ImageCrophI0Otcfc",
+            "moduleName": "ML5",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintConfiguration",
+                "printedName": "ML5.VisionFeaturePrintConfiguration",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintConfiguration",
+                "printedName": "ML5.VisionFeaturePrintConfiguration",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV9hashValueSivp",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV9hashValueSivg",
+                "mangledName": "$s3ML531VisionFeaturePrintConfigurationV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintConfiguration",
+                "printedName": "ML5.VisionFeaturePrintConfiguration",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML531VisionFeaturePrintConfigurationV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML531VisionFeaturePrintConfigurationV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML531VisionFeaturePrintConfigurationV",
+        "mangledName": "$s3ML531VisionFeaturePrintConfigurationV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionFeaturePrint",
+        "printedName": "VisionFeaturePrint",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "revision",
+            "printedName": "revision",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintRevision",
+                "printedName": "ML5.VisionFeaturePrintRevision",
+                "usr": "s:3ML526VisionFeaturePrintRevisionO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML518VisionFeaturePrintV8revisionAA0bcD8RevisionOvp",
+            "mangledName": "$s3ML518VisionFeaturePrintV8revisionAA0bcD8RevisionOvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintRevision",
+                    "printedName": "ML5.VisionFeaturePrintRevision",
+                    "usr": "s:3ML526VisionFeaturePrintRevisionO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML518VisionFeaturePrintV8revisionAA0bcD8RevisionOvg",
+                "mangledName": "$s3ML518VisionFeaturePrintV8revisionAA0bcD8RevisionOvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "elementType",
+            "printedName": "elementType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintElementType",
+                "printedName": "ML5.VisionFeaturePrintElementType",
+                "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML518VisionFeaturePrintV11elementTypeAA0bcd7ElementF0Ovp",
+            "mangledName": "$s3ML518VisionFeaturePrintV11elementTypeAA0bcd7ElementF0Ovp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintElementType",
+                    "printedName": "ML5.VisionFeaturePrintElementType",
+                    "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML518VisionFeaturePrintV11elementTypeAA0bcd7ElementF0Ovg",
+                "mangledName": "$s3ML518VisionFeaturePrintV11elementTypeAA0bcd7ElementF0Ovg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "values",
+            "printedName": "values",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Double]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML518VisionFeaturePrintV6valuesSaySdGvp",
+            "mangledName": "$s3ML518VisionFeaturePrintV6valuesSaySdGvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Double]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML518VisionFeaturePrintV6valuesSaySdGvg",
+                "mangledName": "$s3ML518VisionFeaturePrintV6valuesSaySdGvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(revision:elementType:values:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrint",
+                "printedName": "ML5.VisionFeaturePrint",
+                "usr": "s:3ML518VisionFeaturePrintV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintRevision",
+                "printedName": "ML5.VisionFeaturePrintRevision",
+                "usr": "s:3ML526VisionFeaturePrintRevisionO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintElementType",
+                "printedName": "ML5.VisionFeaturePrintElementType",
+                "usr": "s:3ML529VisionFeaturePrintElementTypeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Double]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML518VisionFeaturePrintV8revision11elementType6valuesAcA0bcD8RevisionO_AA0bcd7ElementG0OSaySdGtKcfc",
+            "mangledName": "$s3ML518VisionFeaturePrintV8revision11elementType6valuesAcA0bcD8RevisionO_AA0bcd7ElementG0OSaySdGtKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrint",
+                "printedName": "ML5.VisionFeaturePrint",
+                "usr": "s:3ML518VisionFeaturePrintV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML518VisionFeaturePrintV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s3ML518VisionFeaturePrintV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ML5",
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "distance",
+            "printedName": "distance(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrint",
+                "printedName": "ML5.VisionFeaturePrint",
+                "usr": "s:3ML518VisionFeaturePrintV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML518VisionFeaturePrintV8distance2toSdAC_tKF",
+            "mangledName": "$s3ML518VisionFeaturePrintV8distance2toSdAC_tKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "__derived_struct_equals",
+            "printedName": "__derived_struct_equals(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrint",
+                "printedName": "ML5.VisionFeaturePrint",
+                "usr": "s:3ML518VisionFeaturePrintV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrint",
+                "printedName": "ML5.VisionFeaturePrint",
+                "usr": "s:3ML518VisionFeaturePrintV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML518VisionFeaturePrintV23__derived_struct_equalsySbAC_ACtFZ",
+            "mangledName": "$s3ML518VisionFeaturePrintV23__derived_struct_equalsySbAC_ACtFZ",
+            "moduleName": "ML5",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Implements"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML518VisionFeaturePrintV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s3ML518VisionFeaturePrintV6encode2toys7Encoder_p_tKF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML518VisionFeaturePrintV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s3ML518VisionFeaturePrintV4hash4intoys6HasherVz_tF",
+            "moduleName": "ML5",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML518VisionFeaturePrintV9hashValueSivp",
+            "mangledName": "$s3ML518VisionFeaturePrintV9hashValueSivp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML518VisionFeaturePrintV9hashValueSivg",
+                "mangledName": "$s3ML518VisionFeaturePrintV9hashValueSivg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:3ML518VisionFeaturePrintV",
+        "mangledName": "$s3ML518VisionFeaturePrintV",
+        "moduleName": "ML5",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VisionImageFeatureExtractor",
+        "printedName": "VisionImageFeatureExtractor",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "configuration",
+            "printedName": "configuration",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintConfiguration",
+                "printedName": "ML5.VisionFeaturePrintConfiguration",
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML527VisionImageFeatureExtractorC13configurationAA0bD18PrintConfigurationVvp",
+            "mangledName": "$s3ML527VisionImageFeatureExtractorC13configurationAA0bD18PrintConfigurationVvp",
+            "moduleName": "ML5",
+            "declAttributes": [
+              "Final",
+              "Nonisolated",
+              "HasStorage"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VisionFeaturePrintConfiguration",
+                    "printedName": "ML5.VisionFeaturePrintConfiguration",
+                    "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML527VisionImageFeatureExtractorC13configurationAA0bD18PrintConfigurationVvg",
+                "mangledName": "$s3ML527VisionImageFeatureExtractorC13configurationAA0bD18PrintConfigurationVvg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(configuration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageFeatureExtractor",
+                "printedName": "ML5.VisionImageFeatureExtractor",
+                "usr": "s:3ML527VisionImageFeatureExtractorC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrintConfiguration",
+                "printedName": "ML5.VisionFeaturePrintConfiguration",
+                "hasDefaultArg": true,
+                "usr": "s:3ML531VisionFeaturePrintConfigurationV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:3ML527VisionImageFeatureExtractorC13configurationAcA0bD18PrintConfigurationV_tcfc",
+            "mangledName": "$s3ML527VisionImageFeatureExtractorC13configurationAcA0bD18PrintConfigurationV_tcfc",
+            "moduleName": "ML5",
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Function",
+            "name": "extract",
+            "printedName": "extract(_:orientation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VisionFeaturePrint",
+                "printedName": "ML5.VisionFeaturePrint",
+                "usr": "s:3ML518VisionFeaturePrintV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ML5Image",
+                "printedName": "ML5.ML5Image",
+                "usr": "s:3ML50A5ImageV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VisionImageOrientation",
+                "printedName": "ML5.VisionImageOrientation",
+                "hasDefaultArg": true,
+                "usr": "s:3ML522VisionImageOrientationO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:3ML527VisionImageFeatureExtractorC7extract_11orientationAA0bD5PrintVAA0aC0V_AA0bC11OrientationOtYaKF",
+            "mangledName": "$s3ML527VisionImageFeatureExtractorC7extract_11orientationAA0bD5PrintVAA0aC0V_AA0bC11OrientationOtYaKF",
+            "moduleName": "ML5",
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "unownedExecutor",
+            "printedName": "unownedExecutor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnownedSerialExecutor",
+                "printedName": "_Concurrency.UnownedSerialExecutor",
+                "usr": "s:Sce"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:3ML527VisionImageFeatureExtractorC15unownedExecutorScevp",
+            "mangledName": "$s3ML527VisionImageFeatureExtractorC15unownedExecutorScevp",
+            "moduleName": "ML5",
+            "implicit": true,
+            "intro_Macosx": "10.15",
+            "intro_iOS": "13.0",
+            "intro_tvOS": "13.0",
+            "intro_watchOS": "6.0",
+            "declAttributes": [
+              "Available",
+              "Available",
+              "Available",
+              "Available",
+              "Final",
+              "Nonisolated",
+              "Semantics"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnownedSerialExecutor",
+                    "printedName": "_Concurrency.UnownedSerialExecutor",
+                    "usr": "s:Sce"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:3ML527VisionImageFeatureExtractorC15unownedExecutorScevg",
+                "mangledName": "$s3ML527VisionImageFeatureExtractorC15unownedExecutorScevg",
+                "moduleName": "ML5",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:3ML527VisionImageFeatureExtractorC",
+        "mangledName": "$s3ML527VisionImageFeatureExtractorC",
+        "moduleName": "ML5",
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Actor",
+            "printedName": "Actor",
+            "usr": "s:ScA",
+            "mangledName": "$sScA"
           }
         ]
       },

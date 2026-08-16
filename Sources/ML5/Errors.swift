@@ -72,6 +72,12 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case modelResourceFailed(location: String, message: String)
     /// A model-cache directory or manifest could not be created, read, or updated.
     case modelCacheFailed(path: String, message: String)
+    /// A Vision request option or result limit was invalid.
+    case invalidVisionConfiguration(reason: String)
+    /// Vision could not evaluate an image request.
+    case visionRequestFailed(message: String)
+    /// Vision returned no observations or an observation incompatible with the requested task.
+    case unsupportedVisionResult(reason: String)
     /// A requested Apple training accelerator could not be created or execute a graph.
     case trainingAcceleratorUnavailable(reason: String)
     /// A persisted training checkpoint was malformed or did not match its resume request.
@@ -172,6 +178,12 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Model resource failed at \(location.debugDescription): \(message)"
         case let .modelCacheFailed(path, message):
             "Model cache failed at \(path.debugDescription): \(message)"
+        case let .invalidVisionConfiguration(reason):
+            "Invalid Vision configuration: \(reason)"
+        case let .visionRequestFailed(message):
+            "Vision image request failed: \(message)"
+        case let .unsupportedVisionResult(reason):
+            "Unsupported Vision result: \(reason)"
         case let .trainingAcceleratorUnavailable(reason):
             "Training accelerator unavailable: \(reason)"
         case let .invalidTrainingCheckpoint(reason):

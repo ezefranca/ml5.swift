@@ -420,15 +420,24 @@ struct ML5VisionImageModelTests {
     func featurePrintExtraction() async throws {
         let system = VisionImageFeatureExtractor()
         #expect(system.configuration == .init())
-        #if targetEnvironment(simulator)
-            await #expect(throws: ML5Error.self) {
-                _ = try await system.extract(image(), orientation: .leftMirrored)
-            }
-        #else
+        do {
             let systemPrint = try await system.extract(image(), orientation: .leftMirrored)
             #expect(!systemPrint.values.isEmpty)
             #expect(systemPrint.revision == .revision2)
-        #endif
+        } catch let error as ML5Error {
+            #if targetEnvironment(simulator)
+                // Vision feature-print availability varies by simulator runtime and host.
+                // Unsupported environments must still surface a typed native boundary error.
+                switch error {
+                case .visionRequestFailed, .unsupportedVisionResult:
+                    break
+                default:
+                    Issue.record("Unexpected simulator Vision failure: \(error)")
+                }
+            #else
+                throw error
+            #endif
+        }
 
         let observation = VisionFeaturePrintRawResult(
             elementType: .float,

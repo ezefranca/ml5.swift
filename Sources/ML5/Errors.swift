@@ -50,6 +50,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidConfiguration(reason: String)
     /// A dense-network architecture or training option was invalid.
     case invalidTrainingConfiguration(reason: String)
+    /// Dense model parameters were malformed, inconsistent, or numerically unstable.
+    case invalidModel(reason: String)
     /// A training request contained no samples.
     case invalidTrainingSamples
     /// A task's required output was absent from the model result.
@@ -122,6 +124,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Invalid configuration: \(reason)"
         case let .invalidTrainingConfiguration(reason):
             "Invalid training configuration: \(reason)"
+        case let .invalidModel(reason):
+            "Invalid dense model: \(reason)"
         case .invalidTrainingSamples:
             "Training requires at least one sample."
         case let .missingOutput(name):

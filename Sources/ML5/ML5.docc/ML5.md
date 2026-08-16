@@ -115,6 +115,8 @@ defaults, or explicit missing and unknown-field policies.
 
 - ``DenseNetworkConfiguration``
 - ``DenseLayerConfiguration``
+- ``DenseNetworkModel``
+- ``DenseLayerParameters``
 - ``ActivationFunction``
 - ``WeightInitialization``
 - ``TrainingLoss``

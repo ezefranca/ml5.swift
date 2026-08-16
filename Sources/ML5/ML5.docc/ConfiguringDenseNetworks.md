@@ -53,3 +53,24 @@ persisted configurations portable when an optimizer is changed.
 All configuration types are `Sendable`, `Hashable`, and `Codable`. Decoding invokes
 the same validating initializers, so edited or corrupt configuration files cannot
 bypass architecture, loss, or numeric invariants.
+
+## Run an immutable model
+
+``DenseNetworkModel`` pairs a configuration with ``DenseLayerParameters``. Parameters
+use documented output-major row order and are validated for dimensions, storage
+counts, and finite values. Model construction also verifies every connection against
+the configured hidden and output widths.
+
+```swift
+let model = try DenseNetworkModel(
+    configuration: configuration,
+    layers: restoredParameters
+)
+let output = try await model.predict(features)
+let snapshot = try await model.makeInferenceSnapshot()
+```
+
+Dense models conform to ``ModelInferenceSnapshotProviding``. Because their parameter
+arrays are immutable values, snapshot prediction requires no actor hop or lock. Model
+and parameter decoding repeats every shape and finiteness check before accepting an
+archive.

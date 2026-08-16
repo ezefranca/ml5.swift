@@ -60,6 +60,7 @@ defaults, or explicit missing and unknown-field policies.
 - <doc:InferenceModes>
 - <doc:EvaluatingModels>
 - <doc:ConfiguringDenseNetworks>
+- <doc:PersistingAndExportingDenseModels>
 
 ### Datasets
 
@@ -138,3 +139,9 @@ defaults, or explicit missing and unknown-field policies.
 - ``DenseTrainingCheckpoint``
 - ``DenseTrainingBackend``
 - ``DenseTrainingStopReason``
+
+### Model persistence and export
+
+- ``ML5ModelMetadata``
+- ``DenseModelArchive``
+- ``DenseCoreMLExportConfiguration``

@@ -95,3 +95,19 @@ name.
 Its fallback is explicit and is considered only when Metal construction fails before
 the first update. Runtime graph, cancellation, and numerical failures remain visible
 to the caller and are never replayed on CPU.
+
+## Persistence and deployment
+
+``DenseModelArchive`` persists the validated model and ``ML5ModelMetadata`` as
+deterministic JSON. A format version makes incompatible schema changes explicit, while
+a SHA-256 digest covers the model and metadata payload so accidental edits and partial
+transfers are rejected during loading. The archive is a durable ML5 training artifact;
+it retains double-precision parameters and can be used for further ML5 inference or
+export.
+
+Core ML deployment is a separate, explicit operation. ML5 writes Apple's version 4
+neural-network protobuf representation with float32 parameters, exact-rank multi-array
+mapping, and an N-dimensional softmax. Core ML compilation then validates the native
+artifact. This self-contained representation supports the complete ML5 dense-layer
+surface without requiring a Python conversion tool or an external weight bundle.
+See <doc:PersistingAndExportingDenseModels> for ownership and ordering details.

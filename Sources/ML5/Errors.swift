@@ -52,6 +52,12 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidTrainingConfiguration(reason: String)
     /// Dense model parameters were malformed, inconsistent, or numerically unstable.
     case invalidModel(reason: String)
+    /// A dense-model archive had an unsupported schema, metadata, or integrity digest.
+    case invalidModelArchive(reason: String)
+    /// A dense-model archive could not be read or written at a file URL.
+    case modelPersistenceFailed(path: String, message: String)
+    /// A dense model could not be represented as or compiled into a Core ML model.
+    case coreMLExportFailed(reason: String)
     /// A requested Apple training accelerator could not be created or execute a graph.
     case trainingAcceleratorUnavailable(reason: String)
     /// A persisted training checkpoint was malformed or did not match its resume request.
@@ -132,6 +138,12 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Invalid training configuration: \(reason)"
         case let .invalidModel(reason):
             "Invalid dense model: \(reason)"
+        case let .invalidModelArchive(reason):
+            "Invalid model archive: \(reason)"
+        case let .modelPersistenceFailed(path, message):
+            "Model persistence failed at \(path.debugDescription): \(message)"
+        case let .coreMLExportFailed(reason):
+            "Core ML export failed: \(reason)"
         case let .trainingAcceleratorUnavailable(reason):
             "Training accelerator unavailable: \(reason)"
         case let .invalidTrainingCheckpoint(reason):

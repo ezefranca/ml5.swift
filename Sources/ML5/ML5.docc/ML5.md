@@ -33,6 +33,11 @@ sequence, and image values without exposing non-`Sendable` framework objects. Us
 ``FeatureSchema`` when model inputs need a stable order, exact tensor dimensions,
 defaults, or explicit missing and unknown-field policies.
 
+ML5 is independently versioned. Compose it at the application layer with
+[p5.swift](https://github.com/ezefranca/p5.swift) for visualization or
+[matter.swift](https://github.com/ezefranca/matter.swift) for physics; none of
+the packages has a production dependency on another.
+
 ## Topics
 
 ### Tasks and values

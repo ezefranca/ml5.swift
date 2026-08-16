@@ -2,32 +2,16 @@
 
 ## Supported versions
 
-Security fixes are applied to the latest released minor version. Pre-1.0 releases may
-include source-compatible hardening between minors; a necessary breaking fix is called
-out in the security advisory and changelog.
+Security fixes are applied to the latest tagged release and `main`. Pre-1.0 versions may receive source-compatible fixes where practical; a fix may require a minor-version API correction when safety demands it.
 
-## Report privately
+## Reporting
 
-Use GitHub private vulnerability reporting for the affected repository. Do not open a
-public issue for an undisclosed vulnerability. Include:
+Report suspected vulnerabilities privately through GitHub Security Advisories for `ezefranca/ml5.swift`. Include affected versions, platform/toolchain, reproduction, impact, and any proposed mitigation. Do not open a public issue before coordinated disclosure. Never attach confidential data, credentials, or proprietary model weights.
 
-- affected product, version, platform, and toolchain;
-- minimal reproduction and required permissions or model/input data;
-- confidentiality, integrity, availability, privacy, or supply-chain impact;
-- known mitigations and whether public disclosure already occurred.
+## Response
 
-Maintainers will acknowledge receipt, reproduce and assess severity, prepare a fix and
-tests, coordinate disclosure, and publish an advisory and patched semantic version.
-There is no guaranteed response-time SLA for this volunteer project.
+Maintainers will acknowledge a report, reproduce and assess it, prepare tests and a fix, coordinate disclosure, publish a checksummed release with provenance, and run post-release client/documentation/SPI verification. Compromised releases are documented and yanked according to `Documentation/Releasing.md`.
 
-## Security boundaries
+## Boundaries
 
-P5 processes untrusted images, text/tables, OBJ data, media URLs, and persisted values.
-Matter decodes potentially untrusted world snapshots. ML5 processes model packages,
-archives, datasets, and remote URLs. Validation, bounded allocation, cancellation, and
-typed failures reduce risk but do not make arbitrary media or models trustworthy.
-
-ML5 accepts remote model sources only over HTTPS with a caller-provided SHA-256 digest
-and model provenance. Applications remain responsible for server trust, model behavior,
-privacy review, and sandbox permissions. Never include credentials in a package URL,
-diagnostic, test fixture, issue, or trace.
+ML5 processes untrusted model packages, archives, datasets, images, and remote URLs. Remote sources require HTTPS, a caller-provided SHA-256 digest, ownership, license, provenance, and version metadata; compiled cache entries are rehashed. Validation, bounded caches, cancellation, typed failures, Core ML sandboxing, and explicit accelerator policy reduce risk but do not establish model safety or trust. Host applications remain responsible for server trust, data privacy, model evaluation, fairness, output policy, and platform entitlements. The package contains no telemetry, analytics SDK, advertising identifier use, credentials, or third-party production model.

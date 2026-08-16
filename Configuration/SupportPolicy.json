@@ -21,8 +21,8 @@
     }
   },
   "metal": {
-    "requiredByProducts": ["Matter"],
-    "policy": "A default Metal device with compute pipelines and shared storage is required; failures are surfaced and never silently fall back.",
+    "requiredByProducts": [],
+    "policy": "Core ML inference and deterministic CPU training remain available without Metal. Accelerated training is explicit and unavailable capability is typed.",
     "simulatorSupport": "Build and validation are required; runtime execution depends on the simulator host exposing Metal."
   }
 }

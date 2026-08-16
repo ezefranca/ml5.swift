@@ -103,3 +103,25 @@ configuration seed. Identical samples and configuration therefore produce identi
 ``DenseTrainingResult/model`` and ``DenseTrainingResult/history`` values. The CPU
 backend is a readable numerical reference and a practical choice for small models;
 larger workloads should select an accelerated backend when one is available.
+
+## Train with Metal Performance Shaders Graph
+
+``DenseMPSGraphTrainer`` executes batched forward evaluation and automatic
+differentiation through MPSGraph on a Metal command queue. Select the system device or
+provide an explicit `MTLDevice`:
+
+```swift
+let trainer = try DenseMPSGraphTrainer()
+let result = try await trainer.train(samples, configuration: configuration)
+```
+
+The actor exposes `deviceName` for diagnostics. Construction reports
+``ML5Error/trainingAcceleratorUnavailable(reason:)`` when Metal or a command queue is
+unavailable; it never silently changes the requested backend. MPSGraph computes
+float32 batch gradients, while parameter updates, validation metrics, cancellation
+boundaries, and the final double-precision ``DenseNetworkModel`` use the shared
+reference semantics.
+
+Use ``DenseCPUTrainer`` when exact cross-machine seed reproducibility is required.
+GPU scheduling and float32 arithmetic can introduce small backend-dependent numeric
+differences even though ordering, shapes, objectives, and update equations match.

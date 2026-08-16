@@ -124,5 +124,6 @@ defaults, or explicit missing and unknown-field policies.
 - ``OptimizerKind``
 - ``DenseTrainingSample``
 - ``DenseCPUTrainer``
+- ``DenseMPSGraphTrainer``
 - ``DenseTrainingResult``
 - ``DenseEpochMetrics``

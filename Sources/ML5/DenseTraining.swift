@@ -1,5 +1,10 @@
 import Foundation
 
+#if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+    import Metal
+    import MetalPerformanceShadersGraph
+#endif
+
 /// A feature vector paired with finite numeric targets for dense-network training.
 public struct DenseTrainingSample: Sendable, Hashable, Codable {
     /// Model input features.
@@ -197,7 +202,7 @@ public struct DenseCPUTrainer: Sendable {
         )
     }
 
-    private static func prepare(
+    fileprivate static func prepare(
         _ sample: DenseTrainingSample,
         configuration: DenseNetworkConfiguration
     ) throws -> PreparedSample {
@@ -242,7 +247,7 @@ public struct DenseCPUTrainer: Sendable {
         return PreparedSample(input: input, target: sample.targets)
     }
 
-    private static func initialize(configuration: DenseNetworkConfiguration) throws
+    fileprivate static func initialize(configuration: DenseNetworkConfiguration) throws
         -> [TrainableLayer]
     {
         let widths =
@@ -358,7 +363,7 @@ public struct DenseCPUTrainer: Sendable {
         }
     }
 
-    private static func apply(
+    fileprivate static func apply(
         gradients: [LayerGradients],
         sampleCount: Int,
         step: Int,
@@ -444,7 +449,7 @@ public struct DenseCPUTrainer: Sendable {
             / (sqrt(correctedSecond) + configuration.optimizer.epsilon)
     }
 
-    private static func meanLoss(
+    fileprivate static func meanLoss(
         indices: [Int],
         samples: [PreparedSample],
         layers: [TrainableLayer],
@@ -493,7 +498,7 @@ public struct DenseCPUTrainer: Sendable {
         }
     }
 
-    private static func model(
+    fileprivate static func model(
         configuration: DenseNetworkConfiguration,
         layers: [TrainableLayer]
     ) throws -> DenseNetworkModel {
@@ -510,7 +515,7 @@ public struct DenseCPUTrainer: Sendable {
         )
     }
 
-    private static func shuffle(_ values: inout [Int], seed: UInt64) {
+    fileprivate static func shuffle(_ values: inout [Int], seed: UInt64) {
         guard values.count > 1 else { return }
         var generator = DenseSeededGenerator(state: seed)
         for index in stride(from: values.count - 1, through: 1, by: -1) {
@@ -521,6 +526,410 @@ public struct DenseCPUTrainer: Sendable {
         }
     }
 }
+
+#if canImport(Metal) && canImport(MetalPerformanceShadersGraph)
+    /// An actor-isolated dense trainer using Metal Performance Shaders Graph automatic
+    /// differentiation on a selected Metal device.
+    ///
+    /// MPSGraph executes batched forward and gradient graphs on Metal. Parameter updates and
+    /// epoch metrics intentionally share the CPU reference implementation so both backends emit
+    /// the same validated ``DenseNetworkModel`` representation.
+    public actor DenseMPSGraphTrainer {
+        /// Human-readable name reported by the selected Metal device.
+        public nonisolated let deviceName: String
+
+        private let device: any MTLDevice
+        private let commandQueue: any MTLCommandQueue
+
+        /// Creates a trainer using the system's default Metal device.
+        ///
+        /// - Throws: ``ML5Error/trainingAcceleratorUnavailable(reason:)`` when no Metal device or
+        ///   command queue can be created.
+        public init() throws {
+            try self.init(testDevice: MTLCreateSystemDefaultDevice())
+        }
+
+        /// Creates a trainer using an explicitly selected Metal device.
+        ///
+        /// - Throws: ``ML5Error/trainingAcceleratorUnavailable(reason:)`` when the device cannot
+        ///   create a command queue.
+        public init(device: any MTLDevice) throws {
+            try self.init(testDevice: device)
+        }
+
+        init(
+            testDevice device: (any MTLDevice)?,
+            makeCommandQueue: (any MTLDevice) -> (any MTLCommandQueue)? = { $0.makeCommandQueue() }
+        ) throws {
+            guard let device else {
+                throw ML5Error.trainingAcceleratorUnavailable(
+                    reason: "No Metal device is available."
+                )
+            }
+            guard let commandQueue = makeCommandQueue(device) else {
+                throw ML5Error.trainingAcceleratorUnavailable(
+                    reason: "The Metal device could not create a command queue."
+                )
+            }
+            self.device = device
+            self.commandQueue = commandQueue
+            deviceName = device.name
+        }
+
+        /// Fits a dense model using MPSGraph forward evaluation and automatic differentiation.
+        ///
+        /// Cancellation is checked between graph executions and epoch metric passes. Results use
+        /// the same immutable model and history types as ``DenseCPUTrainer``.
+        ///
+        /// - Throws: ``ML5Error`` for invalid samples, graph output failures, numerical
+        ///   instability, or model construction failures; `CancellationError` when cancelled.
+        public func train(
+            _ samples: [DenseTrainingSample],
+            configuration: DenseNetworkConfiguration
+        ) async throws -> DenseTrainingResult {
+            try Task.checkCancellation()
+            guard samples.isEmpty == false else {
+                throw ML5Error.invalidTrainingSamples
+            }
+            let prepared = try samples.map {
+                try DenseCPUTrainer.prepare($0, configuration: configuration)
+            }
+            var layers = try DenseCPUTrainer.initialize(configuration: configuration)
+            var indices = Array(prepared.indices)
+            DenseCPUTrainer.shuffle(&indices, seed: configuration.seed)
+            let validationCount = Int(Double(indices.count) * configuration.validationFraction)
+            let trainingCount = indices.count - validationCount
+            let trainingIndices = Array(indices[..<trainingCount])
+            let validationIndices = Array(indices[trainingCount...])
+            var history: [DenseEpochMetrics] = []
+            history.reserveCapacity(configuration.epochs)
+            var optimizerStep = 0
+
+            for epochIndex in 0..<configuration.epochs {
+                try Task.checkCancellation()
+                var epochIndices = trainingIndices
+                DenseCPUTrainer.shuffle(
+                    &epochIndices,
+                    seed: configuration.seed &+ UInt64(epochIndex) &+ 1
+                )
+                for batchStart in stride(
+                    from: 0,
+                    to: epochIndices.count,
+                    by: configuration.batchSize
+                ) {
+                    try Task.checkCancellation()
+                    let batchEnd = min(batchStart + configuration.batchSize, epochIndices.count)
+                    let gradients = try MPSGraphDenseBatch.gradients(
+                        sampleIndices: Array(epochIndices[batchStart..<batchEnd]),
+                        samples: prepared,
+                        layers: layers,
+                        configuration: configuration,
+                        device: device,
+                        commandQueue: commandQueue
+                    )
+                    optimizerStep += 1
+                    // MPSGraph losses already average over the batch.
+                    try DenseCPUTrainer.apply(
+                        gradients: gradients,
+                        sampleCount: 1,
+                        step: optimizerStep,
+                        configuration: configuration,
+                        layers: &layers
+                    )
+                }
+
+                let trainingLoss = try DenseCPUTrainer.meanLoss(
+                    indices: trainingIndices,
+                    samples: prepared,
+                    layers: layers,
+                    configuration: configuration
+                )
+                let validationLoss =
+                    validationIndices.isEmpty
+                    ? nil
+                    : try DenseCPUTrainer.meanLoss(
+                        indices: validationIndices,
+                        samples: prepared,
+                        layers: layers,
+                        configuration: configuration
+                    )
+                history.append(
+                    DenseEpochMetrics(
+                        epoch: epochIndex + 1,
+                        trainingLoss: trainingLoss,
+                        validationLoss: validationLoss
+                    )
+                )
+                await Task.yield()
+            }
+            try Task.checkCancellation()
+            return DenseTrainingResult(
+                model: try DenseCPUTrainer.model(configuration: configuration, layers: layers),
+                history: history
+            )
+        }
+    }
+
+    enum MPSGraphDenseBatch {
+        fileprivate static func gradients(
+            sampleIndices: [Int],
+            samples: [PreparedSample],
+            layers: [TrainableLayer],
+            configuration: DenseNetworkConfiguration,
+            device: any MTLDevice,
+            commandQueue: any MTLCommandQueue
+        ) throws -> [LayerGradients] {
+            let graph = MPSGraph()
+            let graphDevice = MPSGraphDevice(mtlDevice: device)
+            let inputTensor = graph.placeholder(
+                shape: Self.shape([sampleIndices.count, configuration.inputFeatures.count]),
+                dataType: .float32,
+                name: "inputs"
+            )
+            let targetTensor = graph.placeholder(
+                shape: Self.shape([sampleIndices.count, configuration.outputNames.count]),
+                dataType: .float32,
+                name: "targets"
+            )
+            var weightTensors: [MPSGraphTensor] = []
+            var biasTensors: [MPSGraphTensor] = []
+            var activation = inputTensor
+            for (index, layer) in layers.enumerated() {
+                let weight = graph.placeholder(
+                    shape: Self.shape([layer.outputCount, layer.inputCount]),
+                    dataType: .float32,
+                    name: "weights_\(index)"
+                )
+                let bias = graph.placeholder(
+                    shape: Self.shape([1, layer.outputCount]),
+                    dataType: .float32,
+                    name: "biases_\(index)"
+                )
+                weightTensors.append(weight)
+                biasTensors.append(bias)
+                let transposedWeight = graph.transposeTensor(
+                    weight,
+                    dimension: 0,
+                    withDimension: 1,
+                    name: nil
+                )
+                activation = graph.addition(
+                    graph.matrixMultiplication(
+                        primary: activation,
+                        secondary: transposedWeight,
+                        name: nil
+                    ),
+                    bias,
+                    name: nil
+                )
+                let function =
+                    index < configuration.hiddenLayers.count
+                    ? configuration.hiddenLayers[index].activation
+                    : configuration.outputActivation
+                activation = Self.activate(activation, function: function, graph: graph)
+            }
+
+            let loss = Self.loss(
+                prediction: activation,
+                target: targetTensor,
+                function: configuration.loss,
+                graph: graph
+            )
+            let parameterTensors = weightTensors + biasTensors
+            let gradientMap = graph.gradients(of: loss, with: parameterTensors, name: nil)
+            let gradientTensors = try Self.requiredGradients(
+                for: parameterTensors,
+                from: gradientMap
+            )
+
+            let inputs = sampleIndices.flatMap { samples[$0].input }.map(Float.init)
+            let targets = sampleIndices.flatMap { samples[$0].target }.map(Float.init)
+            var feeds: [MPSGraphTensor: MPSGraphTensorData] = [
+                inputTensor: Self.tensorData(
+                    inputs,
+                    shape: Self.shape([
+                        sampleIndices.count, configuration.inputFeatures.count,
+                    ]),
+                    device: graphDevice
+                ),
+                targetTensor: Self.tensorData(
+                    targets,
+                    shape: Self.shape([sampleIndices.count, configuration.outputNames.count]),
+                    device: graphDevice
+                ),
+            ]
+            for (index, layer) in layers.enumerated() {
+                feeds[weightTensors[index]] = Self.tensorData(
+                    layer.weights.map(Float.init),
+                    shape: Self.shape([layer.outputCount, layer.inputCount]),
+                    device: graphDevice
+                )
+                feeds[biasTensors[index]] = Self.tensorData(
+                    layer.biases.map(Float.init),
+                    shape: Self.shape([1, layer.outputCount]),
+                    device: graphDevice
+                )
+            }
+
+            let results = graph.run(
+                with: commandQueue,
+                feeds: feeds,
+                targetTensors: gradientTensors,
+                targetOperations: nil
+            )
+            var gradients: [LayerGradients] = []
+            gradients.reserveCapacity(layers.count)
+            for index in layers.indices {
+                gradients.append(
+                    LayerGradients(
+                        weights: try Self.values(
+                            for: gradientTensors[index],
+                            count: layers[index].weights.count,
+                            results: results
+                        ),
+                        biases: try Self.values(
+                            for: gradientTensors[layers.count + index],
+                            count: layers[index].biases.count,
+                            results: results
+                        )
+                    )
+                )
+            }
+            return gradients
+        }
+
+        private static func activate(
+            _ tensor: MPSGraphTensor,
+            function: ActivationFunction,
+            graph: MPSGraph
+        ) -> MPSGraphTensor {
+            switch function {
+            case .linear:
+                tensor
+            case .rectifiedLinear:
+                graph.reLU(with: tensor, name: nil)
+            case .sigmoid:
+                graph.sigmoid(with: tensor, name: nil)
+            case .hyperbolicTangent:
+                graph.tanh(with: tensor, name: nil)
+            case .softmax:
+                graph.softMax(with: tensor, axis: 1, name: nil)
+            }
+        }
+
+        private static func loss(
+            prediction: MPSGraphTensor,
+            target: MPSGraphTensor,
+            function: TrainingLoss,
+            graph: MPSGraph
+        ) -> MPSGraphTensor {
+            switch function {
+            case .meanSquaredError:
+                return graph.mean(
+                    of: graph.square(
+                        with: graph.subtraction(prediction, target, name: nil),
+                        name: nil
+                    ),
+                    axes: [0, 1],
+                    name: nil
+                )
+            case .categoricalCrossEntropy:
+                let clipped = Self.clamp(prediction, graph: graph)
+                let terms = graph.multiplication(
+                    target,
+                    graph.logarithm(with: clipped, name: nil),
+                    name: nil
+                )
+                let sampleLosses = graph.negative(
+                    with: graph.reductionSum(with: terms, axes: [1], name: nil),
+                    name: nil
+                )
+                return graph.mean(of: sampleLosses, axes: [0], name: nil)
+            case .binaryCrossEntropy:
+                let clipped = Self.clamp(prediction, graph: graph)
+                let one = graph.constant(1, dataType: .float32)
+                let positive = graph.multiplication(
+                    target,
+                    graph.logarithm(with: clipped, name: nil),
+                    name: nil
+                )
+                let negative = graph.multiplication(
+                    graph.subtraction(one, target, name: nil),
+                    graph.logarithm(
+                        with: graph.subtraction(one, clipped, name: nil),
+                        name: nil
+                    ),
+                    name: nil
+                )
+                return graph.negative(
+                    with: graph.mean(
+                        of: graph.addition(positive, negative, name: nil),
+                        axes: [0, 1],
+                        name: nil
+                    ),
+                    name: nil
+                )
+            }
+        }
+
+        private static func clamp(_ tensor: MPSGraphTensor, graph: MPSGraph) -> MPSGraphTensor {
+            graph.clamp(
+                tensor,
+                min: graph.constant(1e-7, dataType: .float32),
+                max: graph.constant(1 - 1e-7, dataType: .float32),
+                name: nil
+            )
+        }
+
+        private static func tensorData(
+            _ values: [Float],
+            shape: [NSNumber],
+            device: MPSGraphDevice
+        ) -> MPSGraphTensorData {
+            values.withUnsafeBytes {
+                MPSGraphTensorData(
+                    device: device,
+                    data: Data($0),
+                    shape: shape,
+                    dataType: .float32
+                )
+            }
+        }
+
+        private static func shape(_ dimensions: [Int]) -> [NSNumber] {
+            dimensions.map(NSNumber.init(value:))
+        }
+
+        static func requiredGradients(
+            for parameters: [MPSGraphTensor],
+            from gradients: [MPSGraphTensor: MPSGraphTensor]
+        ) throws -> [MPSGraphTensor] {
+            try parameters.map { parameter in
+                guard let gradient = gradients[parameter] else {
+                    throw ML5Error.trainingAcceleratorUnavailable(
+                        reason: "MPSGraph did not produce every parameter gradient."
+                    )
+                }
+                return gradient
+            }
+        }
+
+        static func values(
+            for tensor: MPSGraphTensor,
+            count: Int,
+            results: [MPSGraphTensor: MPSGraphTensorData]
+        ) throws -> [Double] {
+            guard let data = results[tensor] else {
+                throw ML5Error.trainingAcceleratorUnavailable(
+                    reason: "MPSGraph did not return a requested gradient."
+                )
+            }
+            var values = Array(repeating: Float.zero, count: count)
+            data.mpsndarray().readBytes(&values, strideBytes: nil)
+            return values.map(Double.init)
+        }
+    }
+#endif
 
 extension DenseNetworkMath {
     static func derivative(
@@ -560,6 +969,11 @@ private struct LayerGradients {
     init(layer: TrainableLayer) {
         weights = Array(repeating: 0, count: layer.weights.count)
         biases = Array(repeating: 0, count: layer.biases.count)
+    }
+
+    init(weights: [Double], biases: [Double]) {
+        self.weights = weights
+        self.biases = biases
     }
 }
 

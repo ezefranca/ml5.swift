@@ -80,3 +80,11 @@ forward evaluation, backpropagation, SGD/Adam updates, loss calculation, and val
 history. It returns an immutable ``DenseNetworkModel`` that can be passed directly to
 ``NeuralNetwork/init(task:predictor:)``. Accelerated trainers must preserve the same
 configuration, output ordering, and model representation.
+
+``DenseMPSGraphTrainer`` is the Apple-accelerated implementation. It builds float32
+batch graphs for affine layers, activations, configured loss, and automatic
+differentiation, then executes them on an explicitly owned Metal command queue.
+Optimizer updates and metric calculation share the reference code, preventing the
+CPU and Metal paths from drifting into different checkpoint formats or loss
+definitions. Backend selection is explicit and absence of Metal is an error rather
+than an implicit fallback.

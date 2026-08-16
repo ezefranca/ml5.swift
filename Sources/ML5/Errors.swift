@@ -52,6 +52,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
     case invalidTrainingConfiguration(reason: String)
     /// Dense model parameters were malformed, inconsistent, or numerically unstable.
     case invalidModel(reason: String)
+    /// A requested Apple training accelerator could not be created or execute a graph.
+    case trainingAcceleratorUnavailable(reason: String)
     /// A training request contained no samples.
     case invalidTrainingSamples
     /// A dense training sample had invalid targets or did not match its configuration.
@@ -128,6 +130,8 @@ public enum ML5Error: Error, Equatable, Sendable, LocalizedError {
             "Invalid training configuration: \(reason)"
         case let .invalidModel(reason):
             "Invalid dense model: \(reason)"
+        case let .trainingAcceleratorUnavailable(reason):
+            "Training accelerator unavailable: \(reason)"
         case .invalidTrainingSamples:
             "Training requires at least one sample."
         case let .invalidTrainingSample(reason):

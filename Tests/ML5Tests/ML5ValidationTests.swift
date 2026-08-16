@@ -62,6 +62,7 @@ struct ML5ValidationTests {
             .invalidConfiguration(reason: "duplicate output"),
             .invalidTrainingConfiguration(reason: "bad architecture"),
             .invalidModel(reason: "bad parameters"),
+            .trainingAcceleratorUnavailable(reason: "no device"),
             .invalidTrainingSamples,
             .invalidTrainingSample(reason: "bad target"),
             .missingOutput(name: "label"),
